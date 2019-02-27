@@ -1,0 +1,604 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Sistema de seguridad domótica de bajo coste</title>
+    <meta name="generator" content="LibreOffice 5.4.0.3 (Linux)"/>
+    <meta name="author" content="Adrián Alonso del Peso"/>
+    <meta name="created" content="2017-11-21T17:14:11.382012731"/>
+    <meta name="changedby" content="Adrián Alonso del Peso"/>
+    <meta name="changed" content="2017-11-21T17:14:17.015258348"/>
+    <meta name="classification" content="Anteproyecto Trabajo Fin de Grado"/>
+    <meta name="keywords" content="TFG"/>
+    <meta name="Comprobado por" content="XXX"/>
+    <meta name="Versión" content="v_0.1"/>
+    <style type="text/css">
+        @page {
+            margin: 2cm
+        }
+
+        p {
+            margin-bottom: 0.25cm;
+            line-height: 120%
+        }
+
+        h1 {
+            margin-bottom: 0.21cm;
+            direction: inherit;
+            color: #0066b3;
+            line-height: 150%;
+            page-break-before: auto
+        }
+
+        h1.western {
+            font-family: "DejaVu Serif", serif;
+            font-size: 18pt
+        }
+
+        h1.cjk {
+            font-family: "Noto Sans CJK SC Regular";
+            font-size: 18pt
+        }
+
+        h1.ctl {
+            font-family: "FreeSans";
+            font-size: 18pt;
+            font-weight: demi-bold
+        }
+
+        p.cuerpo-de-texto-con-sangría-western {
+            margin-left: 0.5cm;
+            direction: inherit;
+            font-family: "Courier New", monospace;
+            text-align: justify;
+            page-break-before: auto
+        }
+
+        p.cuerpo-de-texto-con-sangría-cjk {
+            margin-left: 0.5cm;
+            direction: inherit;
+            font-size: 10pt;
+            text-align: justify;
+            page-break-before: auto
+        }
+
+        p.cuerpo-de-texto-con-sangría-ctl {
+            margin-left: 0.5cm;
+            direction: inherit;
+            text-align: justify;
+            page-break-before: auto
+        }
+
+        p.cuerpo-de-texto-con-sangría-western:first-letter {
+            float: left;
+            font-size: 0%
+        }
+
+        p.cuerpo-de-texto-con-sangría-cjk:first-letter {
+            float: left;
+            font-size: 0%
+        }
+
+        p.cuerpo-de-texto-con-sangría-ctl:first-letter {
+            float: left;
+            font-size: 0%
+        }
+
+        h2 {
+            margin-left: 1cm;
+            direction: inherit;
+            color: #0066b3;
+            page-break-before: auto
+        }
+
+        h2.western {
+            font-family: "DejaVu Serif", serif;
+            font-size: 16pt
+        }
+
+        h2.cjk {
+            font-family: "Noto Sans CJK SC Regular";
+            font-size: 16pt
+        }
+
+        h2.ctl {
+            font-family: "FreeSans";
+            font-size: 16pt;
+            font-weight: demi-bold
+        }
+
+        h3 {
+            margin-left: 1.5cm;
+            direction: inherit;
+            color: #0066b3;
+            page-break-before: auto
+        }
+
+        h3.western {
+            font-family: "DejaVu Serif", serif;
+            font-size: 14pt;
+            font-style: italic
+        }
+
+        h3.cjk {
+            font-family: "Noto Sans CJK SC Regular";
+            font-size: 14pt
+        }
+
+        h3.ctl {
+            font-family: "FreeSans";
+            font-size: 14pt;
+            font-weight: demi-bold
+        }
+
+        h4 {
+            margin-left: 2cm;
+            direction: inherit;
+            color: #0066b3;
+            page-break-before: auto
+        }
+
+        h4.western {
+            font-family: "DejaVu Serif", serif;
+            font-size: 13pt;
+            font-style: italic;
+            font-weight: normal
+        }
+
+        h4.cjk {
+            font-family: "Noto Sans CJK SC Regular";
+            font-size: 13pt;
+            font-style: italic
+        }
+
+        h4.ctl {
+            font-family: "FreeSans";
+            font-size: 13pt;
+            font-style: italic;
+            font-weight: normal
+        }
+
+        td p {
+            margin-bottom: 0cm
+        }
+
+        a:link {
+            so-language: zxx
+        }
+    </style>
+</head>
+<body lang="es-ES" dir="ltr">
+<div title="header">
+    <table width="643" cellpadding="4" cellspacing="0">
+        <col width="71">
+        <col width="476">
+        <col width="72">
+        <tr valign="top">
+            <td width="71" style="border: none; padding: 0cm">
+                <p><img src="{{ url_for('static', filename='img/Anteproyecto_TFG_html_2351395486a8d788.gif') }}"
+                        name="Imagen3" align="left" width="100" height="82" border="0"/>
+                    <br/>
+
+                </p>
+            </td>
+            <td width="476" style="border: none; padding: 0cm">
+                <p align="center">
+                    <sdfield type=DOCINFO subtype=THEME>Anteproyecto Trabajo Fin de Grado</sdfield>
+                </p>
+            </td>
+            <td width="72" style="border: none; padding: 0cm">
+                <p align="right"><img
+                        src="{{ url_for('static', filename='img/Anteproyecto_TFG_html_d63822c95a015a64.png') }}"
+                        name="Imagen4" align="left" width="81" height="49" border="0"/>
+                    <br/>
+
+                </p>
+            </td>
+        </tr>
+    </table>
+    <p style="margin-bottom: 0.5cm; line-height: 100%"><br/>
+
+    </p>
+</div>
+<p align="center" style="margin-top: 0.42cm; margin-bottom: 0.21cm; line-height: 150%; page-break-after: avoid">
+    <font color="#0066b3">
+        <sdfield type=DOCINFO subtype=TITLE>Sistema de seguridad domótica de bajo coste</sdfield>
+    </font></p>
+<p align="center"
+   style="margin-top: 0.11cm; margin-bottom: 0.21cm; line-height: 200%; page-break-before: auto; page-break-after: avoid">
+    <font color="#0066b3">
+        <sdfield type=DOCINFO subtype=THEME>Anteproyecto Trabajo Fin de Grado</sdfield>
+    </font></p>
+<p align="right" style="margin-bottom: 0cm; line-height: 100%; page-break-before: auto">
+    <font color="#0066b3"><font face="DejaVu Serif Condensed, serif"><i>Por
+        <sdfield type=DOCINFO subtype=CREATE format=AUTHOR>Adrián Alonso del Peso</sdfield>
+        (BF0002)</i></font></font></p>
+<p style="page-break-before: always"><br/>
+    <br/>
+
+</p>
+<div id="Sumario1" dir="ltr">
+    <div id="Sumario1_Head" dir="ltr">
+        <p style="margin-top: 0.42cm; margin-bottom: 0.21cm; line-height: 100%; page-break-before: always; page-break-after: avoid">
+            <font face="Liberation Sans, sans-serif"><font size="4" style="font-size: 16pt"><b>Sumario</b></font></font>
+        </p>
+    </div>
+    <p style="margin-bottom: 0cm; line-height: 100%"><a href="#__RefHeading___Toc490_782461430">1.
+        Objetivo 5</a></p>
+    <p style="margin-bottom: 0cm; line-height: 100%"><a href="#__RefHeading___Toc492_782461430">2.
+        Como 7</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc494_782461430">a) Raspberry Pi 7</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc496_782461430">b) Arduino 7</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc498_782461430">c) NFC 7</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc500_782461430">d) ZigBee 8</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc502_782461430">e) Latch 8</a></p>
+    <p style="margin-bottom: 0cm; line-height: 100%"><a href="#__RefHeading___Toc504_782461430">3.
+        Funcionamiento 9</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc506_782461430">a) Diagrama físico 10</a></p>
+    <p style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc508_782461430">b) Funcionalidades 10</a></p>
+    <p style="margin-left: 1cm; margin-bottom: 0cm; line-height: 100%"><a href="#__RefHeading___Toc510_782461430">Acceso
+        al recinto 10</a></p>
+    <p style="margin-left: 1.5cm; margin-bottom: 0cm; line-height: 100%">
+        <a href="#__RefHeading___Toc512_782461430">Diagrama de flujo 11</a></p>
+    <p style="margin-bottom: 0cm; line-height: 100%"><a href="#__RefHeading___Toc479_3543522736">4.
+        Bibliografía 13</a></p>
+</div>
+<p><br/>
+    <br/>
+
+</p>
+<p style="page-break-before: always"><br/>
+    <br/>
+
+</p>
+<h1 class="western" style="page-break-before: always"><a name="__RefHeading___Toc490_782461430"></a>
+    1.Objetivo</h1>
+<p class="cuerpo-de-texto-con-sangría-western">El fin con el que se
+    ha concebido este proyecto es diseñar e implementar un sistema
+    domestico de bajo coste de manera que cualquiera pueda imitarlo,
+    empleando para ello tanto software como hardware libre, con sus
+    correspondientes ventajas. Como idea principal, está el gestionar el
+    acceso a un recinto, aunque podría ampliarse de modo que se gestione
+    el estado de los enchufes, la temperatura de la calefacción, actuar
+    sobre la iluminación o la posición de las persianas.</p>
+<h1 class="western" style="line-height: 150%"><br/>
+    <br/>
+
+</h1>
+<h1 class="western" style="line-height: 150%; page-break-before: always">
+    <br/>
+    <br/>
+
+</h1>
+<h1 class="western" style="page-break-before: always"><a name="__RefHeading___Toc492_782461430"></a>
+    2.Como</h1>
+<p class="cuerpo-de-texto-con-sangría-western">Para ello se ha
+    valorado emplear elementos como Raspberry Pi o Arduino como hardware
+    fundamental del sistema. Para la comunicación entre los sistemas se
+    pretende usar tecnologías tales como NFC, ZigBee o Latch, además
+    los protocolos comunes disponibles en cualquier sistema operativo
+    actual.</p>
+<h2 class="western"><a name="__RefHeading___Toc494_782461430"></a>a)Raspberry
+    Pi</h2>
+<p class="cuerpo-de-texto-con-sangría-western">Este micro computador
+    supone el centro de cálculo del sistema. La gestión podría estar a
+    cargo de un sistema operativo GNU-Linux como Raspbian, que es una
+    distribución derivada de Debian de la que hay mucha información y
+    cuenta con una gran comunidad de soporte detrás, además de ser
+    ligera y ser la opción preferida por los desarrolladores que
+    trabajan con este hardware. Albergará un servidor web para almacenar
+    los registros del sistema que podrán ser mostrados bajo una interfaz
+    web. Para la comunicación con los periféricos del sistema se
+    empleará el protocolo ZigBee.</p>
+<h2 class="western"><a name="__RefHeading___Toc496_782461430"></a>b)Arduino</h2>
+<p class="cuerpo-de-texto-con-sangría-western">Arduino es un
+    micro-controlador que será empleado para gestionar los periféricos
+    del sistema. Se comunicará con la placa R. Pi mediante ZigBee.
+    Dependiendo de la complejidad del sistema empleado dispondrá además
+    de otras interfaces. En la versión más básica, control de acceso a
+    un recinto, dispondrá de un módulo NFC activo, con el que
+    identificar al individuo que quiera acceder, además, esta placa
+    actuará sobre un servo motor que hará las veces cerrojo.</p>
+<h2 class="western"><a name="__RefHeading___Toc498_782461430"></a>c)NFC</h2>
+<p class="cuerpo-de-texto-con-sangría-western">Se propone emplear
+    esta tecnología como medio de comunicación entre el usuario y el
+    sistema. El usuario deberá poseer una tarjeta identificativa RFID,
+    sería indistinto que fuese en formato físico o bien que estuviese
+    albergada en un dispositivo electrónico como puede ser un
+    smartphone.</p>
+<h2 class="western"><a name="__RefHeading___Toc500_782461430"></a>d)ZigBee</h2>
+<p class="cuerpo-de-texto-con-sangría-western">Por su escaso consumo
+    energético, así como la posibilidad de un modo &quot;StandBy&quot;,
+    además de la sencillez y economía de su arquitectura tanto física
+    como lógica, se sugiere usar esta tecnología para la conexión
+    entre los diversos módulos del sistema. Teniendo también en cuenta,
+    que puede funcionar en la banda de 868 MHz, por lo que no invadiría
+    las frecuencias de otros elementos comunes en el hogar como el WIFI,
+    o por su posible configuración topológica de red mallada, que
+    aportaría seguridad en las comunicaciones del sistema.</p>
+<h2 class="western"><a name="__RefHeading___Toc502_782461430"></a>e)Latch</h2>
+<p class="cuerpo-de-texto-con-sangría-western">Para añadir una capa
+    de seguridad al sistema, se puede usar Latch (no es el circuito
+    electrónico biestable síncrono) para regular el acceso al sistema.</p>
+<h1 class="western" style="line-height: 150%"><br/>
+    <br/>
+
+</h1>
+<h1 class="western" style="page-break-before: always"><a name="__RefHeading___Toc504_782461430"></a>
+    3.Funcionamiento</h1>
+<p class="cuerpo-de-texto-con-sangría-western">El sistema estará
+    comandado por un computador Raspberry Pi, el cual, gestionará las
+    acciones de las placas Arduino (en el caso de los cerrojos o las
+    persianas) o los enchufes o luces inteligentes.</p>
+<p class="cuerpo-de-texto-con-sangría-western">La Raspberry tendrá
+    que estar conectada a un punto de acceso a la red de área local con
+    visibilidad desde el exterior. Los dispositivos inteligentes, en
+    general, requieren conexión Wi-Fi, por lo que el core del sistema ha
+    de ser capaz de acceder a está red. También es necesaria
+    visibilidad desde el exterior, para poder controlar el sistema de
+    manera remota mediante el uso del protocolo SSH.</p>
+<p class="cuerpo-de-texto-con-sangría-western">Será necesario que
+    esté implementada una interfaz web que permita mostrar los datos del
+    servidor, en el que se recogerán los registros de cada interacción
+    con el sistema o los usuarios.</p>
+<p class="cuerpo-de-texto-con-sangría-western">En las partes en las
+    que se requiera actuar sobre un mecanismo mecánico, esto se
+    realizará a través de las placas de micro-controladores Arduino,
+    que se conectarán mediante el conjunto de protocolos, ZigBee tanto
+    entre ellos, formando una red sensorial, como de manera directa con
+    el dispositivo Raspberry Pi.</p>
+<p class="cuerpo-de-texto-con-sangría-western">Para que el sistema
+    nos reconozca y así permitirnos el acceso al recinto, será
+    necesaria la interacción, por medio del protocolo NFC. Un
+    dispositivo NFC activo leerá la identificación del usuario
+    contenida en una etiqueta RFID y lo mandará al servidor usando la
+    interfaz 802.15.4 del dispositivo Arduino al que esté asociado.</p>
+<h2 class="western"><a name="__RefHeading___Toc506_782461430"></a>a)Diagrama
+    físico</h2>
+<img src="{{ url_for('static', filename='img/Anteproyecto_TFG_html_1501ea9a56615d4c.png') }}" name="Imagen2"
+     align="left" width="624" height="351" border="0"/>
+
+<p class="cuerpo-de-texto-con-sangría-western"><br/>
+    <br/>
+
+</p>
+<h2 class="western"><a name="__RefHeading___Toc508_782461430"></a>b)Funcionalidades</h2>
+<h3 class="western"><a name="__RefHeading___Toc510_782461430"></a>Acceso
+    al recinto</h3>
+<p class="cuerpo-de-texto-con-sangría-western">El comportamiento
+    fundamental del sistema consistirá en: mediante un lector de
+    tarjetas NFC, reconocer la identidad de un usuario que posea una
+    tarjeta RFID o una aplicación equivalente. Dado el reducido tamaño
+    de estos sistemas, el lector se puede instalar bajo la cubierta del
+    interruptor del timbre, del cual podría recibir la alimentación,
+    ademas de tener una batería para emergencias.</p>
+<p class="cuerpo-de-texto-con-sangría-western"> Cuando el sensor
+    perciba la presencia de una tarjeta RFID, sacará del StandBy a la
+    antena ZigBee y esta mandará el identificador al sistema central,
+    gobernado por la Raspberry Pi, que contrastará que el usuario tenga
+    permiso de acceso y registrará la petición. Si el resultado es
+    afirmativo, se emitirá la orden al micro-controlador para que actúe
+    sobre el servo-motor que abra el cerrojo para permitir el acceso. En
+    caso contrario, no habrá ninguna respuesta.</p>
+<p class="cuerpo-de-texto-con-sangría-western" style="line-height: 120%; page-break-before: auto">
+    </span>    El sistema registrará el acceso, en caso de producirse, el
+    momento en que se accedió al recinto y durante cuanto tiempo estuvo
+    la puerta abierta, para emitir un aviso en caso de olvido.</p>
+<ul>
+    <ul>
+        <ul>
+            <ul style="src=" ..
+            /../../../../opt/libreoffice5.4/share/gallery/bullets/con-blue.gif">
+            <li/>
+            <h4 class="western"><a name="__RefHeading___Toc512_782461430"></a>
+                Diagrama de flujo</h4>
+        </ul>
+    </ul>
+</ul>
+</ul>
+<img src="{{ url_for('static', filename='img/Anteproyecto_TFG_html_b0f6a850d0b210c.png') }}" name="Imagen1" align="left"
+     width="461" height="634" border="0"/>
+
+<p class="cuerpo-de-texto-con-sangría-western" style="line-height: 120%; page-break-before: auto">
+    <br/>
+    <br/>
+
+</p>
+<p class="cuerpo-de-texto-con-sangría-western" style="line-height: 120%; page-break-before: always">
+    <br/>
+    <br/>
+
+</p>
+<h1 class="western" style="page-break-before: always"><a name="__RefHeading___Toc479_3543522736"></a>
+    4.Bibliografía</h1>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>Arduino</blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="https://www.arduino.cc/">https://www.arduino.cc/</a></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>Latch – El interruptor de seguridad para tu
+                    vida digital
+                </blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="https://latch.elevenpaths.com/www/index.html">https://latch.elevenpaths.com/www/index.html</a></font>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>NFC Forum</blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="https://nfc-forum.org/"><span
+                        style="font-style: normal">https://nfc-forum.org/</span></a></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>Raspberry Pi – Teach, learn, and Make with
+                    Raspberry Pi
+                </blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p class="cuerpo-de-texto-con-sangría-western" style="margin-left: 0cm">
+    <br/>
+    <br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>SSH Protocol – Secure Remote Login and File
+                    Transfer
+                </blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="https://www.ssh.com/ssh/protocol/">https://www.ssh.com/ssh/protocol/</a></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+    <col width="256*">
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <ul>
+                <li/>
+                <blockquote>ZigBee Alliance</blockquote>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">[web] -
+                <a href="http://www.zigbee.org/">http://www.zigbee.org/</a></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" valign="top" style="border: none; padding: 0cm">
+            <p align="justify"><font face="Courier New, monospace">Visto el
+                <sdfield type=DATETIME sdval="43060,7048654053" sdnum="3082;3082;DD/MM/AA">21/11/17</sdfield>
+            </font></p>
+        </td>
+    </tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<div title="footer">
+    <p align="right" style="margin-top: 0.5cm; margin-bottom: 0cm; line-height: 100%">
+        <sdfield type=PAGE subtype=RANDOM format=PAGE>12</sdfield>
+        /
+        <sdfield type=DOCSTAT subtype=PAGE format=PAGE>13</sdfield>
+    </p>
+</div>
+</body>
+</html>

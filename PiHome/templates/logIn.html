@@ -1,0 +1,60 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block body %}
+    <body>
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block header %}
+    <header id="header">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>Bienvenido</h2>
+            <p>Intruduce tus datos de acceso</p>
+            {% if error %}
+                <p class="error"><strong>Error: </strong> {{ error }}</p>
+            {% endif %}
+        </header>
+
+        <div class="box">
+            <form method="POST">
+                <!-- Campos "Nombre" y "Contraseña" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="6u 12u(narrower)">
+                        {{ Render_field(form.name, placeholder = "Tu nombre aquí") }}
+                    </div>
+
+                    <div class="6u 12u(narrower)">
+                        {{ Render_field(form.password, placeholder="Contraseña") }}
+                    </div>
+                </div>
+
+                <!-- Prevención de ataques CSRF -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                <!-- Botones del formulario -->
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions align-center">
+                            <li><input type="submit" value="Entrar"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

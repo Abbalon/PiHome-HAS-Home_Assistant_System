@@ -1,0 +1,98 @@
+{% extends 'shared/base.html' %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block body %}
+    <body class="landing">
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block header %}
+    <header id="header" class="alt">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Banner -->
+    <section id="banner" class="alt">
+        <p>Sistema de seguridad y control domótico</p>
+        <h2>Pi-Domotic</h2>
+        <ul class="actions">
+            {% if category == 0 %}
+                <li><a href="logIn" class="button special">Log In</a></li>
+            {% endif %}
+            <li><a href="Anteproyecto" class="button">Learn More</a></li>
+        </ul>
+    </section>
+
+    <!-- Main -->
+    <section id="main" class="container">
+
+        <section class="box special">
+            <header class="major">
+                <h2>Introducing the ultimate mobile app
+                    <br/>
+                    for doing stuff with your phone</h2>
+                <p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br/>
+                    adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+            </header>
+
+            <span class="image featured">
+				<img src="{{ url_for('static', filename='img/pic01.jpg') }}" alt=""/>
+			</span>
+
+        </section>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <!-- Mensajes flash -->
+                <div class="row">
+                    <div class="12u">
+
+                        <!-- Text -->
+                        <section class="box">
+                            <header>
+                                <h2>Mensajes entrantes</h2>
+                            </header>
+
+                            <hr/>
+
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                    <li> {{ message }} </li>
+                                {% endfor %}
+                            </ul>
+
+                        </section>
+
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+
+        <h2>Sign up for beta access</h2>
+        <p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+
+        <form>
+            <div class="row uniform 50%">
+                <div class="8u 12u(mobilep)">
+                    <input type="email" name="email" id="email" placeholder="Email Address"/>
+                </div>
+                <div class="4u 12u(mobilep)">
+                    <input type="submit" value="Sign Up" class="fit"/>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+{% endblock %}

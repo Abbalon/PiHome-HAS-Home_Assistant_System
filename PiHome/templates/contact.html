@@ -1,0 +1,60 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+{% block body %}
+    <body>
+{% endblock %}
+
+{% block header %}
+    <header id="header">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>Contact Us</h2>
+            <p>Tell us what you think about our little operation.</p>
+        </header>
+        <div class="box">
+            <form method="POST" action="#">
+                <div class="row uniform 50%">
+                    <!-- Campo "Nombre" del formulario -->
+                    <div class="6u 12u(mobilep)">
+                        {{ Render_field(form.name, placeholder="Name") }}
+                        <!-- input type="text" name="name" id="name" value="" placeholder="Name" /-->
+                    </div>
+                    <!-- Campo "Email" del formulario -->
+                    <div class="6u 12u(mobilep)">
+                        {{ Render_field(form.email, placeholder="Email") }}
+                        <!-- input type="email" name="email" id="email" value="" placeholder="Email" /-->
+                    </div>
+                </div>
+                <!-- Campo "Asunto" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.subject, placeholder="Subject") }}
+                        <!-- input type="text" name="subject" id="subject" value="" placeholder="Subject" /-->
+                    </div>
+                </div>
+                <!-- Campo "Mensaje" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.message, placeholder="Enter your message", rows="6") }}
+                        <!-- textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea-->
+                    </div>
+                </div>
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions align-center">
+                            <li><input type="submit" value="Send Message"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

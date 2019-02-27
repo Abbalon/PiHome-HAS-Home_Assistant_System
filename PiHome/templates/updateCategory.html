@@ -1,0 +1,86 @@
+{% extends 'shared/base.html' %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block body %}
+    <body>
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block header %}
+    <header id="header">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+
+        {% if results %}
+            <header>
+                <h2>Usuarios pendientes de confirmación</h2>
+            </header>
+
+            <div class="row">
+                <div class="12u">
+
+                    <!-- Table -->
+                    <section class="box">
+                        <h3>Table</h3>
+
+                        <h4>Default</h4>
+                        <div class="table-wrapper">
+                            <table>
+                                <form method="POST">
+                                    <thead>
+                                    <tr>
+                                        <th>Grupo</th>
+                                        <th>Nombre usuario</th>
+                                        <th>Email</th>
+                                        <th>Categoria</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in results %}
+                                        <tr>
+                                            <td>{{ row.category }}</td>
+                                            <td>{{ row.name }}</td>
+                                            <td>{{ row.email }}</td>
+                                            <td>
+                                                <select name="category" id="category">
+                                                    <option value="">- Category -</option>
+                                                    {% for group in groups %}
+                                                        <option
+                                                                value="{{ row.id }},{{ group.id }}">{{ group.category }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    <!-- Prevención de ataques CSRF -->
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td> {{ form.submit }} </td>
+                                    </tr>
+                                    </tfoot>
+                                </form>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        {% else %}
+            <header>
+                <h2>La consulta está vacia</h2>
+            </header>
+        {% endif %}
+    </section>
+
+{% endblock %}

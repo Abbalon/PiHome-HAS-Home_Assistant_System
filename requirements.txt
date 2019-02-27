@@ -1,0 +1,8 @@
+werkzeug
+Flask
+wtforms
+flask_wtf
+flask-sqlalchemy
+pymysql
+flask-mail
+digi-xbee

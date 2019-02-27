@@ -1,0 +1,81 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block body %}
+    <body>
+{% endblock %}
+
+<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
+{% block header %}
+    <header id="header">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>Bienvenido</h2>
+            <p>Primero de todo, necesitamos unos datos básicos</p>
+        </header>
+        <div class="box">
+            <form method="POST" action="#">
+                <!-- Campo "Nombre" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.name, placeholder = "Tu nombre aquí") }}
+                    </div>
+                </div>
+
+                <!-- Campo "Contraseña" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.password, placeholder="Contraseña") }}
+                    </div>
+                </div>
+
+                <!-- Campo "Confirmar" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.confirm, placeholder="Repite tu contraseña") }}
+                    </div>
+                </div>
+
+                <!-- Campo "Email" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {{ Render_field(form.email, placeholder="Email") }}
+                    </div>
+                </div>
+
+                <!-- Campo "Aceptar tyc" del formulario -->
+                <div class="row uniform 50%">
+                    <div class="12u align-center">
+                        {{ Render_field(form.accept_tyc, checked = '') }}
+                        {{ Render_field(form.accept_tyc.label) }}
+                    </div>
+                </div>
+
+                <!-- Prevención de ataques CSRF -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                <!-- Botones del formulario -->
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions align-center">
+                            <li><input type="submit" value="Registrar"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
