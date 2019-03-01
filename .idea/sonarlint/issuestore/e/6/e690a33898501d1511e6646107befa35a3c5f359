@@ -1,8 +1,8 @@
 
-hjavascript:S2589b"LRefactor this code so that this expression does not always evaluate to true.(˜¹àÜ
-njavascript:S2589’"LRefactor this code so that this expression does not always evaluate to true.(ªø€€ýÿÿÿÿ
-Bjavascript:S878
-""Remove use of this comma operator.(­Â§Ïÿÿÿÿÿ
-sjavascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "b" to make it explicit.(›þ°„
 yjavascript:S2703
 "XAdd the "let", "const" or "var" keyword to this declaration of "$a" to make it explicit.(­Â§Ïÿÿÿÿÿ
+hjavascript:S2589b"LRefactor this code so that this expression does not always evaluate to true.(˜¹àÜ
+Bjavascript:S878
+""Remove use of this comma operator.(­Â§Ïÿÿÿÿÿ
+njavascript:S2589’"LRefactor this code so that this expression does not always evaluate to true.(ªø€€ýÿÿÿÿ
+sjavascript:S2703"WAdd the "let", "const" or "var" keyword to this declaration of "b" to make it explicit.(›þ°„

@@ -53,6 +53,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/home/Home.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/home/__init__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/home/controller.py">
           <value>
             <set />
@@ -63,12 +73,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/home/tools.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/static/css/404.css">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/PiHome/templates/404.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/elements.html">
           <value>
             <set />
           </value>
@@ -93,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/show.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/transit/model.py">
           <value>
             <set />
@@ -109,6 +134,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/PiHome/user/model.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/utils/__init__.py">
           <value>
             <set />
           </value>

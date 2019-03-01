@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, session
 
 from PiHome.group.model import Group
 from PiHome.user.model import User
@@ -18,7 +18,15 @@ def show(page=1):
         User.name,
         User.email,
         Group.category)  # .paginate(page,per_page,False)
+
+    if 'name' in session:
+        if session['name'] != '':
+            nombre = session['name']
+            category = session['category']
+
     return render_template('show.html',
                            title='Mostrando prueba de lista',
+                           nombre=nombre,
+                           category=category,
                            results=users,
                            table='users')

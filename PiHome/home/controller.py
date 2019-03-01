@@ -4,11 +4,14 @@ import threading
 from flask import Blueprint, session, flash, render_template, redirect, url_for, copy_current_request_context, request
 
 from PiHome import db
+from PiHome.home import Home
 from PiHome.home.form import LogInForm, ContactForm
 from PiHome.user.form import SignUpForm
 from PiHome.user.model import User
 
 home_ctr = Blueprint('home', __name__, url_prefix='')
+
+home = Home()
 
 
 @home_ctr.route('/')
@@ -17,22 +20,18 @@ def index():
     """
         Gestión de la llamada a la página principal
     """
-
-    #: Titulo por defecto si no hay nadie logeado
-    nombre = "TFG"
-    category = 0
+    home_status = home.get_base_params("TFG", 0)
 
     if 'name' in session:
         if session['name'] != '':
-            nombre = session['name']
-            category = session['category']
+            home_status = home.get_base_params("Bienvenido " + session['name'], 0)
             flash('Estás logeado')
     else:
+        home_status = home.get_base_params("TFG", 0)
         flash('No estás logeado')
 
     return render_template('index.html',
-                           title=nombre,
-                           category=category)
+                           base=home_status)
 
 
 @home_ctr.route('/logIn', methods=['GET', 'POST'])
@@ -64,7 +63,7 @@ def log_in():
             flash('¡El nombre o la contraseña parecen no ser correctas!')
 
     return render_template('logIn.html',
-                           title="Who are you?",
+                           base=home.get_base_params("Who are you?", 0),
                            error=error,
                            form=log_in_form)
 
@@ -86,7 +85,7 @@ def log_out():
 
     flash('Te has deslogeado correctamente')
 
-    return redirect(url_for('index'))
+    return redirect(url_for('home.index'))
 
 
 @home_ctr.route('/signUp', methods=['GET', 'POST'])
@@ -141,13 +140,16 @@ def sign_up():
 
 @home_ctr.route('/elements')
 def elements():
+    dynamic = 0
     if 'category' in session:
         category = session['category']
+        dynamic = 1
     else:
         category = 0
 
+
     return render_template('elements.html',
-                           category=category)
+                           base=home.get_base_params("Ejemplos de Elementos", dynamic))
 
 
 @home_ctr.route('/contact', methods=['GET', 'POST'])
