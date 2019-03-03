@@ -168,6 +168,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/controller/group.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/controller/user.ctr.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/controller/user.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/form/user.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/model/__init__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/model/group.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/model/user.mdl.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TFG_2/PiHome/model/user.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/home/controller.py">
           <value>
             <set />

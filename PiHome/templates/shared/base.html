@@ -23,8 +23,8 @@
     <!-- Fin Flask -->
 
 </head>
-{% block navbar %} {% endblock %}
 <!-- Modificador del comportamiento del body -->
+<!--<body>-->
 {% block body %} {% endblock %}
 <div id="page-wrapper">
 
@@ -35,7 +35,7 @@
     <nav id="nav">
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="elements">Elements</a></li>
+            <li><a href="/elements">Elements</a></li>
 
             {% if category == 3 %}
                 <li>
@@ -44,7 +44,7 @@
                         <li><a href="updateCategory">Cambiar permisos</a></li>
                         <li><a href="validate">Validar usuarios</a></li>
                         <li><a href="generic2"># Registar RFID</a></li>
-                        <li><a href="signUp">Alta usuarios</a></li>
+                        <li><a href="/signUp">Alta usuarios</a></li>
                         <li><a href="user/all">Show database</a></li>
                     </ul>
                 </li>
@@ -94,14 +94,15 @@
 
             {% endif %}
             {% if session['logged_in'] %}
-                <li><a href="logOut" class="button special">Log Out</a></li>
+                <li><a href="/logOut" class="button special">Log Out</a></li>
             {% else %}
-                <li><a href="signUp" class="button">Sign Up</a></li>
-                <li><a href="logIn" class="button special">Log In</a></li>
+                <li><a href="/signUp" class="button">Sign Up</a></li>
+                <li><a href="/logIn" class="button special">Log In</a></li>
             {% endif %}
         </ul>
     </nav>
 </div>
+<!--</header>-->
 </header>
 
 <!--
@@ -143,5 +144,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- Fin Código para Flask -->
 
+<!--</body>-->
 </body>
+
 </html>
