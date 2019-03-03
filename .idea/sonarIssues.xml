@@ -83,7 +83,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/static/sass/libs/_skel.scss">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/templates/404.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/contact.html">
           <value>
             <set />
           </value>
@@ -114,6 +124,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/PiHome/templates/show.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/signUp.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/updateCategory.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/validate.html">
           <value>
             <set />
           </value>
@@ -198,7 +223,17 @@
             <set />
           </value>
         </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/__init__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/home/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/user/controller.py">
           <value>
             <set />
           </value>

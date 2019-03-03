@@ -20,6 +20,7 @@ class Config(object):
 
 
 class DevelopmentConfig(Config):
+    PROJECT_NAME = "PiHome"
     SERVER_NAME = "PiHome_dev.com"
 
     # Todo: Modificar los parámetros necesarios para adaptarlos a tu proyecto

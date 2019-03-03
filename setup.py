@@ -9,7 +9,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='PiDomotic',
+    name='PiHome',
     version='0.1',
     description='TFG by (BF0002) for UPM-ETSISI',
     author='Adrián Alonso del Peso',

@@ -20,18 +20,18 @@ def index():
     """
         Gestión de la llamada a la página principal
     """
-    home_status = home.get_base_params("TFG", 0)
+
+    _base = home.get_base_params(_dynamic=1)
 
     if 'name' in session:
         if session['name'] != '':
-            home_status = home.get_base_params("Bienvenido " + session['name'], 0)
+            _base = home.get_base_params("Bienvenido " + session['name'], 1)
             flash('Estás logeado')
     else:
-        home_status = home.get_base_params("TFG", 0)
         flash('No estás logeado')
 
     return render_template('index.html',
-                           base=home_status)
+                           base=_base)
 
 
 @home_ctr.route('/logIn', methods=['GET', 'POST'])
@@ -39,6 +39,8 @@ def log_in():
     """
         Enrutamiento y control del acceso al sistema
     """
+    _base = home.get_base_params()
+
     error = None
     log_in_form = LogInForm(request.form)
     for data in log_in_form:
@@ -74,18 +76,24 @@ def log_out():
         Salida del sistema
     """
 
-    if 'name' in session:
-        # Elimina el 'username' de la sesión si es que estaba logeado
-        session.pop('name', None)
-        session.pop('category', None)
-
     if 'logged_in' in session:
         # Elimina el estado de la sesión si es que estaba logeado
-        session.pop('logged_in', None)
+        reset_session()
+        # session.pop('logged_in', None)
+        # session.pop('name', None)
+        # session.pop('category', None)
+        # session.pop('dynamic', None)
 
     flash('Te has deslogeado correctamente')
 
     return redirect(url_for('home.index'))
+
+
+def reset_session():
+    session.pop('name', None)
+    session.pop('logged_in', False)
+    session.pop('category', None)
+    home.set_default()
 
 
 @home_ctr.route('/signUp', methods=['GET', 'POST'])
@@ -146,7 +154,6 @@ def elements():
         dynamic = 1
     else:
         category = 0
-
 
     return render_template('elements.html',
                            base=home.get_base_params("Ejemplos de Elementos", dynamic))

@@ -43,21 +43,26 @@
 <h1><a href="/">TFG</a> by Adrián Alonso del Peso</h1>
 <nav id="nav">
     <ul>
+        {#Home#}
         <li><a href="/">Home</a></li>
-        <li><a href="elements">Elements</a></li>
+        {#    Elements#}
+        <li><a href="/elements">Elements</a></li>
 
+        {#Vista del navbar del Administrador#}
         {% if base.category == 3 %}
+            {#Usuarios#}
             <li>
                 <a href="#" class="icon fa-angle-down">Usuarios</a>
                 <ul>
-                    <li><a href="updateCategory">Cambiar permisos</a></li>
-                    <li><a href="validate">Validar usuarios</a></li>
-                    <li><a href="generic2"># Registar RFID</a></li>
-                    <li><a href="signUp">Alta usuarios</a></li>
+                    <li><a href="/updateCategory">Cambiar permisos</a></li>
+                    <li><a href="/validate">Validar usuarios</a></li>
+                    <li><a href="/generic2"># Registar RFID</a></li>
+                    <li><a href="/signUp">Alta usuarios</a></li>
                     <li><a href="user/all">Show database</a></li>
                 </ul>
             </li>
 
+            {#Informes#}
             <li>
                 <a href="#" class="icon fa-angle-down">Informes</a>
                 <ul>
@@ -66,6 +71,7 @@
                 </ul>
             </li>
 
+            {#Base de datos#}
             <li>
                 <a href="#" class="icon fa-angle-down">Base de datos</a>
                 <ul>
@@ -75,8 +81,10 @@
                 </ul>
             </li>
 
+            {#Vista del navbar del watchdog#}
         {% elif category == 2 %}
 
+            {#Control de acceso#}
             <li>
                 <a href="#" class="icon fa-angle-down">Control de acceso</a>
                 <ul>
@@ -84,6 +92,7 @@
                     <li><a href="#"># Quien hay en casa</a></li>
                 </ul>
             </li>
+            {#Informes#}
             <li>
                 <a href="#" class="icon fa-angle-down">Informes</a>
                 <ul>
@@ -92,8 +101,10 @@
                 </ul>
             </li>
 
+            {#            Vista del ususario standart#}
         {% elif category == 1 %}
 
+            {#Quien hay en casa#}
             <li>
                 <a href="#" class="icon fa-angle-down">Control de acceso</a>
                 <ul>
@@ -103,10 +114,10 @@
 
         {% endif %}
         {% if session['logged_in'] %}
-            <li><a href="logOut" class="button special">Log Out ({{ base.name.upper() }})</a></li>
+            <li><a href="/logOut" class="button special">Log Out ({{ base.name.upper() }})</a></li>
         {% else %}
-            <li><a href="signUp" class="button">Sign Up</a></li>
-            <li><a href="logIn" class="button special">Log In</a></li>
+            <li><a href="/signUp" class="button">Sign Up</a></li>
+            <li><a href="/logIn" class="button special">Log In</a></li>
         {% endif %}
     </ul>
 </nav>
