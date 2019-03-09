@@ -143,6 +143,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/transit/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/transit/model.py">
           <value>
             <set />
@@ -203,6 +208,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/manifest.webapp">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/requirements.txt">
           <value>
             <set />
@@ -229,6 +239,11 @@
           </value>
         </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/home/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/transit/controller.py">
           <value>
             <set />
           </value>

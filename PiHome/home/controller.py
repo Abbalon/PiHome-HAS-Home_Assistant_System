@@ -151,7 +151,7 @@ def elements():
     dynamic = 0
     if 'category' in session:
         category = session['category']
-        dynamic = 1
+        dynamic = 0
     else:
         category = 0
 

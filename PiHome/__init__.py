@@ -25,6 +25,7 @@ from PiHome.group.controller import group_ctr
 from PiHome.admin.controller import admin_ctr
 from PiHome.home.controller import home_ctr
 from PiHome.utils.db_setUp import __create_foreign_keys
+from PiHome.transit.controller import transit_ctr
 
 
 # Sample HTTP error handling
@@ -38,6 +39,7 @@ app.register_blueprint(admin_ctr)
 app.register_blueprint(user_ctr)
 app.register_blueprint(home_ctr)
 app.register_blueprint(group_ctr)
+app.register_blueprint(transit_ctr)
 
 """
 Prevención de XSS & XSRF
@@ -54,7 +56,7 @@ if __name__ == "PiHome":
     mail.init_app(app)  # Arranca el servidor de correo
 
     with app.app_context():
-        # db.drop_all()  # Borra la BD
+        db.drop_all()  # Borra la BD
         db.create_all()  # Crea las tablas que no existan
         __create_foreign_keys()
         print("Inicializada la aplicación.")

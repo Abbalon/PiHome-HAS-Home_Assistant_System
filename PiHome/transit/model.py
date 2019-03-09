@@ -16,11 +16,13 @@ class TransitLog(BaseDB):
         db.Integer,
         db.ForeignKey('users.id'),
         nullable=False)
+
     #: False = fuera // True = Dentro
     action = db.Column(
         db.Boolean,
         default=False,
         nullable=False)
+
     ocurred = db.Column(
         db.DateTime,
         default=datetime.datetime.now)
