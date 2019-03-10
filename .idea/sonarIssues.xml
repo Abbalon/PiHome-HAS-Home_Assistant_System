@@ -238,6 +238,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/__init__.py">
           <value>
             <set />
