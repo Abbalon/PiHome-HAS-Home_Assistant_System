@@ -32,3 +32,5 @@ MAIL_PASSWORD = r'\xab\xeb\xf3\x0c\xeb\xe0\xf5\x96\xf0\xc0\xc7\xe6\x85\x98\xc3\x
 # Use a secure, unique and absolutely secret key for
 # signing the data.
 # CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+
+GITHUB_TOKEN = "210e096898ec6f58390694cf27cae145027d1893"

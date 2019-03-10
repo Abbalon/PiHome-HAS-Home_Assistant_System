@@ -47,9 +47,8 @@
         <li><a href="/">Home</a></li>
         {#    Elements#}
         <li><a href="/elements">Elements</a></li>
-
-        {#Vista del navbar del Administrador#}
         {% if base.category == 3 %}
+            {#Vista del navbar del Administrador#}
             {#Usuarios#}
             <li>
                 <a href="#" class="icon fa-angle-down">Usuarios</a>
@@ -81,8 +80,9 @@
                 </ul>
             </li>
 
-            {#Vista del navbar del watchdog#}
+
         {% elif category == 2 %}
+            {#Vista del navbar del watchdog#}
 
             {#Control de acceso#}
             <li>
@@ -101,8 +101,8 @@
                 </ul>
             </li>
 
-            {#            Vista del ususario standart#}
         {% elif category == 1 %}
+            {#            Vista del ususario standart#}
 
             {#Quien hay en casa#}
             <li>
@@ -121,14 +121,9 @@
         {% endif %}
     </ul>
 </nav>
-</div>
 </header>
 
-<!-- Fin del navbar -->
-
-<!--
-    En este bloque se van a representar los distintos contenidos de la web
--->
+<!-- Content -->
 {% block content %}    {% endblock %}
 
 <!-- Footer -->
