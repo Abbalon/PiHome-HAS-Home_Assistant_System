@@ -56,7 +56,7 @@ if __name__ == "PiHome":
     mail.init_app(app)  # Arranca el servidor de correo
 
     with app.app_context():
-        db.drop_all()  # Borra la BD
+        # db.drop_all()  # Borra la BD
         db.create_all()  # Crea las tablas que no existan
         __create_foreign_keys()
         print("Inicializada la aplicación.")

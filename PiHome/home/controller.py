@@ -65,7 +65,7 @@ def log_in():
             flash('¡El nombre o la contraseña parecen no ser correctas!')
 
     return render_template('logIn.html',
-                           base=home.get_base_params("Who are you?", 0),
+                           base=home.get_base_params("Who are you?"),
                            error=error,
                            form=log_in_form)
 
@@ -106,6 +106,8 @@ def sign_up():
         name, email, password
     """
 
+    _base = home.get_base_params()
+
     sign_up_form = SignUpForm(request.form)
 
     if request.method == 'POST' and \
@@ -138,11 +140,11 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('logIn',
+        return redirect(url_for('home.log_in',
                                 name=sign_up_form.name.data))
 
     return render_template('signUp.html',
-                           title="Let's Sign Up",
+                           base=home.get_base_params("Let's Sign Up"),
                            form=sign_up_form)
 
 

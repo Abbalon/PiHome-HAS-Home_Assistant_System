@@ -3,9 +3,12 @@ from flask import Blueprint, request, session, render_template
 from PiHome.admin.form import ValidateForm, UpgradeForm
 from PiHome.admin.utils import validate_user, delete_user
 from PiHome.group.model import Group
+from PiHome.home import Home
 from PiHome.user.model import User
 
 admin_ctr = Blueprint('admin', __name__, url_prefix='/admin')
+
+home = Home()
 
 
 @admin_ctr.route('/validate', methods=['GET', 'POST'])
@@ -37,9 +40,8 @@ def validate():
             User.email,
             Group.category)  # .paginate(page,per_page,False)
         return render_template('validate.html',
-                               title='Usuarios sin confirmar',
+                               base=home.get_base_params('Usuarios sin confirmar'),
                                results=user,
-                               category=session['category'],
                                form=validate_form)
 
     #: Si no, retorna la página de error
@@ -76,7 +78,7 @@ def update_category():
         categories = Group.query.all()
 
         return render_template('updateCategory.html',
-                               title='Actualizar categoria',
+                               base=home.get_base_params('Actualizar categoria'),
                                results=users,
                                form=upgrade_from,
                                groups=categories,

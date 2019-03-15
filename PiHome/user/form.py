@@ -37,7 +37,7 @@ class SignUpForm(Form):
     ])
 
     @staticmethod
-    def validate_email(field):
+    def validate_email(self, field):
         """
             Comprueba que el correo introduccido no se encuentre en el sistema
             :param field:
@@ -48,9 +48,10 @@ class SignUpForm(Form):
             raise validators.ValidationError('Email ya registrado en el sistema.')
 
     @staticmethod
-    def validate_name(field):
+    def validate_name(self, field):
         """
             Comprueba que el nombre introduccido no se encuentre en el sistema
+            :param self:
             :param field:
         """
 

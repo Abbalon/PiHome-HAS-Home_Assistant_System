@@ -2,7 +2,7 @@ from flask import session
 
 
 class Home:
-    name = None
+    name = "Hi you"
     title = "PiHome - TFG"
     category = 0
     dynamic = 0
@@ -24,7 +24,7 @@ class Home:
         return self
 
     def set_default(self):
-        self.name = None
+        self.name = "Hi you"
         self.title = "PiHome - TFG"
         self.category = 0
         self.dynamic = 1

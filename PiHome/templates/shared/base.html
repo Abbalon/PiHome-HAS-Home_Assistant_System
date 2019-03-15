@@ -47,71 +47,60 @@
         <li><a href="/">Home</a></li>
         {#    Elements#}
         <li><a href="/elements">Elements</a></li>
-        {% if base.category == 3 %}
+        {% if base.category == 2 or base.category == 3 %}
             {#Vista del navbar del Administrador#}
-            {#Usuarios#}
-            <li>
-                <a href="#" class="icon fa-angle-down">Usuarios</a>
+            <li>{#Mantenimiento#}
+                <a href="#" class="icon fa-angle-down">Mantenimiento</a>
                 <ul>
-                    <li><a href="/updateCategory">Cambiar permisos</a></li>
-                    <li><a href="/validate">Validar usuarios</a></li>
-                    <li><a href="/generic2"># Registar RFID</a></li>
-                    <li><a href="/signUp">Alta usuarios</a></li>
-                    <li><a href="user/all">Show database</a></li>
+                    {#Usuarios#}
+                    <li><a href="#" class="icon fa-angle-left"> Usuarios</a>
+                        <ul>
+                            <li><a href="admin/update_category">Cambiar permisos</a></li>
+                            <li><a href="admin/validate">Validar usuarios</a></li>
+                            <li><a href="/generic2"># Registar RFID</a></li>
+                            <li><a href="/signUp">Alta usuarios</a></li>
+                            <li><a href="user/all">Show database</a></li>
+                        </ul>
+                    </li>
+
+                    {#Informes#}
+                    <li>
+                        <a href="#" class="icon fa-angle-left"> Informes</a>
+                        <ul>
+                            <li><a href="#">Mostar usuarios</a></li>
+                            <li><a href="#">Mostar transito</a></li>
+                        </ul>
+                    </li>
+
+                    {% if base.category == 3 %}
+                        {#Base de datos#}
+                        <li>
+                            <a href="#" class="icon fa-angle-left"> Base de datos</a>
+                            <ul>
+                                <li><a href="#"># Borrar</a></li>
+                                <li><a href="#"># Back Up</a></li>
+                                <li><a href="#"># Restaurar</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+
                 </ul>
             </li>
+        {% endif %}
 
-            {#Informes#}
-            <li>
-                <a href="#" class="icon fa-angle-down">Informes</a>
-                <ul>
-                    <li><a href="#">Mostar usuarios</a></li>
-                    <li><a href="#">Mostar transito</a></li>
-                </ul>
-            </li>
-
-            {#Base de datos#}
-            <li>
-                <a href="#" class="icon fa-angle-down">Base de datos</a>
-                <ul>
-                    <li><a href="#"># Borrar</a></li>
-                    <li><a href="#"># Back Up</a></li>
-                    <li><a href="#"># Restaurar</a></li>
-                </ul>
-            </li>
-
-
-        {% elif category == 2 %}
+        {% if base.category == 2 or base.category == 1 %}
             {#Vista del navbar del watchdog#}
 
             {#Control de acceso#}
             <li>
                 <a href="#" class="icon fa-angle-down">Control de acceso</a>
                 <ul>
-                    <li><a href="#"># Abrir puerta</a></li>
                     <li><a href="#"># Quien hay en casa</a></li>
+                    {% if base.category == 2 %}
+                        <li><a href="#"># Abrir puerta</a></li>
+                    {% endif %}
                 </ul>
             </li>
-            {#Informes#}
-            <li>
-                <a href="#" class="icon fa-angle-down">Informes</a>
-                <ul>
-                    <li><a href="#"># Mostar usuarios</a></li>
-                    <li><a href="#"># Mostar transito</a></li>
-                </ul>
-            </li>
-
-        {% elif category == 1 %}
-            {#            Vista del ususario standart#}
-
-            {#Quien hay en casa#}
-            <li>
-                <a href="#" class="icon fa-angle-down">Control de acceso</a>
-                <ul>
-                    <li><a href="#">Quien hay en casa</a></li>
-                </ul>
-            </li>
-
         {% endif %}
         {% if session['logged_in'] %}
             <li><a href="/logOut" class="button special">Log Out ({{ base.name.upper() }})</a></li>

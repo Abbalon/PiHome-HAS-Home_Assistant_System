@@ -248,6 +248,11 @@
             <set />
           </value>
         </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/admin/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/home/controller.py">
           <value>
             <set />
@@ -259,6 +264,11 @@
           </value>
         </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/user/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/user/form.py">
           <value>
             <set />
           </value>
