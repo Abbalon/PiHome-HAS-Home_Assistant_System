@@ -20,6 +20,7 @@
 
     <!-- Flask -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- Fin Flask -->
 
 </head>
@@ -55,11 +56,11 @@
                     {#Usuarios#}
                     <li><a href="#" class="icon fa-angle-left"> Usuarios</a>
                         <ul>
-                            <li><a href="admin/update_category">Cambiar permisos</a></li>
-                            <li><a href="admin/validate">Validar usuarios</a></li>
+                            <li><a href="/admin/update_category">Cambiar permisos</a></li>
+                            <li><a href="/admin/validate">Validar usuarios</a></li>
                             <li><a href="/generic2"># Registar RFID</a></li>
                             <li><a href="/signUp">Alta usuarios</a></li>
-                            <li><a href="user/all">Show database</a></li>
+                            <li><a href="/user/all">Show database</a></li>
                         </ul>
                     </li>
 

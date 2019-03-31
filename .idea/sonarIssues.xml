@@ -183,6 +183,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/utils/mail.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/utils/setUp.py">
           <value>
             <set />
@@ -269,6 +274,11 @@
           </value>
         </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/user/form.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/utils/mail.py">
           <value>
             <set />
           </value>

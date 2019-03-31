@@ -12,7 +12,7 @@ class Config(object):
     """docstring for Config"""
 
     # Secret key for signing cookies
-    SECRET_KEY = os.urandom(16)
+    # SECRET_KEY = os.urandom(16)
 
     def __init__(self, arg):
         super(Config, self).__init__()
@@ -41,13 +41,6 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DATABASE_CONNECT_OPTIONS = {}
 
-    """
-        Parámetros para la conguración del WebMailServer
-    """
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 587
-    MAIL_USE_SSL = False
-    MAIL_USE_TLS = True
     MAIL_USERNAME = __mailUserName
     DEFAULT_MAIL_SENDER = __defaultUserName
     MAIL_PASSWORD = __mailPassword  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
@@ -58,7 +51,7 @@ class DevelopmentConfig(Config):
     XBEE_PORT = '/dev/ttyUSB1'  # Puerto en el que se encuentra el ZigBee
     XBEE_BAUDRATE = 9600  # Frecuencia de emisión
     XBEE_REMOTE_ADDRESS = 5526146537043477  # 0013a20041513615
-    XBEE_LOCAL_ADDRES = 5526146537043399  # 0013a200415135c7
+    XBEE_LOCAL_ADDRESs = 5526146537043399  # 0013a200415135c7
 
     """docstring for DevelopmentConfig"""
 

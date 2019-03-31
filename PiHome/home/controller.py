@@ -2,12 +2,15 @@
 import threading
 
 from flask import Blueprint, session, flash, render_template, redirect, url_for, copy_current_request_context, request
+from flask_mail import Message
 
 from PiHome import db
+from PiHome import mail, app
 from PiHome.home import Home
 from PiHome.home.form import LogInForm, ContactForm
 from PiHome.user.form import SignUpForm
 from PiHome.user.model import User
+from PiHome.utils.mail import send_email
 
 home_ctr = Blueprint('home', __name__, url_prefix='')
 
@@ -118,8 +121,8 @@ def sign_up():
             password=sign_up_form.password.data
         )
 
-        for value in sign_up_form:
-            print(value.data)
+        # for value in sign_up_form:
+        #     print(value.data)
 
         flash('Gracias por registrarte')
 
@@ -175,3 +178,16 @@ def contact():
 @home_ctr.route('/Anteproyecto')
 def ante():
     return render_template('Anteproyecto_TFG.html')
+
+
+@home_ctr.route('/TestEmail')
+def test_email():
+    msg = Message(subject="Envio de email de prueba",
+                  sender=app.config['DEFAULT_MAIL_SENDER'],
+                  recipients=[app.config['TEST_MAIL_SENDER']],
+                  body="Te ha llegado un correo")
+
+    mail.send(msg)
+
+    return redirect(url_for('home.index',
+                            message="That's ok"))

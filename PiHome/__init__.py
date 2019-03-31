@@ -54,9 +54,10 @@ if __name__ == "PiHome":
     csrf.init_app(app)  # Inicia la aplicación con la cofiguración establecida
     db.init_app(app)  # Carga la configuración de la bd
     mail.init_app(app)  # Arranca el servidor de correo
+    # mail.init_mail()
 
     with app.app_context():
-        # db.drop_all()  # Borra la BD
+        db.drop_all()  # Borra la BD
         db.create_all()  # Crea las tablas que no existan
         __create_foreign_keys()
         print("Inicializada la aplicación.")
