@@ -2,8 +2,10 @@
   <dictionary name="montbs">
     <words>
       <w>baudrate</w>
+      <w>guardar</w>
       <w>ocurred</w>
       <w>sqlalchemy</w>
+      <w>tablename</w>
       <w>xbee</w>
     </words>
   </dictionary>

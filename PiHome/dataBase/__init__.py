@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 # -*- code: utf-8 -*-
 """
-Clase que declara e instancia la conexxión con la base de datos
+Clase que declara e instancia la conexión con la base de datos
 """
 
 from PiHome import db
@@ -12,9 +13,14 @@ class BaseDB(db.Model):
     """
     __abstract__ = True
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True)
 
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    date_created = db.Column(
+        db.DateTime,
+        default=db.func.current_timestamp())
 
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                              onupdate=db.func.current_timestamp())
+    date_modified = db.Column(
+        db.DateTime,
+        onupdate=db.func.current_timestamp())

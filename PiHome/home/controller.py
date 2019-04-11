@@ -105,8 +105,11 @@ def sign_up():
         Enrutamiento y control del registro al sistema.
 
         Datos a insertar por el usuario:
+        :param name
+        :param email
+        :param password
 
-        name, email, password
+        :see PiHome.user.form.SignUpForm
     """
 
     _base = home.get_base_params()

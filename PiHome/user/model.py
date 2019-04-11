@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- code: utf-8 -*-
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from PiHome import db
@@ -31,9 +33,6 @@ class User(BaseDB):
         db.Boolean,
         default=False,
         nullable=False)
-    # signedIn = db.Column(
-    #     db.DateTime,
-    #     default=datetime.datetime.now)
 
     #: Establece la relación con la tabla 'groups'
     group = db.relationship(

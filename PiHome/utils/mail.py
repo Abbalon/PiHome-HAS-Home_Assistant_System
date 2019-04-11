@@ -20,6 +20,4 @@ def send_email(_email, _subject, _body):
             body=_body
         )
 
-        print(mail.__getattr__('MAIL_USERNAME'))
-
         conn.send(mensaje)

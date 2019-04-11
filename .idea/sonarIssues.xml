@@ -38,6 +38,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/card/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/card/form.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/PiHome/card/model.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/dataBase/__init__.py">
           <value>
             <set />
@@ -254,6 +269,11 @@
           </value>
         </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/admin/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/card/model.py">
           <value>
             <set />
           </value>

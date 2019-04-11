@@ -168,3 +168,9 @@ M
 .idea/dictionaries/montbs.xml,c/d/cdbe5562cf5e80b950eed77dfe7a672afdb1d06e
 D
 PiHome/utils/mail.py,b/0/b0317a5bbb1a52f2cf499f933a274d3d8f438995
+I
+PiHome/card/controller.py,0/5/05710d21a983297b87cef3c3dae588ce516030e6
+D
+PiHome/card/model.py,7/0/700d98f9c5c300c6717e71e1f59a8f2c18dd09af
+C
+PiHome/card/form.py,a/f/af958ec18704e769409dfa646b483221a3eef2d6
