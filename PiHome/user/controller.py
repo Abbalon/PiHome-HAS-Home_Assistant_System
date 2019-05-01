@@ -1,8 +1,8 @@
 from flask import render_template, Blueprint, session
 
 from PiHome.group.model import Group
-from PiHome.home import Home
 from PiHome.user.model import User
+from PiHome.utils.base import Home
 
 # Define the blueprint: 'user', set its url prefix: app.url/auth
 user_ctr = Blueprint('user', __name__, url_prefix='/user')

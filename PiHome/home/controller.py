@@ -6,10 +6,10 @@ from flask_mail import Message
 
 from PiHome import db
 from PiHome import mail, app
-from PiHome.home import Home
 from PiHome.home.form import LogInForm, ContactForm
 from PiHome.user.form import SignUpForm
 from PiHome.user.model import User
+from PiHome.utils.base import Home
 from PiHome.utils.mail import send_email
 
 home_ctr = Blueprint('home', __name__, url_prefix='')

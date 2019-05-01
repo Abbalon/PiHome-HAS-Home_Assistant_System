@@ -41,8 +41,8 @@ def __create_foreign_keys():
 
         db.session.add(std_group)
         db.session.add(wd_group)
-        # db.session.add(adm_group)
-        # db.session.add(admin)
+        db.session.add(adm_group)
+        db.session.add(admin)
         db.session.add(card)
 
         print("Commit")

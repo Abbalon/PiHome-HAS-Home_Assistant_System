@@ -113,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/templates/cards.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/templates/contact.html">
           <value>
             <set />
@@ -193,6 +198,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/PiHome/utils/data_sheet.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PiHome/utils/db_setUp.py">
           <value>
             <set />
@@ -269,6 +279,11 @@
           </value>
         </entry>
         <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/admin/controller.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/mnt/Almacenamiento/Utils/Deb/TFG/PiHome/card/controller.py">
           <value>
             <set />
           </value>
