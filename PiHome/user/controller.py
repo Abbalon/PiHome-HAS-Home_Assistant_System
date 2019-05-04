@@ -33,7 +33,7 @@ def show(page=1):
         else:
             _base = home.get_base_params("Mostrando prueba de lista", 0)
 
-    return render_template('show.html',
+    return render_template('showUsers.html',
                            base=_base,
                            results=users,
                            table='users')
