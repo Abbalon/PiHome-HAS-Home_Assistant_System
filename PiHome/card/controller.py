@@ -7,7 +7,7 @@ from flask import Blueprint, request, session, render_template
 
 from PiHome.card.model import Card
 from PiHome.user.model import User
-from PiHome.utils.base import Home
+from PiHome.utils.base import Home, ShowData
 
 card_ctr = Blueprint('card', __name__, url_prefix='/card')
 
@@ -23,21 +23,27 @@ def show_card():
 
     id_card = request.args.get('id')
     _base = home.get_base_params("Listado de las tarjetas registradas")
-    cards = None
+    title = "Tarjetas registradas"
+    header = None
+    body = None
 
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
 
+            header = ["Usuario", "Tarjeta"]
+
             if id_card is None:
-                cards = Card.query.join('user').add_columns(
+                body = Card.query.join('user').add_columns(
                     User.name,
                     Card.ref)
             else:
-                cards = Card.query.filer_by(id=id_card).join('user').add_columns(
+                body = Card.query.filer_by(id=id_card).join('user').add_columns(
                     User.name,
                     Card.ref)
         else:
             _base = home.get_base_params("Mostrando prueba de lista", 0)
+
+    cards = ShowData(title, header, body)
 
     return render_template('cards.html',
                            base=_base,

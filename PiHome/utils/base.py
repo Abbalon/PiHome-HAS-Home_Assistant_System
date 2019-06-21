@@ -60,8 +60,6 @@ class ShowData:
         Titulo de la tabla
     definition : str
         Descripción de la tabla
-    default : str
-        Mensaje de advertencia, en caso que no se hayan recibido datos
     header : [str]
         Nombre de las columnas
     data : [object]
@@ -69,9 +67,30 @@ class ShowData:
     footer : [object]
         Si se tiene que mostrar algun valor resumatorio
     """
-    title = ""
-    definition = ""
-    default = ""
-    header = []
-    data = []
-    footer = []
+    title: str
+    definition: str
+    header: [str]
+    data: [str]
+    footer: [str]
+
+    def __init__(self, _title="Title not defined", _header=None, _data=None, **kwargs) -> None:
+        super().__init__()
+
+        assert (_header.size() == _data.size()), \
+            "El número de campos de la cabecera, no coincide con el cuerpo de la tabla."
+
+        if _title is not None:
+            self.title = _title
+
+        if "_definition" in kwargs:
+            self.definition = kwargs.get("_definition")
+
+        if _header is not None:
+            self.header = _header
+
+        if _data is not None:
+            self.data = _data
+
+        if "_footer" in kwargs:
+            self.footer = kwargs.get("_footer")
+
