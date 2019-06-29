@@ -13,61 +13,9 @@
     <section id="main" class="container 75%">
         {% if results %}
             <header>
-                <h2>{{ table }}</h2>
+                <h2>{{ results.title }}</h2>
                 <p>Estas son las tarjetas que están dadas de alta en el sistema</p>
             </header>
-
-            <div class="box">
-                <form method="POST" action="#">
-                    <!-- Campo "Nombre" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u">
-                            {#                    {{ Render_field(form.name, placeholder = "Tu nombre aquí") }}#}
-                        </div>
-                    </div>
-
-                    <!-- Campo "Contraseña" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u">
-                            {#                    {{ Render_field(form.password, placeholder="Contraseña") }}#}
-                        </div>
-                    </div>
-
-                    <!-- Campo "Confirmar" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u">
-                            {#                    {{ Render_field(form.confirm, placeholder="Repite tu contraseña") }}#}
-                        </div>
-                    </div>
-
-                    <!-- Campo "Email" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u">
-                            {#                    {{ Render_field(form.email, placeholder="Email") }}#}
-                        </div>
-                    </div>
-
-                    <!-- Campo "Aceptar tyc" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u align-center">
-                            {#                    {{ Render_field(form.accept_tyc, checked = '') }}#}
-                            {#                    {{ Render_field(form.accept_tyc.label) }}#}
-                        </div>
-                    </div>
-
-                    <!-- Prevención de ataques CSRF -->
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-
-                    <!-- Botones del formulario -->
-                    <div class="row uniform">
-                        <div class="12u">
-                            <ul class="ctions align-center">
-                                <li><input type="submit" value="Registrar"/></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div>
 
             <div class="row">
                 <div class="12u">
@@ -81,13 +29,13 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th>Usuario</th>
-                                    <th>Id tarjeta</th>
-                                    <th>Estado</th>
+                                    {% for title in results.header %}
+                                        <th>{{ title }}</th>
+                                    {% endfor %}
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for row in results %}
+                                {% for row in results.data %}
                                     <tr>
                                         <td>{{ row.name }}</td>
                                         <td>{{ row.ref }}</td>

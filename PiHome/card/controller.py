@@ -35,20 +35,22 @@ def show_card():
             if id_card is None:
                 body = Card.query.join('user').add_columns(
                     User.name,
-                    Card.ref)
+                    Card.ref).all()
             else:
                 body = Card.query.filer_by(id=id_card).join('user').add_columns(
                     User.name,
-                    Card.ref)
+                    Card.ref).all()
         else:
             _base = home.get_base_params("Mostrando prueba de lista", 0)
 
-    cards = ShowData(title, header, body)
+        cards = ShowData(title, header, body)
 
-    return render_template('cards.html',
-                           base=_base,
-                           results=cards,
-                           table='Tarjetas de acceso')
+        return render_template('cards.html',
+                               base=_base,
+                               results=cards,
+                               table='Tarjetas de acceso')
+    else:
+        return render_template('error.html')
 
 
 @card_ctr.route('/new_card', methods=['GET'])

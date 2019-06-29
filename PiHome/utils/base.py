@@ -76,7 +76,7 @@ class ShowData:
     def __init__(self, _title="Title not defined", _header=None, _data=None, **kwargs) -> None:
         super().__init__()
 
-        assert (_header.size() == _data.size()), \
+        assert (len(_header) + 1 == len(_data[0])), \
             "El número de campos de la cabecera, no coincide con el cuerpo de la tabla."
 
         if _title is not None:
@@ -93,4 +93,3 @@ class ShowData:
 
         if "_footer" in kwargs:
             self.footer = kwargs.get("_footer")
-
