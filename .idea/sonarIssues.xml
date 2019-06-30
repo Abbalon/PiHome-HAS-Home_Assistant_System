@@ -273,6 +273,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/venv/bin/pip">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/venv/bin/pip3">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/venv/bin/pip3.6">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/venv/lib/python3.6/site-packages/easy-install.pth">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py">
           <value>
             <set />
