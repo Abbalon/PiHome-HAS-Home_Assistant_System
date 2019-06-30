@@ -1,7 +1,6 @@
 from flask import Blueprint
 
 # Define the blueprint: 'transit', set its url prefix: app.url/auth
-from PiHome.transit.model import TransitLog
 
 transit_ctr = Blueprint('transit', __name__, url_prefix='/transit')
 
