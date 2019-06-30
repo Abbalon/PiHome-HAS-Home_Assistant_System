@@ -18,7 +18,7 @@ def show(page=1):
         User.name,
         User.email,
         Group.category)  # .paginate(page,per_page,False)
-    return render_template('show.html',
+    return render_template('showUsers.html',
                            title='Mostrando prueba de lista',
                            results=users,
                            table='users',

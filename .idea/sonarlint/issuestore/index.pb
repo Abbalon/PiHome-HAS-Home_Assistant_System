@@ -95,8 +95,6 @@ L
 PiHome/templates/LICENSE.txt,3/a/3a528086c8625dd8740c1d80668f067bd88b64a0
 K
 PiHome/templates/logIn.html,4/8/488584be266d64c029623a237cc4c188bc7e6c76
-J
-PiHome/templates/show.html,f/5/f52db8ac61a8f90330fc2307035d0c427fcfc7fb
 L
 PiHome/templates/signUp.html,2/4/24c614e01e8d21a46daef4f1ed4cf9721ffb23c5
 T
@@ -160,3 +158,27 @@ D
 PiHome/admin/form.py,7/e/7e6ba9b7b2ff53c39a6472f5f6e32fdc143e6aae
 D
 PiHome/user/model.py,6/1/61fafa734877786e474d9179d53212848552b48c
+L
+PiHome/transit/controller.py,5/a/5a2b656dc2d73d9331804e6101671ce8d390978d
+?
+manifest.webapp,3/c/3cd3e2f27019b2dec0d887213ad8fd747233fb1d
+M
+.idea/dictionaries/montbs.xml,c/d/cdbe5562cf5e80b950eed77dfe7a672afdb1d06e
+D
+PiHome/utils/mail.py,b/0/b0317a5bbb1a52f2cf499f933a274d3d8f438995
+I
+PiHome/card/controller.py,0/5/05710d21a983297b87cef3c3dae588ce516030e6
+D
+PiHome/card/model.py,7/0/700d98f9c5c300c6717e71e1f59a8f2c18dd09af
+C
+PiHome/card/form.py,a/f/af958ec18704e769409dfa646b483221a3eef2d6
+G
+PiHome/card/__init__.py,a/6/a69e749e09d1278d9d88a622763990ed2d5e718e
+K
+PiHome/templates/cards.html,b/1/b1087cfa0c44e729ba744fbcad772a514edefaf7
+O
+PiHome/templates/showUsers.html,e/7/e71b8c9f686bfced5a295b3125862e87a3321b6b
+O
+PiHome/templates/showCards.html,f/d/fd363a22ddd808f3dfdaf0add95edf2e5520879c
+D
+PiHome/utils/base.py,7/b/7b20dda89e356e740b5662e2c53a030758fe3ec5

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- code: utf-8 -*-
 from wtforms import StringField, validators, PasswordField, Form, BooleanField
 from wtforms.fields.html5 import EmailField
 
@@ -6,8 +8,7 @@ from PiHome.user.model import User
 
 class SignUpForm(Form):
     """
-        Formulario de registro en el site
-
+        Formulario de registro de un usuario
         Datos requeridos al usuario:
         :name:
         :email:
@@ -37,7 +38,7 @@ class SignUpForm(Form):
     ])
 
     @staticmethod
-    def validate_email(field):
+    def validate_email(self, field):
         """
             Comprueba que el correo introduccido no se encuentre en el sistema
             :param field:
@@ -48,9 +49,10 @@ class SignUpForm(Form):
             raise validators.ValidationError('Email ya registrado en el sistema.')
 
     @staticmethod
-    def validate_name(field):
+    def validate_name(self, field):
         """
             Comprueba que el nombre introduccido no se encuentre en el sistema
+            :param self:
             :param field:
         """
 

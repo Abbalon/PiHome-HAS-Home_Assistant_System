@@ -1,0 +1,17 @@
+{
+  "name": "PiHome",
+  "version":"0.0.1",
+  "description": "TFG by (BF0002) for UPM-ETSISI",
+  "launch_path": "/PiHome/templates/index.html",
+  "icons": {
+    "16": "PiHome/static/img/favicon.ico",
+    "48": "PiHome/static/img/favicon.ico",
+    "60": "PiHome/static/img/favicon.ico",
+    "128": "PiHome/static/img/favicon.ico"
+  },
+  "developer": {
+    "name": "Adrián Alonso del Peso",
+    "author_email":"a.alonsod@alumnos.upm.es",
+    "url": "http://example.com"
+  }
+}

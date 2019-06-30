@@ -25,6 +25,9 @@ from PiHome.group.controller import group_ctr
 from PiHome.admin.controller import admin_ctr
 from PiHome.home.controller import home_ctr
 from PiHome.utils.db_setUp import __create_foreign_keys
+from PiHome.transit.controller import transit_ctr
+from PiHome.card.controller import card_ctr
+
 
 
 # Sample HTTP error handling
@@ -38,6 +41,8 @@ app.register_blueprint(admin_ctr)
 app.register_blueprint(user_ctr)
 app.register_blueprint(home_ctr)
 app.register_blueprint(group_ctr)
+app.register_blueprint(transit_ctr)
+app.register_blueprint(card_ctr)
 
 """
 Prevención de XSS & XSRF
@@ -48,12 +53,14 @@ csrf = CSRFProtect()
 Inicializa la aplicación y arranca los servicios necesarios
 """
 
-csrf.init_app(app)  # Inicia la aplicación con la cofiguración establecida
-db.init_app(app)  # Carga la configuración de la bd
-mail.init_app(app)  # Arranca el servidor de correo
+if __name__ == "PiHome":
+    csrf.init_app(app)  # Inicia la aplicación con la cofiguración establecida
+    db.init_app(app)  # Carga la configuración de la bd
+    mail.init_app(app)  # Arranca el servidor de correo
+    # mail.init_mail()
 
-with app.app_context():
-    # db.drop_all()  # Borra la BD
-    db.create_all()  # Crea las tablas que no existan
-    __create_foreign_keys()
-    print("\nInicializada la aplicación.\n")
+    with app.app_context():
+        db.drop_all()  # Borra la BD
+        db.create_all()  # Crea las tablas que no existan
+        __create_foreign_keys()
+        print("Inicializada la aplicación.")

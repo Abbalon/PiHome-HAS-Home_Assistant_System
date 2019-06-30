@@ -2,13 +2,19 @@
 import threading
 
 from flask import Blueprint, session, flash, render_template, redirect, url_for, copy_current_request_context, request
+from flask_mail import Message
 
 from PiHome import db
+from PiHome import mail, app
 from PiHome.home.form import LogInForm, ContactForm
 from PiHome.user.form import SignUpForm
 from PiHome.user.model import User
+from PiHome.utils.base import Home
+from PiHome.utils.mail import send_email
 
 home_ctr = Blueprint('home', __name__, url_prefix='')
+
+home = Home()
 
 
 @home_ctr.route('/')
@@ -18,21 +24,17 @@ def index():
         Gestión de la llamada a la página principal
     """
 
-    #: Titulo por defecto si no hay nadie logeado
-    nombre = "TFG"
-    category = 0
+    _base = home.get_base_params(_dynamic=1)
 
     if 'name' in session:
         if session['name'] != '':
-            nombre = session['name']
-            category = session['category']
+            _base = home.get_base_params("Bienvenido " + session['name'], 1)
             flash('Estás logeado')
     else:
         flash('No estás logeado')
 
     return render_template('index.html',
-                           title=nombre,
-                           category=category)
+                           base=_base)
 
 
 @home_ctr.route('/logIn', methods=['GET', 'POST'])
@@ -40,6 +42,8 @@ def log_in():
     """
         Enrutamiento y control del acceso al sistema
     """
+    _base = home.get_base_params()
+
     error = None
     log_in_form = LogInForm(request.form)
     for data in log_in_form:
@@ -64,7 +68,7 @@ def log_in():
             flash('¡El nombre o la contraseña parecen no ser correctas!')
 
     return render_template('logIn.html',
-                           title="Who are you?",
+                           base=home.get_base_params("Who are you?"),
                            error=error,
                            form=log_in_form)
 
@@ -75,18 +79,24 @@ def log_out():
         Salida del sistema
     """
 
-    if 'name' in session:
-        # Elimina el 'username' de la sesión si es que estaba logeado
-        session.pop('name', None)
-        session.pop('category', None)
-
     if 'logged_in' in session:
         # Elimina el estado de la sesión si es que estaba logeado
-        session.pop('logged_in', None)
+        reset_session()
+        # session.pop('logged_in', None)
+        # session.pop('name', None)
+        # session.pop('category', None)
+        # session.pop('dynamic', None)
 
     flash('Te has deslogeado correctamente')
 
-    return redirect(url_for('index'))
+    return redirect(url_for('home.index'))
+
+
+def reset_session():
+    session.pop('name', None)
+    session.pop('logged_in', False)
+    session.pop('category', None)
+    home.set_default()
 
 
 @home_ctr.route('/signUp', methods=['GET', 'POST'])
@@ -95,9 +105,14 @@ def sign_up():
         Enrutamiento y control del registro al sistema.
 
         Datos a insertar por el usuario:
+        :param name
+        :param email
+        :param password
 
-        name, email, password
+        :see PiHome.user.form.SignUpForm
     """
+
+    _base = home.get_base_params()
 
     sign_up_form = SignUpForm(request.form)
 
@@ -109,8 +124,8 @@ def sign_up():
             password=sign_up_form.password.data
         )
 
-        for value in sign_up_form:
-            print(value.data)
+        # for value in sign_up_form:
+        #     print(value.data)
 
         flash('Gracias por registrarte')
 
@@ -131,23 +146,25 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('logIn',
+        return redirect(url_for('home.log_in',
                                 name=sign_up_form.name.data))
 
     return render_template('signUp.html',
-                           title="Let's Sign Up",
+                           base=home.get_base_params("Let's Sign Up"),
                            form=sign_up_form)
 
 
 @home_ctr.route('/elements')
 def elements():
+    dynamic = 0
     if 'category' in session:
         category = session['category']
+        dynamic = 0
     else:
         category = 0
 
     return render_template('elements.html',
-                           category=category)
+                           base=home.get_base_params("Ejemplos de Elementos", dynamic))
 
 
 @home_ctr.route('/contact', methods=['GET', 'POST'])
@@ -164,3 +181,16 @@ def contact():
 @home_ctr.route('/Anteproyecto')
 def ante():
     return render_template('Anteproyecto_TFG.html')
+
+
+@home_ctr.route('/TestEmail')
+def test_email():
+    msg = Message(subject="Envio de email de prueba",
+                  sender=app.config['DEFAULT_MAIL_SENDER'],
+                  recipients=[app.config['TEST_MAIL_SENDER']],
+                  body="Te ha llegado un correo")
+
+    mail.send(msg)
+
+    return redirect(url_for('home.index',
+                            message="That's ok"))

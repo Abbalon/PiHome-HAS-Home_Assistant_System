@@ -21,14 +21,27 @@ SECRET_KEY = os.urandom(16)
 __debugURLAdmin = 'mysql+pymysql://PiHome_test:2ZtvzkiSTMYCDQ79@localhost:3306/PiHome_test'
 __debugURLUser = 'mysql+pymysql://PiHome:oGTeQs7GunK7xXL7@localhost:3306/PiHome'
 
-
 SQLALCHEMY_DATABASE_URI = __debugURLAdmin
 SQLALCHEMY_ECHO = True
 
+"""
+    Parámetros para la conguración del WebMailServer
+"""
+MAIL_SERVER = 'smtp.gmail.com'
+# MAIL_PORT = 465
+# MAIL_USE_SSL = True
+# MAIL_USE_TLS = False
+MAIL_PORT = 587
+MAIL_USE_SSL = False
+MAIL_USE_TLS = True
 MAIL_USERNAME = 'PiDomoticTFG@gmail.com'
-DEFAULT_MAIL_SENDER = 'Pi.Domotic.TFG+Bienvenida@gmail.com'
-MAIL_PASSWORD = r'\xab\xeb\xf3\x0c\xeb\xe0\xf5\x96\xf0\xc0\xc7\xe6\x85\x98\xc3\x0b'  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+DEFAULT_MAIL_SENDER = 'PiDomoticTFG+Bienvenida@gmail.com'
+MAIL_PASSWORD = '#Clave de PiD@motic#'  # r'\xab\xeb\xf3\x0c\xeb\xe0\xf5\x96\xf0\xc0\xc7\xe6\x85\x98\xc3\x0b'  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+MAIL_DEBUG = True
+TEST_MAIL_SENDER = 'PiDomoticTFG+test@gmail.com'
 
 # Use a secure, unique and absolutely secret key for
 # signing the data.
 # CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+
+GITHUB_TOKEN = "210e096898ec6f58390694cf27cae145027d1893"

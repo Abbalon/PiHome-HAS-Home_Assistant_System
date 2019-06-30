@@ -4,5 +4,5 @@ wtforms
 flask_wtf
 flask-sqlalchemy
 pymysql
-flask-mail
+Flask-mail
 digi-xbee

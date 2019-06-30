@@ -2,17 +2,7 @@
 
 <!-- Asigna el 'title' deseado a la página -->
 {% block title %}
-    {{ title }}
-{% endblock %}
-
-<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
-{% block body %}
-    <body class="landing">
-{% endblock %}
-
-<!-- Habilita que el comportamiento dinámico del 'header' de la página -->
-{% block header %}
-    <header id="header" class="alt">
+    {{ base.title }}
 {% endblock %}
 
 {% block content %}
@@ -20,12 +10,13 @@
     <!-- Banner -->
     <section id="banner" class="alt">
         <p>Sistema de seguridad y control domótico</p>
-        <h2>Pi-Domotic</h2>
+        <h2>PiHome</h2>
         <ul class="actions">
             {% if category == 0 %}
                 <li><a href="logIn" class="button special">Log In</a></li>
             {% endif %}
             <li><a href="Anteproyecto" class="button">Learn More</a></li>
+            <li><a href="TestEmail" class="button">Test Email</a></li>
         </ul>
     </section>
 
