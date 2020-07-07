@@ -19,7 +19,7 @@ class Card(BaseDB):
     )
 
     ref = db.Column(
-        db.String(255),
+        db.String(250),
         unique=True,
         default=None
     )

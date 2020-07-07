@@ -27,7 +27,7 @@ class User(BaseDB):
         db.String(56),
         unique=True)
     password = db.Column(
-        db.String(250),
+        db.String(255),
         nullable=False)
     validated = db.Column(
         db.Boolean,
