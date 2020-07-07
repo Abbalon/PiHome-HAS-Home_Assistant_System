@@ -5,10 +5,6 @@ B
 config/__init__.py,7/c/7c4c5de0ae6801f08fa7c742af850c6198fdb35d
 A
 config/default.py,c/a/ca2a0426270bd0ca5da7132e861e174c5d03ab89
-B
-instance/config.py,9/e/9ef9e57bb1dd862e21312dccaa78ebc0b30b4661
-A
-instance/start.sh,2/4/2451a62a5043503e21c639e3544def03ec60f0bb
 H
 PiHome/admin/__init__.py,6/7/67a5b4679899b2eb77ca3c25375c5064dc1ed527
 E
@@ -121,8 +117,6 @@ F
 venv/bin/activate.fish,f/b/fb76317573a0b94c3c617c7b90f9937da17ae463
 E
 venv/bin/easy_install,8/0/809938ca976ce78453686d96abd32fe1b46886d2
-I
-venv/bin/easy_install-3.6,d/b/dbe4e51046347eceab6dc5655dc1db11b7141d76
 >
 venv/bin/flask,d/d/ddf0c22dc59a34769b4dd599afe5ad658fcee942
 D
@@ -131,10 +125,6 @@ D
 venv/bin/pip,6/3/6330e727bad9564402c90171cbcb5d73f5fe2488
 =
 venv/bin/pip3,2/4/244a2027d091cdf937f07a23b9a42b5acc307816
-?
-venv/bin/pip3.6,1/1/11c172a1bc6a9939b725fe06f019a61e14dcf483
-G
-venv/pip-selfcheck.json,8/a/8a0b96bbbd6b15439195465271a1624c266580d4
 ?
 venv/pyvenv.cfg,b/0/b0e04816a9971064291cd324e57037faa4a05306
 :
@@ -182,3 +172,5 @@ O
 PiHome/templates/showCards.html,f/d/fd363a22ddd808f3dfdaf0add95edf2e5520879c
 D
 PiHome/utils/base.py,7/b/7b20dda89e356e740b5662e2c53a030758fe3ec5
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
