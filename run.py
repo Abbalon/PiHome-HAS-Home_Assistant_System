@@ -4,6 +4,6 @@ from PiHome import app
 if __name__ == "__main__":
     try:
         print("Arrancando la aplicación.")
-        app.run(port=8000, debug=True)
+        app.run(port=8000)
     except Exception as e:
         print(e)

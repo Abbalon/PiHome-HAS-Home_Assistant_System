@@ -8,7 +8,7 @@ local machine for development. Since this file will be read in after default.py,
 """
 import os
 
-DEBUG = True
+DEBUG = False
 # This is a secret key that is used by Flask to sign cookies. It’s also used by extensions like Flask-Bcrypt. You should
 # define this in your instance folder to keep it out of version control. You can read more about instance folders
 # in the next section.
