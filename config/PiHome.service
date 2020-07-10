@@ -1,0 +1,17 @@
+[Unit]
+Description=Servicio de la WebApp PiHome
+DefaultDependencies=no
+After=network.target
+
+[Service]
+Type=simple
+User=pi_home
+Group=pi_home
+TimeoutStartSec=5
+WorkingDirectory=/mnt/Almacenamiento/Utils/Deb/TFG
+ExecStart=instance/start.sh
+Restart=always
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
