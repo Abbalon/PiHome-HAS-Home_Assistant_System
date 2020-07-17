@@ -182,3 +182,5 @@ O
 PiHome/templates/showCards.html,f/d/fd363a22ddd808f3dfdaf0add95edf2e5520879c
 D
 PiHome/utils/base.py,7/b/7b20dda89e356e740b5662e2c53a030758fe3ec5
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
