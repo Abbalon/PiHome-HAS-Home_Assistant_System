@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 # Import a module / component using its blueprint handler variable (mod_auth)
 from PiHome.user.controller import user_ctr
 from PiHome.group.controller import group_ctr
-from PiHome.admin.controller import admin_ctr
+from PiHome.admin.controller import admin_ctrq
 from PiHome.home.controller import home_ctr
 from PiHome.utils.db_setUp import __create_foreign_keys
 from PiHome.transit.controller import transit_ctr
