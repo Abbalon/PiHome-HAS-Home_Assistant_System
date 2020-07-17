@@ -1,3 +1,4 @@
+#!venv/bin/python
 # -*- code: utf-8 -*-
 """
     Módulo que establece la metainformación del sistema
