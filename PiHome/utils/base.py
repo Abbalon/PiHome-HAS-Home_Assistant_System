@@ -67,11 +67,17 @@ class ShowData:
     footer : [object]
         Si se tiene que mostrar algun valor resumatorio
     """
-    title: str
-    definition: str
-    header: [str]
-    data: [str]
-    footer: [str]
+    # title: str
+    # definition: str
+    # header: [str]
+    # data: [str]
+    # footer: [str]
+
+    title = None
+    definition = None
+    header = None
+    data = None
+    footer = None
 
     def __init__(self, _title="Title not defined", _header=None, _data=None, **kwargs) -> None:
         super().__init__()

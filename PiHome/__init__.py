@@ -1,3 +1,4 @@
+#!venv/bin/python
 # Import flask and template operators
 from flask import Flask, render_template
 # Import SQLAlchemy
