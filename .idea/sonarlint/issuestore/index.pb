@@ -1,6 +1,4 @@
 
-R
-".idea/libraries/R_User_Library.xml,6/d/6d98398ba57e54c349768a67ba774932f4b5c3d7
 B
 config/__init__.py,7/c/7c4c5de0ae6801f08fa7c742af850c6198fdb35d
 A
@@ -121,8 +119,6 @@ F
 venv/bin/activate.fish,f/b/fb76317573a0b94c3c617c7b90f9937da17ae463
 E
 venv/bin/easy_install,8/0/809938ca976ce78453686d96abd32fe1b46886d2
-I
-venv/bin/easy_install-3.6,d/b/dbe4e51046347eceab6dc5655dc1db11b7141d76
 >
 venv/bin/flask,d/d/ddf0c22dc59a34769b4dd599afe5ad658fcee942
 D
@@ -131,10 +127,6 @@ D
 venv/bin/pip,6/3/6330e727bad9564402c90171cbcb5d73f5fe2488
 =
 venv/bin/pip3,2/4/244a2027d091cdf937f07a23b9a42b5acc307816
-?
-venv/bin/pip3.6,1/1/11c172a1bc6a9939b725fe06f019a61e14dcf483
-G
-venv/pip-selfcheck.json,8/a/8a0b96bbbd6b15439195465271a1624c266580d4
 ?
 venv/pyvenv.cfg,b/0/b0e04816a9971064291cd324e57037faa4a05306
 :
@@ -162,8 +154,6 @@ L
 PiHome/transit/controller.py,5/a/5a2b656dc2d73d9331804e6101671ce8d390978d
 ?
 manifest.webapp,3/c/3cd3e2f27019b2dec0d887213ad8fd747233fb1d
-M
-.idea/dictionaries/montbs.xml,c/d/cdbe5562cf5e80b950eed77dfe7a672afdb1d06e
 D
 PiHome/utils/mail.py,b/0/b0317a5bbb1a52f2cf499f933a274d3d8f438995
 I

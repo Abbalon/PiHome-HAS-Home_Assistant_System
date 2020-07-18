@@ -1,4 +1,4 @@
-#!/home/montbs/Drive/Uni/TFG/Desarrollo/TFG/venv/bin/python
+#!/home/montbs/Drive/Uni/TFG/Desarrollo/TFG/venv/bin/python3
 #
 # Very simple serial terminal
 #
