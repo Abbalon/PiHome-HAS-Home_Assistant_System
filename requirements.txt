@@ -6,3 +6,6 @@ flask-sqlalchemy
 pymysql
 Flask-mail
 digi-xbee
+pyserial
+setuptools
+SQLAlchemy

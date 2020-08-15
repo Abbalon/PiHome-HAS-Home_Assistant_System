@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- code: utf-8 -*-
+"""
+	Clase que define la información que vamos a almacenar del transito de los ususarios del sistema
+"""
 import datetime
 
 from PiHome import db

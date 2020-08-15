@@ -12,9 +12,11 @@
     <title>{% block title %} {% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!--[if lte IE 8]><script src="static/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]>
+    <script src="static/js/ie/html5shiv.js"></script><![endif]-->
 
-    <!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="static/css/ie8.css"/><![endif]-->
 
     {#    <script src=""></script>#}
 
@@ -75,7 +77,7 @@
                         <a href="#" class="icon fa-angle-left"> Informes</a>
                         <ul>
                             <li><a href="#">Mostar usuarios</a></li>
-                            <li><a href="#">Mostar transito</a></li>
+                            <li><a href="/transit/get">Mostar transito</a></li>
                         </ul>
                     </li>
 
@@ -144,6 +146,8 @@
 
 <!-- Código para Flask -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
 

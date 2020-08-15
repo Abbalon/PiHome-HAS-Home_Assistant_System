@@ -1,0 +1,109 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ base.title }}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+
+        {% if form %}
+            <div class="box">
+                <header>
+                    <h2>Campos de búsqueda</h2>
+                </header>
+                <form method="POST" action="#">
+                    <!-- Campo "Usuario" del formulario -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            {{ Render_field(form.user_name, placeholder = "Nombre del usuario que se desa filtar") }}
+                        </div>
+                    </div>
+
+                    <!-- Campo "Fecha desde" del formulario -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            {{ Render_field(form.f_inicio, placeholder="Filtrará los registros desde esta fecha") }}
+                        </div>
+                    </div>
+
+                    <!-- Campo "Fecha hasta" del formulario -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            {{ Render_field(form.f_fin, placeholder="Filtrará los registros hasta esta fecha") }}
+                        </div>
+                    </div>
+
+                    <!-- Prevención de ataques CSRF -->
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                    <!-- Botones del formulario -->
+                    <div class="row uniform">
+                        <div class="12u">
+                            <ul class="actions align-center">
+                                <li><input type="submit" value="Filtar"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+
+        {% if results %}
+            <header>
+                <h2>Mostrando el {{ table }}</h2>
+            </header>
+
+            <div class="row">
+                <div class="12u">
+
+                    <!-- Table -->
+                    <section class="box">
+                        <h3>{{ results.title }}</h3>
+
+                        <h4>Default</h4>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                <tr>
+                                    {% for col in results.header %}
+                                        <th>{{ col }}</th>
+                                    {% endfor %}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if results.data %}
+                                    {% for row in results.data %}
+                                        <tr>
+                                            <td>{{ row.user_id }}</td>
+                                            <td>{{ row.action }}</td>
+                                            <td>{{ row.ocurred }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td>100.00</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        {% else %}
+            <header>
+                <h2>La consulta está vacia</h2>
+            </header>
+        {% endif %}
+    </section>
+
+{% endblock %}

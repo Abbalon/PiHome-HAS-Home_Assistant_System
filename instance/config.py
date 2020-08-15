@@ -41,6 +41,9 @@ MAIL_PASSWORD = '#Clave de PiD@motic#'  # r'\xab\xeb\xf3\x0c\xeb\xe0\xf5\x96\xf0
 MAIL_DEBUG = True
 TEST_MAIL_SENDER = 'PiDomoticTFG+test@gmail.com'
 
+# Setting a preconfigured XBee port
+# XBEE_PORT = search_xbee_port()
+
 # Use a secure, unique and absolutely secret key for
 # signing the data.
 # CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
