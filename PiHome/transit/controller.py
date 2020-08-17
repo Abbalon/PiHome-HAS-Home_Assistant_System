@@ -5,11 +5,12 @@ Fichero que maneja la extración de datos del tránsito de usuarios
 """
 from flask import Blueprint, session, render_template, request
 # Define the blueprint: 'transit', set its url prefix: app.url/auth
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from sqlalchemy import func, and_
 
 from PiHome.transit.form import TransitFilter
 from PiHome.transit.model import TransitLog
+from PiHome.user import controller as UserDAO
 from PiHome.utils.base import Home, ShowData
 
 transit_ctr = Blueprint('transit', __name__, url_prefix='/transit')
@@ -17,10 +18,10 @@ transit_ctr = Blueprint('transit', __name__, url_prefix='/transit')
 home = Home()
 
 
-def ejecutar_busqueda(filter_form: Form):
+def ejecutar_busqueda(filter_form: FlaskForm):
     _user = filter_form.user_name.data
-    _f_ini = filter_form.f_inicio.data
-    _f_fin = filter_form.f_fin.data
+    _f_ini = filter_form.f_inicio.raw_data
+    _f_fin = filter_form.f_fin.raw_data
 
     body = None
 
@@ -87,11 +88,14 @@ def get(**filtro):
     if 'name' in session and session['name'] != '':
         header = ["Usuario", "Acción", "Fecha"]
         filter_form = TransitFilter(request.form)
-        if session['category'] in (3, 2) and not request.method == 'POST':
-            _base = home.get_base_params("Mostrando prueba de lista", 0)
+        filter_form.user_name.choices = UserDAO.get_user_lite_list()
+        if session['category'] in (3, 2):
+            if not request.method == 'POST':
+                _base = home.get_base_params("Mostrando prueba de lista", 0)
+            else:
+                body = ejecutar_busqueda(filter_form)
 
         try:
-            body = ejecutar_busqueda(filter_form)
             transit = ShowData(title, header, body)
         except:
             transit = None

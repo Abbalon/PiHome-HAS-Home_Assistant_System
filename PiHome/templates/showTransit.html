@@ -21,21 +21,19 @@
                     <!-- Campo "Usuario" del formulario -->
                     <div class="row uniform 50%">
                         <div class="12u">
+                            {{ Render_field(form.user_name_lb) }}
                             {{ Render_field(form.user_name, placeholder = "Nombre del usuario que se desa filtar") }}
                         </div>
                     </div>
-
-                    <!-- Campo "Fecha desde" del formulario -->
                     <div class="row uniform 50%">
-                        <div class="12u">
-                            {{ Render_field(form.f_inicio, placeholder="Filtrará los registros desde esta fecha") }}
+                        <!-- Campos "Fecha desde" y "Fecha hasta" del formulario -->
+                        <div class="6u 12u(mobilep)">
+                            {{ Render_field(form.f_inicio_lb) }}
+                            {{ Render_field(form.f_inicio, placeholder="Filtrará los registros desde esta fecha (dd/mm/yyyy)") }}
                         </div>
-                    </div>
-
-                    <!-- Campo "Fecha hasta" del formulario -->
-                    <div class="row uniform 50%">
-                        <div class="12u">
-                            {{ Render_field(form.f_fin, placeholder="Filtrará los registros hasta esta fecha") }}
+                        <div class="6u 12u(mobilep)">
+                            {{ Render_field(form.f_fin_lb) }}
+                            {{ Render_field(form.f_fin, placeholder="Filtrará los registros hasta esta fecha (dd/mm/yyyy)") }}
                         </div>
                     </div>
 
@@ -46,7 +44,10 @@
                     <div class="row uniform">
                         <div class="12u">
                             <ul class="actions align-center">
-                                <li><input type="submit" value="Filtar"/></li>
+                                <li>
+                                    <input type="submit" value="Filtar"/>
+                                    {#                                    {{ Render_field(form.submit) }}#}
+                                </li>
                             </ul>
                         </div>
                     </div>
