@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- code: utf-8 -*-
+from sqlalchemy import UniqueConstraint
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from PiHome import db
@@ -13,14 +14,16 @@ class User(BaseDB):
 
     #: Nombre de tabla
     __tablename__ = 'users'
+    __table_args__ = (
+        UniqueConstraint("name", "email"),
+    )
 
     group_Id = db.Column(
         db.Integer,
         db.ForeignKey('groups.id'),
         nullable=False)
     name = db.Column(
-        db.String(25),
-        unique=True)
+        db.String(25))
     label = db.Column(
         db.String(25))
     email = db.Column(

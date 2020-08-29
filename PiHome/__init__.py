@@ -44,6 +44,7 @@ from PiHome.home.controller import home_ctr
 from PiHome.utils.db_setUp import __create_foreign_keys
 from PiHome.transit.controller import transit_ctr
 from PiHome.card.controller import card_ctr
+from PiHome.device.controller import device_ctr
 
 
 # Sample HTTP error handling
@@ -59,6 +60,7 @@ app.register_blueprint(home_ctr)
 app.register_blueprint(group_ctr)
 app.register_blueprint(transit_ctr)
 app.register_blueprint(card_ctr)
+app.register_blueprint(device_ctr)
 
 """
 Prevención de XSS & XSRF

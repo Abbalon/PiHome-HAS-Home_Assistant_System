@@ -15,6 +15,9 @@ from flask import Flask
 xbeeAntenaWhiteList = ['FT232R', 'UART']
 PING = "CMD:PING"
 
+DEVICE_CLOSED_ERROR_MSG = 'XBee device\'s serial port closed.'
+DEVICE_OPENED_ERROR_MSG = 'XBee device already open.'
+
 
 class XBee(ZigBeeDevice):
     """Clase que representa las antenas xbee que serán la principàl interface de comunicación del dispositivo
@@ -200,7 +203,7 @@ class XBee(ZigBeeDevice):
 
         return recived_msg
 
-    def esperar_hasta_recibir_orden(self) -> str:
+    def esperar_hasta_recibir_orden(self):
         """
             Bucle que no finaliza hasta que se recibe un mensaje
             @return El mensaje recibido, None si la antena está cerrada
@@ -208,13 +211,16 @@ class XBee(ZigBeeDevice):
         recived_msg = None
         if self.is_open():
             recived_order = None
-            while recived_order is None:
-                recived_order = self.read_data()
+            while True:
+                try:
+                    recived_order = self.read_data()
+                except XBeeException as ebe:
+                    if DEVICE_CLOSED_ERROR_MSG in ebe.args[0] and not self.is_open():
+                        self.open()
+                        self.logger.warning(ebe.args[0])
                 if recived_order is not None:
                     recived_msg = str(recived_order.data.decode("utf8"))
-                # self.logger.debug(".")
-
-        return recived_msg
+                    self.logger.debug(recived_msg)
 
     def init_app(self, xbee_thread: Thread):
         """Instanciamos una antena XBeee a partir de un dispositivo ZigBeeDevice

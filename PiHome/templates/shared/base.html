@@ -21,6 +21,7 @@
     {#    <script src=""></script>#}
 
     <!-- Flask -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- Fin Flask -->
@@ -52,6 +53,13 @@
         <li><a href="/elements">Elements</a></li>
         {% if base.category == 2 or base.category == 3 %}
             {#Vista del navbar del Administrador#}
+            <li>{#Dispositivos#}
+                <a href="#" class="icon fa-angle-down">Dispositivos</a>
+                <ul>
+                    {#Listar dispositivos#}
+                    <li><a href="/device/list">Listar dispositivos</a></li>
+                </ul>
+            </li>
             <li>{#Mantenimiento#}
                 <a href="#" class="icon fa-angle-down">Mantenimiento</a>
                 <ul>
@@ -144,19 +152,21 @@
 
 <!-- Scripts -->
 
+<!-- Imports para bootstap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+<!-- Fin Imports para bootstap -->
 <!-- Código para Flask -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-
-<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.scrollgress.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- Fin Código para Flask -->
 

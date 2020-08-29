@@ -1,0 +1,63 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ base.title }}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>{{ body.header }}</h2>
+        </header>
+        {# Empieza el for#}
+{#        <div class="row">#}
+{#            <div class="12u">#}
+{#                <a href="#" class="accordion button fit small">Section 1</a>#}
+{#                <section class="box panel">#}
+{#                    <div class="3u 6u$(narrower) 12u$(mobilep)">#}
+{#                        <ul class="actions vertical small">#}
+{#                            <li><a href="#" class="button special small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button alt small fit">Section 1</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </section>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="row">#}
+{#            <div class="12u">#}
+{#                <a href="#" class="accordion button fit small">Section 2</a>#}
+{#                <section class="box panel">#}
+{#                    <div class="3u 6u$(narrower) 12u$(mobilep)">#}
+{#                        <ul class="actions vertical small">#}
+{#                            <li><a href="#" class="button special small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button alt small fit">Section 1</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </section>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="row">#}
+{#            <div class="12u">#}
+{#                <a href="#" class="accordion button fit small">Section 1</a>#}
+{#                <section class="box panel">#}
+{#                    <div class="3u 6u$(narrower) 12u$(mobilep)">#}
+{#                        <ul class="actions vertical small">#}
+{#                            <li><a href="#" class="button special small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button small fit">Section 1</a></li>#}
+{#                            <li><a href="#" class="button alt small fit">Section 1</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </section>#}
+{#            </div>#}
+{#        </div>#}
+        {# Fin del for#}
+    </section>
+
+{% endblock %}
