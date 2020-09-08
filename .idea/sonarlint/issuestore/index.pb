@@ -405,3 +405,7 @@ M
 PiHome/templates/devices.html,b/b/bb868b3695efd876809322f63a84b53679c5b7d7
 I
 PiHome/device/__init__.py,b/c/bcb0e1a19730664f9df911ac235a3330b861252b
+J
+PiHome/static/js/device.js,8/b/8bf3dfdf6d792e21297aedcc883d3ce8238891f3
+J
+PiHome/device/cerradura.py,5/b/5b1a3c2e9f5edb4ac92ed198608a3a26f90ea0b6

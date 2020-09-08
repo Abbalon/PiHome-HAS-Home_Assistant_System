@@ -7,6 +7,11 @@
     {{ base.title }}
 {% endblock %}
 
+<!-- Incorpora los scripts necesarios para la vista -->
+{% block foot_scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/device.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
     <!-- Main -->
@@ -14,25 +19,57 @@
         <header>
             <h2>{{ body.header }}</h2>
         </header>
-        <div id="accordion">
-            {# Empieza el for#}
-            <div class="row uniform 50%">
-                <div class="12u">
-                    <h3 class="button fit small">Section 1</h3>
-                    <div class="box">
-                        <div class="3u 6u$(narrower) 12u$(mobilep)">
-                            <ul class="actions vertical small">
-                                <li><a href="#" class="button special small fit">Section 1</a></li>
-                                <li><a href="#" class="button special small fit">Section 1</a></li>
-                                <li><a href="#" class="button special small fit">Section 1</a></li>
-                            </ul>
+
+        {# Si hay dispositivos registrados#}
+        {% if body.data %}
+            <div id="accordion">
+                {# Empieza el for#}
+                {% for device, actions in body.data.items() %}
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <h3 class="button fit small">{{ device.name }}</h3>
+                            <section class="box">
+                                <div class="table-wrapper actions">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th><h4>Descripción</h4></th>
+                                            <th><h4>Acción</h4></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for action in actions %}
+                                            <tr>
+                                                <td>{{ action.description }}</td>
+                                                <td class="action">
+                                                     <a target="{{ url_for('device.do_action', dev=device.id, act=action.id) }}" class="button special small fit">{{ action.name }}</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
                         </div>
                     </div>
+                {% endfor %}
+                {# Fin del for#}
+            </div>
+            {#Si nos los hay#}
+        {% else %}
+            <div class="row">
+                <div class="12u">
+                    <section class="box">
+                        <h3>No se han encontrado dispositivos registrados en el sistema</h3>
+                        <blockquote>
+                            Para dar de alta un dispositivo, dirijase a la pantalla de <a href="/device/new">Alta
+                            dispositivo</a>
+                        </blockquote>
+                    </section>
                 </div>
             </div>
-
-        </div>
-        {# Fin del for#}
+        {% endif %}
     </section>
 
 {% endblock %}
+

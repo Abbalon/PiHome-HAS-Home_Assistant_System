@@ -26,6 +26,12 @@ class Device(BaseDB):
         db.String(32)
     )
 
+    id_external = db.Column(
+        db.String(64),
+        nullable=False,
+        unique=True
+    )
+
     id_remote = db.Column(
         db.String(64),
         nullable=False,
@@ -36,7 +42,7 @@ class Device(BaseDB):
         db.Boolean,
         default=False)
 
-    def __init__(self, name, id_remote, enabled, interface=None, **kwargs):
+    def __init__(self, name, id_external, id_remote, enabled, interface=None, **kwargs):
         super(Device, self).__init__(**kwargs)
         if name:
             self.name = name
@@ -44,7 +50,18 @@ class Device(BaseDB):
             self.interface = interface
         if enabled:
             self.enabled = enabled
+        self.id_external = id_external
         self.id_remote = id_remote
+
+    @staticmethod
+    def get_active_device_by_id(id: int):
+        """Retorna el dispositivo si estaá habilitado"""
+        return Device.query.filter_by(id=id, enabled=1).first()
+
+    @staticmethod
+    def get_active_devices():
+        """Retorna los dispositivos que estén habilitados"""
+        return Device.query.filter_by(enabled=1).all()
 
 
 class Action(BaseDB):
@@ -94,3 +111,17 @@ class Action(BaseDB):
         if way:
             self.is_executable = way
         self.description = description
+
+    @staticmethod
+    def get_executable_action(action, device: Device = None):
+        if device:
+            return Action.query.filter_by(id=action, id_device=device.id, is_executable=1).first()
+        else:
+            return Action.query.filter_by(id=action, is_executable=1).first()
+
+    @staticmethod
+    def get_executable_actions(device: Device = None):
+        if device:
+            return Action.query.filter_by(id_device=device.id, is_executable=1).all()
+        else:
+            return Action.query.filter_by(is_executable=1).all()

@@ -89,6 +89,14 @@ class XBee(ZigBeeDevice):
     def baudrate(self, value):
         self.__baudrate = str(value)
 
+    @property
+    def stack_input(self):
+        return self.__stack_input
+
+    @stack_input.setter
+    def stack_input(self, dict_list):
+        self.__stack_input = dict_list
+
     def __init__(self, app: Flask = None):
         """Constructor con la cofiguración seteada de la app
         Es necesario llamar a init_app, para iniciar la antena
@@ -124,6 +132,8 @@ class XBee(ZigBeeDevice):
             if not baudrate:
                 baudrate = 9600
             self.baudrate = baudrate
+
+            self.stack_input = {app.config['XBEE_MAC_ADRESS']: []}
         except Exception as e:
             msg = "ERROR: No se han podido precargar los valores del XB\n " + str(e)
             e.message = msg
@@ -143,29 +153,33 @@ class XBee(ZigBeeDevice):
 
         return format(atr)
 
-    def mandar_mensage(self, msg=PING) -> bool:
+    def mandar_mensage(self, dir_64, msg=PING, dir_16=None) -> TransmitStatusPacket:
+
         """
-            Manda el mensaje al destinatario por defecto.
+        Manda el mensaje al destinatario por defecto.
         """
-        ack: TransmitStatusPacket = None
+        ack: TransmitStatusPacket
         # Transformamos el mensaje recibido en un string tratable
         msg = str(msg)
         # Recuperamos la dirección del dispositivo remoto en formato de 64 bits
-        high = self.remote_zigbee.get_64bit_addr()
+        high = None
+        try:
+            print(self.get_64bit_addr())
+            dir_64 = XBee64BitAddress.from_hex_string(dir_64)
+            high = dir_64 or self.remote_zigbee.get_64bit_addr()
+        except:
+            high = XBee64BitAddress.UNKNOWN_ADDRESS
+
         # Recuperamos la dirección del dispositivo remoto en 16 bits o la marcamos como desconocida
-        low = self.remote_zigbee.get_16bit_addr() or XBee16BitAddress.UNKNOWN_ADDRESS
+        low = None
+        try:
+            low = XBee16BitAddress.from_hex_string(dir_16) or self.remote_zigbee.get_16bit_addr()
+        except:
+            low = XBee16BitAddress.UNKNOWN_ADDRESS
+
         try:
             # Intentamos mandar el mensaje
             ## Versión fragmentando el paquete
-            # beg: int = 0
-            # end: int = 75
-            # for i in range(0, int(len(msg) / 75) + 1):
-            #     _msg = msg[beg:end]
-            #     ack = super().send_data_64_16(high, low, _msg)
-            #     if ack.transmit_status is not TransmitStatus.SUCCESS:
-            #         print(format(ack))
-            #     beg = end
-            #     end += 75
 
             ## Versión sin fragmentar el paquete
             ack = super().send_data_64_16(high, low, msg)
@@ -175,11 +189,12 @@ class XBee(ZigBeeDevice):
 
         except Exception as e:
             self.logger.error("Se ha encontrado un error al mandar el mensaje\n\t" + str(e))
+            ack = super().send_data_64_16(high, low, msg)
             # Añadir código para el reintento
         else:
             # TODO Borrar esta traza de control
             self.logger.debug("Mandado mensaje:\t" + msg)
-            return ack.transmit_status is TransmitStatus.SUCCESS
+        return ack
 
     def __tratar_entrada(self, recived_msg: XBeeMessage):
         """
@@ -219,8 +234,14 @@ class XBee(ZigBeeDevice):
                         self.open()
                         self.logger.warning(ebe.args[0])
                 if recived_order is not None:
-                    recived_msg = str(recived_order.data.decode("utf8"))
-                    self.logger.debug(recived_msg)
+                    recived_msg = recived_order.data.decode("utf8")
+                    msg_origin_addr = str(recived_order.remote_device.get_64bit_addr())
+                    stack = self.stack_input.get(msg_origin_addr)
+                    if stack:
+                        stack.append(recived_msg)
+                    else :
+                        self.stack_input[msg_origin_addr] = [recived_msg]
+                    self.logger.debug(self.stack_input)
 
     def init_app(self, xbee_thread: Thread):
         """Instanciamos una antena XBeee a partir de un dispositivo ZigBeeDevice

@@ -35,6 +35,8 @@ try:
     xbee_thread = threading.Thread(name="XBee listening", target=xbee.esperar_hasta_recibir_orden)
 except XBeeInstanceException as xie:
     app.logger.warning(str(xie))
+except Exception as e:
+    app.logger.error(str(e))
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 from PiHome.user.controller import user_ctr

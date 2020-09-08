@@ -44,6 +44,7 @@
             activeHeader: "icon fa-chevron-up"
         };
 
+        // Added to original
         $('#accordion').accordion({
             header: "> div > div > h3",
             collapsible: true,

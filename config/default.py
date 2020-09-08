@@ -52,6 +52,7 @@ class DevelopmentConfig(Config):
     # XBEE_PORT = '/dev/ttyUSB0'  # Puerto en el que se encuentra el ZigBee
     XBEE_PORT = ['/dev/ttyUSB0']
     XBEE_BAUDRATE = 9600  # Frecuencia de emisión
+    XBEE_MAC_ADRESS = '0013A200415135C7'
 
     """docstring for DevelopmentConfig"""
 

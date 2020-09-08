@@ -63,45 +63,6 @@
                                 </form>
                             </table>
                         </div>
-
-                        {#                        <h4>Alternate</h4>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Grupo</th>
-                                    <th>Nombre usuario</th>
-                                    <th>Email</th>
-                                    <th>Validar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <form method="POST">
-                                    {% for row in results %}
-                                        <tr>
-                                            <td>{{ row.category }}</td>
-                                            <td>{{ row.name }}</td>
-                                            <td>{{ row.email }}</td>
-                                            <td><input type="checkbox" id="val_{{ row.id }}" name="verified"
-                                                       value="{{ row.id }}"/> <label for="val_{{ row.id }}"></label>
-                                            </td>
-                                            <td><input type="checkbox" id="den_{{ row.id }}" name="denied"
-                                                       value="{{ row.id }}"/> <label for="den_{{ row.id }}"></label>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    <!-- Prevención de ataques CSRF -->
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                </form>
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="2"></td>
-                                    <td> {{ form.submit }} </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                        </div>#}
                     </section>
 
                 </div>

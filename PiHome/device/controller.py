@@ -2,8 +2,9 @@
 """
 Fichero que maneja el comportamiento de las tarjetas
 """
-from flask import Blueprint, session, render_template
+from flask import Blueprint, session, render_template, request, jsonify
 
+from PiHome.device.cerradura import Cerradura
 from PiHome.device.model import Device, Action
 from PiHome.utils.base import Home, ShowData
 
@@ -28,13 +29,66 @@ def get_device():
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
             __base = __home.get_base_params("Dispositivos")
-            __body = ShowData(__header="Dispositivos disponibles")
-            __body.data = Action.query.filter(
-                Action.is_executable == True).join('device').add_columns(
-                Device.name,
-                Action.name).all()
+            __body = ShowData(_header="Dispositivos disponibles")
+            __body.data = get_devices_list()
             return render_template(__html,
                                    base=__base,
                                    body=__body)
     else:
         return render_template('error.html')
+
+
+def get_devices_list():
+    """Retorna un mapa con los dispositivos activos y sus acciones ejecutables"""
+    devices_dic = {}
+    devices_list = None
+    actions_list = None
+
+    devices_list = Device.get_active_devices()
+    for device in devices_list:
+        actions_list = Action.get_executable_actions(device)
+        devices_dic[device] = actions_list
+
+    return devices_dic
+
+
+# Listado de dispositivos implementados
+puerta_principal = Cerradura()
+
+
+@device_ctr.route('/do_action', methods=['GET'])
+def do_action():
+    """
+    Ejecuta las acción recibida para el dispositivo indicado
+    @param dev Id del dispositivo que realizará la acción
+    @param act Id de la acción que deberá reañlizar el dispositivo
+    @return:
+    """
+    response_dict = {}
+    response = None
+    _status: int = 200
+
+    if 'name' in session and session['name'] != '':
+        if session['category'] in (3, 2):
+            dev = request.args.get('dev', 0, type=int)
+            act = request.args.get('act', 0, type=int)
+            result = None  # TransmitStatusPacket
+
+            try:
+                if dev == 1:
+                    result = puerta_principal.do_action(dev, act)
+
+                if result:
+                    response_dict = result
+            except Exception as error:
+                response_dict = {'error': 'No se ha podido realizar la petición',
+                                 'description': [str(e) for e in error.args]}
+                _status = 500
+
+            response = jsonify(response_dict)
+            response.status_code = _status
+
+    else:
+        response = render_template('error.html')
+
+    return response

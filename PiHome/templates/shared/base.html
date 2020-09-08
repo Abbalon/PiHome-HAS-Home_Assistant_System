@@ -18,12 +18,15 @@
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="static/css/ie8.css"/><![endif]-->
 
-    {#    <script src=""></script>#}
-
     <!-- Flask -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- Fin Flask -->
+
+    <!-- Scripts específicos de cada vista -->
+    {#    En este espacio se podrán cargar los scripts/links necesarios para cada vista#}
+    {% block head_scripts %}{% endblock %}
+    <!-- Fin Scripts específicos de cada vista -->
 
 </head>
 
@@ -154,11 +157,15 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.scrollgress.min.js') }}"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- Fin Código para Flask -->
+<!-- Scripts específicos de cada vista -->
+{#    En este espacio se podrán cargar los scripts/links necesarios para cada vista#}
+{% block foot_scripts %}{% endblock %}
+<!-- Fin Scripts específicos de cada vista -->
 
 <!--</body>-->
 </body>

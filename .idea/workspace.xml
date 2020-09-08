@@ -29,23 +29,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE">
-      <change beforePath="$PROJECT_DIR$/.idea/TFG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TFG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/5631d0797154a5993b9baa9fc55a93a1dfe57f92" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/5631d0797154a5993b9baa9fc55a93a1dfe57f92" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a2b656dc2d73d9331804e6101671ce8d390978d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a2b656dc2d73d9331804e6101671ce8d390978d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PiHome/device/cerradura.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PiHome/static/js/device.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/static/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/device/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/device/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/static/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/static/js/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/templates/devices.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/devices.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/templates/elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/elements.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/templates/shared/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/shared/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/templates/showTransit.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/showTransit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/templates/showUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/showUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/templates/validate.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/validate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/utils/xbee.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/utils/xbee.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +59,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -83,6 +83,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/PiHome/utils/xbee.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -167,7 +170,14 @@
       <workItem from="1598721943304" duration="4166000" />
       <workItem from="1598860859667" duration="12840000" />
       <workItem from="1598949658675" duration="16122000" />
-      <workItem from="1599030228723" duration="1299000" />
+      <workItem from="1599030228723" duration="17878000" />
+      <workItem from="1599121403313" duration="12298000" />
+      <workItem from="1599237251122" duration="7715000" />
+      <workItem from="1599317389412" duration="8707000" />
+      <workItem from="1599394265593" duration="6064000" />
+      <workItem from="1599414404539" duration="6777000" />
+      <workItem from="1599493172863" duration="10329000" />
+      <workItem from="1599580097287" duration="13387000" />
     </task>
     <task id="LOCAL-00001" summary="trying merge master">
       <created>1595067136982</created>
@@ -211,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599032482057</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Accordion - Extra">
+      <created>1599032504590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599032504590</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +264,8 @@
     <MESSAGE value="Representación de la vista de consulta de tránsito" />
     <MESSAGE value="Se añade la pantalla para el control de los dispositivos" />
     <MESSAGE value="Accordion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Accordion" />
+    <MESSAGE value="Accordion - Extra" />
+    <option name="LAST_COMMIT_MESSAGE" value="Accordion - Extra" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -275,50 +293,50 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="479" y="400" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597404924677" />
-    <state x="609" y="757" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1595356364190">
+    <state x="609" y="757" width="529" height="181" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1599589183948">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="609" y="757" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1595356364190" />
-    <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1597516485836">
+    <state x="609" y="757" width="529" height="181" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599589183948" />
+    <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1599071842358">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597516485836" />
-    <state x="900" y="508" key="#xdebugger.evaluate" timestamp="1597681706971">
+    <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599071842358" />
+    <state x="45" y="463" width="825" height="511" key="#xdebugger.evaluate" timestamp="1599593504399">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="900" y="508" key="#xdebugger.evaluate/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597681706971" />
+    <state x="45" y="463" width="825" height="511" key="#xdebugger.evaluate/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593504399" />
     <state x="584" y="712" width="502" height="271" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1598959776530">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="584" y="712" width="502" height="271" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598959776530" />
-    <state width="1678" height="480" key="DebuggerActiveHint" timestamp="1597941863112">
+    <state width="1678" height="344" key="DebuggerActiveHint" timestamp="1599591243200">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state width="1678" height="480" key="DebuggerActiveHint/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597941863112" />
+    <state width="1678" height="344" key="DebuggerActiveHint/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599591243200" />
     <state x="628" y="606" key="FileChooserDialogImpl" timestamp="1597410359272">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="628" y="606" key="FileChooserDialogImpl/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597410359272" />
-    <state width="1028" height="225" key="GridCell.Tab.0.bottom" timestamp="1598986967910">
+    <state width="1634" height="225" key="GridCell.Tab.0.bottom" timestamp="1599593392485">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state width="1028" height="225" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598986967910" />
-    <state width="1181" height="225" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1598900690573" />
-    <state width="1028" height="225" key="GridCell.Tab.0.center" timestamp="1598986967910">
+    <state width="1634" height="225" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593392485" />
+    <state width="1874" height="225" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599149839423" />
+    <state width="1634" height="225" key="GridCell.Tab.0.center" timestamp="1599593392485">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state width="1028" height="225" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598986967910" />
-    <state width="1181" height="225" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1598900690573" />
-    <state width="1028" height="225" key="GridCell.Tab.0.left" timestamp="1598986967910">
+    <state width="1634" height="225" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593392485" />
+    <state width="1874" height="225" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599149839423" />
+    <state width="1634" height="225" key="GridCell.Tab.0.left" timestamp="1599593392485">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state width="1028" height="225" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598986967910" />
-    <state width="1181" height="225" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1598900690573" />
-    <state width="1027" height="225" key="GridCell.Tab.0.right" timestamp="1599031080830">
+    <state width="1634" height="225" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593392485" />
+    <state width="1874" height="225" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599149839423" />
+    <state width="1634" height="225" key="GridCell.Tab.0.right" timestamp="1599593392485">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state width="1027" height="225" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599031080830" />
-    <state width="1181" height="225" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1598900690573" />
+    <state width="1634" height="225" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593392485" />
+    <state width="1874" height="225" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599149839486" />
     <state width="1634" height="342" key="GridCell.Tab.1.bottom" timestamp="1597412309049">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
@@ -355,14 +373,14 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="577" y="389" key="SettingsEditor/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598962580576" />
-    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1598726619474">
+    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1599032590528">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598726619474" />
-    <state x="390" y="560" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597861496218">
+    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599032590528" />
+    <state x="390" y="560" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1599580590731">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="390" y="560" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597861496218" />
+    <state x="390" y="560" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599580590731" />
     <state x="1680" y="154" width="1329" height="1006" key="dock-window-1" timestamp="1597855803798">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -389,14 +407,24 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/device/controller.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PiHome/utils/xbee.py</url>
-          <line>132</line>
-          <option name="timeStamp" value="30" />
+          <line>191</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/device/cerradura.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1599031076569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1599593138864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
