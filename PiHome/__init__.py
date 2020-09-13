@@ -3,13 +3,12 @@
 import sys
 import threading
 
-from flask import Flask, render_template, logging
+from flask import Flask, render_template
 # Import SQLAlchemy
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 # Define the WSGI application object
 from flask_wtf import CSRFProtect
-
 
 from PiHome.utils.xbee import XBee, XBeeInstanceException
 
@@ -83,8 +82,8 @@ if __name__ == "PiHome":
 
         with app.app_context():
             # db.drop_all()  # Borra la BD
-            db.create_all()  # Crea las tablas que no existan
-            __create_foreign_keys()
+            # db.create_all()  # Crea las tablas que no existan
+            # __create_foreign_keys()
             print("Inicializada la aplicación.")
 
     except KeyboardInterrupt:

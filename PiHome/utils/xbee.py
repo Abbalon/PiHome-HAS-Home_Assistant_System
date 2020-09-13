@@ -11,12 +11,14 @@ from digi.xbee.models.status import TransmitStatus
 from digi.xbee.packets.common import TransmitStatusPacket
 from flask import Flask
 
+from PiHome.utils.stack_switcher import StackSwitcher
+
 """Lista de palabras que podría contener un shield con una antena xbee"""
 xbeeAntenaWhiteList = ['FT232R', 'UART']
 PING = "CMD:PING"
 
-DEVICE_CLOSED_ERROR_MSG = 'XBee device\'s serial port closed.'
-DEVICE_OPENED_ERROR_MSG = 'XBee device already open.'
+DEVICE_CLOSED_ERROR_MSG = 'XBee family\'s serial port closed.'
+DEVICE_OPENED_ERROR_MSG = 'XBee family already open.'
 
 
 class XBee(ZigBeeDevice):
@@ -97,6 +99,9 @@ class XBee(ZigBeeDevice):
     def stack_input(self, dict_list):
         self.__stack_input = dict_list
 
+    # Define el tipo de interface que se empleará
+    IFACE = 'XBEE'
+
     def __init__(self, app: Flask = None):
         """Constructor con la cofiguración seteada de la app
         Es necesario llamar a init_app, para iniciar la antena
@@ -105,6 +110,7 @@ class XBee(ZigBeeDevice):
         if XBee.__instance is None and app is not None:
             self.extract_parameters(app)
             self.logger.info("Creando la antena")
+            self.__stack_input = StackSwitcher.get_instance(app)
             """De la lista de posibles puertos a la que pueda estár conectada la antena
             nos conectamos a la primera y lo notificamos"""
             self.logger.info("Puertos encontrados: " + str(self.port))
@@ -132,8 +138,6 @@ class XBee(ZigBeeDevice):
             if not baudrate:
                 baudrate = 9600
             self.baudrate = baudrate
-
-            self.stack_input = {app.config['XBEE_MAC_ADRESS']: []}
         except Exception as e:
             msg = "ERROR: No se han podido precargar los valores del XB\n " + str(e)
             e.message = msg
@@ -164,7 +168,6 @@ class XBee(ZigBeeDevice):
         # Recuperamos la dirección del dispositivo remoto en formato de 64 bits
         high = None
         try:
-            print(self.get_64bit_addr())
             dir_64 = XBee64BitAddress.from_hex_string(dir_64)
             high = dir_64 or self.remote_zigbee.get_64bit_addr()
         except:
@@ -183,9 +186,9 @@ class XBee(ZigBeeDevice):
 
             ## Versión sin fragmentar el paquete
             ack = super().send_data_64_16(high, low, msg)
-            self.logger.debug(format(ack))
+            # self.logger.debug(format(ack))
             if ack.transmit_status is not TransmitStatus.SUCCESS:
-                self.logger.warning(format(ack))
+                self.logger.warning("Algo no fue bien mandando el mensaje:\n{}\nError:\t{}".format(msg, ack))
 
         except Exception as e:
             self.logger.error("Se ha encontrado un error al mandar el mensaje\n\t" + str(e))
@@ -236,12 +239,11 @@ class XBee(ZigBeeDevice):
                 if recived_order is not None:
                     recived_msg = recived_order.data.decode("utf8")
                     msg_origin_addr = str(recived_order.remote_device.get_64bit_addr())
-                    stack = self.stack_input.get(msg_origin_addr)
-                    if stack:
-                        stack.append(recived_msg)
-                    else :
-                        self.stack_input[msg_origin_addr] = [recived_msg]
-                    self.logger.debug(self.stack_input)
+                    self.logger.info("Mensage recibidio de {}:\n{}".format(msg_origin_addr, recived_msg))
+                    if not self.stack_input.append_order(msg_origin_addr, recived_msg, XBee.IFACE):
+                        self.logger.warning("No se ha podido guardar el mensaje")
+
+
 
     def init_app(self, xbee_thread: Thread):
         """Instanciamos una antena XBeee a partir de un dispositivo ZigBeeDevice

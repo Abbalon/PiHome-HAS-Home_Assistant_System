@@ -191,8 +191,6 @@ Q
 !PiHome/templates/showTransit.html,e/f/ef99e513c7b3b1d2250377d5d851fe316c323569
 F
 PiHome/transit/form.py,9/4/942e1fa880cfe6cf0df5b77171c7595991f67afa
-B
-instance/config.py,9/e/9ef9e57bb1dd862e21312dccaa78ebc0b30b4661
 i
 9venv/lib/python3.8/site-packages/itsdangerous/__init__.py,5/3/5382c625a114474bdc5520a04e89fa46b6ac5ae2
 f
@@ -409,3 +407,5 @@ J
 PiHome/static/js/device.js,8/b/8bf3dfdf6d792e21297aedcc883d3ce8238891f3
 J
 PiHome/device/cerradura.py,5/b/5b1a3c2e9f5edb4ac92ed198608a3a26f90ea0b6
+E
+config/PiHome.service,a/e/aefee5e8ba67a68521866262cd7baa6b2801d7b9

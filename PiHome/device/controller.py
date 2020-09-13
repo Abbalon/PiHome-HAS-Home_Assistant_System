@@ -40,6 +40,7 @@ def get_device():
 
 def get_devices_list():
     """Retorna un mapa con los dispositivos activos y sus acciones ejecutables"""
+    # Diccionario son los dispositivos registrados
     devices_dic = {}
     devices_list = None
     actions_list = None
@@ -52,7 +53,6 @@ def get_devices_list():
     return devices_dic
 
 
-# Listado de dispositivos implementados
 puerta_principal = Cerradura()
 
 
