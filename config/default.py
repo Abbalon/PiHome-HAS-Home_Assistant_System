@@ -54,6 +54,9 @@ class DevelopmentConfig(Config):
     XBEE_BAUDRATE = 9600  # Frecuencia de emisión
     XBEE_MAC_ADRESS = '0013A200415135C7'
 
+    SYSTEM_INTERFACES = ['XBEE']
+    XBEE_INCOMING_ORDERS = ['INIT', 'READ_TAG', 'TOC_TOC', 'SHOUTING_DOWN']
+
     """docstring for DevelopmentConfig"""
 
     def __init__(self, arg):
