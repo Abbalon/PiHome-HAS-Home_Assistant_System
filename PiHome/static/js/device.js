@@ -7,13 +7,37 @@ $(function () {
         //Realizamos la petición al servidor
         $.getJSON($req, function (data) {
             // Definimos cual será el comportamiento cuando el servidor nos responda
-            console.log(data.status);
+            console.log(data.code);
         })
             .done(function (data) {
-                console.log("DONE: " + data.status);
+                cod = data.code
+                desc = JSON.stringify(data.description)
+                msg = data.status
+                if (data.code === -1) {
+                    desc = ""
+                    $.each(data.description, function (index, text) {
+                        desc = desc + text + "\n"
+                    });
+                    swal(
+                        "¡Cuidado!",
+                        desc,
+                        "warning"
+                    );
+                } else {
+                    swal(
+                        "Hecho",
+                        msg,
+                        "info");
+                }
             })
             .fail(function (data) {
-                console.log("FAIL: " + data);
+                err = data.error
+                desc = JSON.stringify(data.description)
+                swal(
+                    err,
+                    desc,
+                    "error"
+                )
             })
             .always(function () {
                 return false;
