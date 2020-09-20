@@ -26,16 +26,18 @@ class XBee(ZigBeeDevice):
     WatchDog
     @see https://xbplib.readthedocs.io/en/stable/index.html"""
 
-    __instance = None
+    _instance = None
 
-    @staticmethod
-    def get_instance(app: Flask = None):
+    @classmethod
+    # def get_instance(self, stack, app: Flask = None):
+    def get_instance(self, app: Flask = None):
         """Metódo que devuelve una instancia de la antena creada"""
-        if XBee.__instance is None:
+        if XBee._instance is None:
             if not app:
                 raise XBeeInstanceException("No se han informado los parámetros necesarios.")
-            XBee(app)
-        return XBee.__instance
+            # XBee._instance = XBee(stack, app)
+            XBee._instance = XBee(app)
+        return XBee._instance
 
     @staticmethod
     def encontrar_rutas() -> []:
@@ -91,26 +93,20 @@ class XBee(ZigBeeDevice):
     def baudrate(self, value):
         self.__baudrate = str(value)
 
-    @property
-    def stack_input(self):
-        return self.__stack_input
-
-    @stack_input.setter
-    def stack_input(self, dict_list):
-        self.__stack_input = dict_list
-
     # Define el tipo de interface que se empleará
     IFACE = 'XBEE'
 
+    # def __init__(self, stack, app: Flask = None):
     def __init__(self, app: Flask = None):
         """Constructor con la cofiguración seteada de la app
         Es necesario llamar a init_app, para iniciar la antena
         @param app: {XBEE_PORT, XBEE_BAUDRATE }"""
 
-        if XBee.__instance is None and app is not None:
+        if XBee._instance is None and app is not None:
             self.extract_parameters(app)
             self.logger.info("Creando la antena")
-            self.__stack_input = StackSwitcher.get_instance(app)
+            # self.stack = stack
+            self.stack = StackSwitcher.get_instance(app)
             """De la lista de posibles puertos a la que pueda estár conectada la antena
             nos conectamos a la primera y lo notificamos"""
             self.logger.info("Puertos encontrados: " + str(self.port))
@@ -124,7 +120,7 @@ class XBee(ZigBeeDevice):
             raise XBeeInstanceException("Esta clase ya está creada, obtenga una instancia para su uso")
 
         # Si no se ha creado nunca ningun objeto del tipo XBee y se han informado los parámetros necesarios
-        XBee.__instance = self
+        # XBee.__instance = self
 
     def extract_parameters(self, app):
         try:
@@ -240,10 +236,9 @@ class XBee(ZigBeeDevice):
                     recived_msg = recived_order.data.decode("utf8")
                     msg_origin_addr = str(recived_order.remote_device.get_64bit_addr())
                     self.logger.info("Mensage recibidio de {}:\n{}".format(msg_origin_addr, recived_msg))
-                    if not self.stack_input.append_order(msg_origin_addr, recived_msg, XBee.IFACE):
+                    # TODO Revisar el punto de guardado en el stack
+                    if not self.stack.append_order(msg_origin_addr, recived_msg, XBee.IFACE):
                         self.logger.warning("No se ha podido guardar el mensaje")
-
-
 
     def init_app(self, xbee_thread: Thread):
         """Instanciamos una antena XBeee a partir de un dispositivo ZigBeeDevice
@@ -252,15 +247,15 @@ class XBee(ZigBeeDevice):
         for port in self.port:
             self.logger.info("Probando el puerto: " + port)
             try:
-                if XBee.__instance:
+                if XBee._instance:
                     try:
                         if not self.is_open():
                             self.open()
-                        # Nos disponemos a escuchar el medio
-                        # super().add_data_received_callback(self.__tratar_entrada)
                     except XBeeException as e:
-                        self.logger.error("No se ha podido conectar con la antena XBee.\n\t" + str(e))
+                        msg = "No se ha podido conectar con la antena XBee.\n\t" + str(e)
+                        self.logger.error(msg)
                         self.close()
+                        raise e
                     else:
                         antena = str(super().get_node_id() + "(" + str(super().get_64bit_addr()) + ")")
                         self.logger.info("Conectada la antena '" + antena + "' al puerto " + port + "\n")

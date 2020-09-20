@@ -29,221 +29,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE">
-      <change afterPath="$PROJECT_DIR$/PiHome/static/js/sweetalert.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PiHome/utils/stack_switcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TFG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TFG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d7bf872947a6300b17614e5fde49f33ceb04053d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d7bf872947a6300b17614e5fde49f33ceb04053d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/card/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/card/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/device/cerradura.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/cerradura.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/device/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/device/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/static/js/device.js" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/static/js/device.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/templates/shared/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/templates/shared/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/utils/db_setUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/utils/db_setUp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PiHome/utils/stack_switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/utils/stack_switcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PiHome/utils/xbee.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/utils/xbee.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/default.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Activate.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/activate" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/activate.csh" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate.csh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/activate.fish" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate.fish" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/python3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Flask-1.1.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Flask-1.1.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Flask_SQLAlchemy-2.4.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Flask_SQLAlchemy-2.4.4.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/SQLAlchemy-1.3.18.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Werkzeug-1.0.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/Werkzeug-1.0.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/digi_xbee-1.3.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/digi_xbee-1.3.0.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/encoding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/exc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/exc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/jws.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/jws.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/signer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/signer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/timed.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/timed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/url_safe.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/itsdangerous/url_safe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/asyncfilters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/asyncfilters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/asyncsupport.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/asyncsupport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/bccache.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/bccache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/compiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/compiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/debug.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/defaults.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/defaults.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/environment.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/environment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/ext.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/ext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/idtracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/idtracking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/loaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/loaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/nativetypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/nativetypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/optimizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/optimizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/runtime.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/runtime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/sandbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/sandbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/visitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/jinja2/visitor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_native.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_native.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_speedups.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_speedups.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_speedups.cpython-38-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/markupsafe/_speedups.cpython-38-x86_64-linux-gnu.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pip/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pip/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/AUTHORS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources-0.0.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/_vendor/packaging/requirements.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/_vendor/packaging/requirements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/_vendor/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/extern/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/extern/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pkg_resources/py31compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/_auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/_auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/converters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pymysql/converters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pyserial-3.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/pyserial-3.4.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/_msvccompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/_msvccompiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/command/build_ext.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/command/build_ext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_distutils/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_vendor/packaging/requirements.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_vendor/packaging/requirements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/_vendor/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/build_meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/build_meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/alias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/bdist_egg.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/bdist_egg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/bdist_rpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/bdist_rpm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/build_ext.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/build_ext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/build_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/build_py.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/develop.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/develop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/easy_install.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/easy_install.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/egg_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/egg_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/py36compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/py36compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/rotate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/rotate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/sdist.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/sdist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/setopt.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/setopt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/upload_docs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/command/upload_docs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/depends.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/depends.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/dist.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/dist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/extension.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/extension.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/extern/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/extern/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/installer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/installer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/lib2to3_ex.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/lib2to3_ex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/monkey.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/monkey.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/msvc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/msvc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/namespaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/namespaces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/package_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/package_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/py27compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/py31compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/py33compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/sandbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/sandbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/ssl_support.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/ssl_support.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/unicode_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/unicode_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cprocessors.cpython-38-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cprocessors.cpython-38-x86_64-linux-gnu.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cresultproxy.cpython-38-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cresultproxy.cpython-38-x86_64-linux-gnu.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cutils.cpython-38-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/cutils.cpython-38-x86_64-linux-gnu.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/provision.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/provision.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/pyodbc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mssql/pyodbc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mysql/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mysql/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mysql/json.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/mysql/json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/oracle/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/oracle/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/json.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/ranges.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/ranges.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/sqlite/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/dialects/sqlite/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/interfaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/interfaces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/reflection.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/reflection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/engine/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/event/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/event/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/event/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/event/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/associationproxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/associationproxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/declarative/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/declarative/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/declarative/clsregistry.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/declarative/clsregistry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/horizontal_shard.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/horizontal_shard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/hybrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/hybrid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/instrumentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/ext/instrumentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/dynamic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/instrumentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/instrumentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/mapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/strategy_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/strategy_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/orm/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/compiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/compiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/dml.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/dml.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/operators.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/operators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/selectable.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/selectable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/sqltypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/sqltypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/type_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/type_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/visitors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/sql/visitors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/plugin/pytestplugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/plugin/pytestplugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/profiling.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/profiling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/requirements.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/requirements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/suite/test_reflection.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/suite/test_reflection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/suite/test_select.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/testing/suite/test_select.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/CacheControl-0.12.6-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/appdirs-1.4.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/certifi-2019.11.28-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/chardet-3.0.4-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/colorama-0.4.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/contextlib2-0.6.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/distlib-0.3.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/distro-1.4.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/html5lib-1.0.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/idna-2.8-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/ipaddr-2.2.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/lockfile-0.12.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/msgpack-0.6.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/packaging-20.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/pep517-0.8.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/pip-20.0.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/pkg_resources-0.0.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/progress-1.5-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/pyparsing-2.4.6-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/pytoml-0.1.21-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/requests-2.22.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/retrying-1.3.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/setuptools-44.0.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/six-1.14.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/webencodings-0.5.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/share/python-wheels/wheel-0.34.2-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/instance/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +104,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/PiHome/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PiHome/__init__.py" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -316,7 +115,7 @@
       <recent name="$PROJECT_DIR$/PiHome/utils" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.PiHome">
     <configuration name="PiHome" type="Python.FlaskServer">
       <option name="flaskDebug" value="true" />
       <module name="TFG" />
@@ -333,6 +132,26 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="PiHome.sh" type="Python.FlaskServer">
+      <option name="flaskDebug" value="true" />
+      <module name="TFG" />
+      <option name="target" value="$PROJECT_DIR$/PiHome/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.PiHome" />
+      <item itemvalue="Flask server.PiHome.sh" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -383,6 +202,13 @@
       <workItem from="1599855634528" duration="73000" />
       <workItem from="1599909467234" duration="1335000" />
       <workItem from="1599910835197" duration="21307000" />
+      <workItem from="1599991950628" duration="18797000" />
+      <workItem from="1600101373353" duration="6141000" />
+      <workItem from="1600190037160" duration="9974000" />
+      <workItem from="1600268331495" duration="7912000" />
+      <workItem from="1600353771439" duration="7977000" />
+      <workItem from="1600445110132" duration="10786000" />
+      <workItem from="1600530179997" duration="14066000" />
     </task>
     <task id="LOCAL-00001" summary="trying merge master">
       <created>1595067136982</created>
@@ -440,7 +266,42 @@
       <option name="project" value="LOCAL" />
       <updated>1599593949727</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Se actualiza el repositorio de librerias del proyecto">
+      <created>1600013025443</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600013025443</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Se añade al fichero de configuración, propiedades que permitan delimitar las interfaces que tendrán acceso al sistema, así como los parámetros esperados que afectarán al comportamiento del mismo">
+      <created>1600013154229</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600013154229</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Se añade el código js que permite el empleo de la libreria SweetAlert para la representación de mensajes">
+      <created>1600013311634</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600013311634</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Se añade el código js que permite el empleo de la libreria SweetAlert para la representación de mensajes">
+      <created>1600013350113</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600013350113</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Se crean los elementos que representan la cerradura electrónica tanto en base de datos como para su manejo desde el sistema, así como se implementa el germen para la gestión de la cola de mensajes entrantes a través de la interface ZigBee">
+      <created>1600013584968</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1600013584968</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +339,11 @@
     <MESSAGE value="Accordion" />
     <MESSAGE value="Accordion - Extra" />
     <MESSAGE value="El sistema reacciona completamente a las ordenes recibidas y enviadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="El sistema reacciona completamente a las ordenes recibidas y enviadas" />
+    <MESSAGE value="Se actualiza el repositorio de librerias del proyecto" />
+    <MESSAGE value="Se añade al fichero de configuración, propiedades que permitan delimitar las interfaces que tendrán acceso al sistema, así como los parámetros esperados que afectarán al comportamiento del mismo" />
+    <MESSAGE value="Se añade el código js que permite el empleo de la libreria SweetAlert para la representación de mensajes" />
+    <MESSAGE value="Se crean los elementos que representan la cerradura electrónica tanto en base de datos como para su manejo desde el sistema, así como se implementa el germen para la gestión de la cola de mensajes entrantes a través de la interface ZigBee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se crean los elementos que representan la cerradura electrónica tanto en base de datos como para su manejo desde el sistema, así como se implementa el germen para la gestión de la cola de mensajes entrantes a través de la interface ZigBee" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -502,57 +367,67 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="633" y="632" key="#Web_Browsers/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597403639832" />
-    <state x="2227" y="79" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599855504342">
-      <screen x="1680" y="0" width="1920" height="1080" />
-    </state>
-    <state x="479" y="400" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597404924677" />
-    <state x="2227" y="79" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599855504342" />
-    <state x="609" y="757" width="529" height="181" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1599589183948">
+    <state x="340" y="463" width="1071" height="757" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600025330739">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
+    <state x="479" y="400" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597404924677" />
+    <state x="340" y="463" width="1071" height="757" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600025330739" />
+    <state x="2390" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600282719687">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2390" y="359" key="#com.intellij.fileTypes.FileTypeChooser/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600282719687" />
+    <state x="2453" y="276" width="374" height="561" key="#com.intellij.ide.util.MemberChooser" timestamp="1600367857216">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2453" y="276" width="374" height="561" key="#com.intellij.ide.util.MemberChooser/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600367857216" />
+    <state x="2376" y="446" width="529" height="181" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1600544794637">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
     <state x="609" y="757" width="529" height="181" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599589183948" />
+    <state x="2376" y="446" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600544794637" />
     <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1599071842358">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="686" y="740" width="400" height="216" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599071842358" />
-    <state x="74" y="482" width="1517" height="510" key="#xdebugger.evaluate" timestamp="1599935972212">
+    <state x="74" y="482" width="1517" height="510" key="#xdebugger.evaluate" timestamp="1600535852950">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="45" y="463" width="825" height="511" key="#xdebugger.evaluate/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593504399" />
-    <state x="74" y="482" width="1517" height="510" key="#xdebugger.evaluate/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599935972212" />
+    <state x="74" y="482" width="1517" height="510" key="#xdebugger.evaluate/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600535852950" />
     <state x="584" y="712" width="502" height="271" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1598959776530">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="584" y="712" width="502" height="271" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598959776530" />
-    <state width="1918" height="354" key="DebuggerActiveHint" timestamp="1599936436763">
+    <state width="1918" height="354" key="DebuggerActiveHint" timestamp="1600544738159">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state width="1678" height="344" key="DebuggerActiveHint/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599594436164" />
-    <state width="1918" height="354" key="DebuggerActiveHint/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599936436763" />
-    <state x="628" y="606" key="FileChooserDialogImpl" timestamp="1597410359272">
-      <screen x="0" y="323" width="1680" height="1050" />
+    <state width="1918" height="354" key="DebuggerActiveHint/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600544738159" />
+    <state x="2398" y="291" key="FileChooserDialogImpl" timestamp="1600025317130">
+      <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="628" y="606" key="FileChooserDialogImpl/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597410359272" />
-    <state width="1874" height="236" key="GridCell.Tab.0.bottom" timestamp="1599940066002">
+    <state x="2398" y="291" key="FileChooserDialogImpl/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600025317130" />
+    <state width="1874" height="260" key="GridCell.Tab.0.bottom" timestamp="1600546234832">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state width="1634" height="225" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599594503329" />
-    <state width="1874" height="236" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599940066002" />
-    <state width="1874" height="236" key="GridCell.Tab.0.center" timestamp="1599940066002">
+    <state width="1874" height="260" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600546234832" />
+    <state width="1874" height="260" key="GridCell.Tab.0.center" timestamp="1600546234832">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state width="1634" height="225" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599594503329" />
-    <state width="1874" height="236" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599940066002" />
-    <state width="1874" height="236" key="GridCell.Tab.0.left" timestamp="1599940066002">
+    <state width="1874" height="260" key="GridCell.Tab.0.center/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600546234832" />
+    <state width="1874" height="260" key="GridCell.Tab.0.left" timestamp="1600546234831">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state width="1634" height="225" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599594503329" />
-    <state width="1874" height="236" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599940066002" />
-    <state width="1874" height="236" key="GridCell.Tab.0.right" timestamp="1599940066002">
+    <state width="1874" height="260" key="GridCell.Tab.0.left/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600546234831" />
+    <state width="1874" height="260" key="GridCell.Tab.0.right" timestamp="1600546234832">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state width="1634" height="225" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599671664353" />
-    <state width="1874" height="236" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599940066002" />
+    <state width="1874" height="260" key="GridCell.Tab.0.right/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600546234832" />
     <state width="1634" height="342" key="GridCell.Tab.1.bottom" timestamp="1597412309049">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
@@ -581,19 +456,25 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="448" y="466" key="MultipleFileMergeDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1595066809383" />
-    <state x="404" y="532" key="RollbackChangesDialog" timestamp="1595066949735">
-      <screen x="0" y="323" width="1680" height="1050" />
+    <state x="2142" y="215" key="RollbackChangesDialog" timestamp="1600199980620">
+      <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="404" y="532" key="RollbackChangesDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1595066949735" />
+    <state x="2142" y="215" key="RollbackChangesDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600199980620" />
     <state x="2339" y="68" key="SettingsEditor" timestamp="1599910714492">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="577" y="389" key="SettingsEditor/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598962580576" />
     <state x="2339" y="68" key="SettingsEditor/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599910714492" />
-    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1599593956641">
-      <screen x="0" y="323" width="1680" height="1050" />
+    <state x="2183" y="268" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1600013588053">
+      <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1599593956641" />
+    <state x="2183" y="268" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600013588053" />
+    <state x="2322" y="265" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1600197843383">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2322" y="265" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600197843383" />
     <state x="390" y="560" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1599580590731">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
@@ -615,7 +496,54 @@
     </state>
     <state x="503" y="554" width="672" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1595101745366" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/__init__.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/utils/stack_switcher.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/utils/stack_switcher.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/run.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/__init__.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/device/controller.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/device/cerradura.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PiHome/device/cerradura.py</url>
+          <line>123</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1599939931438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1600545748714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TFG$PiHome_sh.coverage" NAME="PiHome.sh Coverage Results" MODIFIED="1600111923593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

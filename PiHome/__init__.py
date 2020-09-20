@@ -10,6 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Define the WSGI application object
 from flask_wtf import CSRFProtect
 
+from PiHome.utils.stack_switcher import StackSwitcher
 from PiHome.utils.xbee import XBee, XBeeInstanceException
 
 app = Flask(__name__, instance_relative_config=True)
@@ -26,26 +27,39 @@ app.config.from_pyfile('config.py')
 # by modules and controllers
 db = SQLAlchemy(app)
 
-# Carga mos la antena XBee/ZigBee que va a ser la interface de comunicación con los distintos dispositivos
+# Creamos el objeto que recojera los mensajes entrantes al sistema
+try:
+    stack = StackSwitcher.get_instance(app)
+except Exception as e:
+    app.logger.error("Error en la creacción de la pila de llamadas.\n{}".format(e))
+    raise e
+
+thread_list = []
+
+# Definimos la interface xbee
 xbee = None
 xbee_thread = threading.Thread
 try:
+    # xbee = XBee.get_instance(stack, app)
     xbee = XBee.get_instance(app)
-    xbee_thread = threading.Thread(name="XBee listening", target=xbee.esperar_hasta_recibir_orden)
+    xbee_thread = threading.Thread(name="XBee listener", target=xbee.esperar_hasta_recibir_orden)
 except XBeeInstanceException as xie:
     app.logger.warning(str(xie))
 except Exception as e:
     app.logger.error(str(e))
+
+# elemento que guardará los dispositivos almacenados
+device_list = {}
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 from PiHome.user.controller import user_ctr
 from PiHome.group.controller import group_ctr
 from PiHome.admin.controller import admin_ctr
 from PiHome.home.controller import home_ctr
-from PiHome.utils.db_setUp import __create_foreign_keys
 from PiHome.transit.controller import transit_ctr
 from PiHome.card.controller import card_ctr
 from PiHome.device.controller import device_ctr
+from PiHome.utils.db_setUp import __create_foreign_keys
 
 
 # Sample HTTP error handling
@@ -69,9 +83,33 @@ Prevención de XSS & XSRF
 csrf = CSRFProtect()
 
 """
+Función que carga los dispositivos dados de alta en la bbdd como elementos interoperables
+"""
+from PiHome.utils.db_setUp import __load_devices
+from PiHome.device.model import Device
+from PiHome.device.cerradura import Cerradura
+
+
+def load_devices():
+    devices = Device.get_active_devices()
+    modelo = None
+    for dev in devices:
+        for fam in dev.Family:
+            if fam.family.name == "Cerradura":
+                modelo = Cerradura(app, modelo=dev)
+
+        device_list[dev.id] = modelo
+
+
+def start_devices_join():
+    for dev in device_list.values():
+        dev.thread.start()
+        thread_list.append(dev.thread)
+
+
+"""
 Inicializa la aplicación y arranca los servicios necesarios
 """
-
 if __name__ == "PiHome":
     try:
         csrf.init_app(app)  # Inicia la aplicación con la cofiguración establecida
@@ -79,12 +117,18 @@ if __name__ == "PiHome":
         mail.init_app(app)  # Arranca el servidor de correo
         # mail.init_mail()
         xbee.init_app(xbee_thread)  # Iniciamos el funcionamiento de la antena XB
+        thread_list.append(xbee_thread)
 
         with app.app_context():
             # db.drop_all()  # Borra la BD
             # db.create_all()  # Crea las tablas que no existan
             # __create_foreign_keys()
-            print("Inicializada la aplicación.")
+            # __load_devices()
+            load_devices()
+            start_devices_join()
+            app.logger.info("Inicializada la aplicación.")
+            # for thread in thread_list:
+            #     thread.join()
 
     except KeyboardInterrupt:
         app.logger.warning("Proceso abortado por el usuario")

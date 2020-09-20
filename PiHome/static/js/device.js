@@ -31,13 +31,16 @@ $(function () {
                 }
             })
             .fail(function (data) {
-                err = data.error
-                desc = JSON.stringify(data.description)
+                err = data.responseJSON.error
+                desc = ""
+                    $.each(data.responseJSON.description, function (index, text) {
+                        desc = desc + text + "\n"
+                    });
                 swal(
                     err,
                     desc,
                     "error"
-                )
+                );
             })
             .always(function () {
                 return false;

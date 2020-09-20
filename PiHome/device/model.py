@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 Clase que define la información que vamos a almacenar de los dispositivos implementados y sus funciones
@@ -36,7 +36,7 @@ class Device(BaseDB):
     id_remote = db.Column(
         db.String(64),
         nullable=False,
-        unique=True
+        unique=False
     )
 
     enabled = db.Column(
@@ -63,6 +63,10 @@ class Device(BaseDB):
     def get_active_devices():
         """Retorna los dispositivos que estén habilitados"""
         return Device.query.filter_by(enabled=1).all()
+
+    @staticmethod
+    def get_device_by_mac(device_mac):
+        return Device.query.filter_by(id_external=device_mac).all()
 
 
 class Family(BaseDB):
@@ -159,6 +163,8 @@ class Action(BaseDB):
                     actions.append(_action.id)
             if action in actions:
                 return Action.query.filter_by(id=action, is_executable=1).first()
+        else:
+            return None
 
     @staticmethod
     def get_executable_actions(device: Device = None):

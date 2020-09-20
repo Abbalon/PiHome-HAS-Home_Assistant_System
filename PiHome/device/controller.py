@@ -4,7 +4,7 @@ Fichero que maneja el comportamiento de las tarjetas
 """
 from flask import Blueprint, session, render_template, request, jsonify
 
-from PiHome.device.cerradura import Cerradura
+from PiHome import device_list
 from PiHome.device.model import Device, Action
 from PiHome.utils.base import Home, ShowData
 
@@ -53,9 +53,6 @@ def get_devices_list():
     return devices_dic
 
 
-puerta_principal = Cerradura()
-
-
 @device_ctr.route('/do_action', methods=['GET'])
 def do_action():
     """
@@ -75,9 +72,7 @@ def do_action():
             result = None  # TransmitStatusPacket
 
             try:
-                if dev == 1:
-                    result = puerta_principal.do_action(dev, act)
-
+                result = device_list.get(dev).do_action(act)
                 if result:
                     response_dict = result
             except Exception as error:

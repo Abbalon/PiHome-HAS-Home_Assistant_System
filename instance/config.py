@@ -48,4 +48,4 @@ TEST_MAIL_SENDER = 'PiDomoticTFG+test@gmail.com'
 # signing the data.
 # CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
 
-GITHUB_TOKEN = "210e096898ec6f58390694cf27cae145027d1893"
+GITHUB_TOKEN = "2d3efcebe609926703f8ca83f8d55c16a4a30c6d"

@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 	Módulo que establece la configuracion del sistema
@@ -55,7 +55,7 @@ class DevelopmentConfig(Config):
     XBEE_MAC_ADRESS = '0013A200415135C7'
 
     SYSTEM_INTERFACES = ['XBEE']
-    XBEE_INCOMING_ORDERS = ['INIT', 'READ_TAG', 'TOC_TOC', 'SHOUTING_DOWN']
+    XBEE_INCOMING_ORDERS = ['INIT', 'PING', 'SHOUTING_DOWN', 'READ_TAG', 'TOC_TOC']
 
     """docstring for DevelopmentConfig"""
 
