@@ -3,8 +3,11 @@
 """
     Módulo que define el comportamiento estandar de un dispositivo
 """
+from flask_mail import Message
 
+from PiHome import mail
 from PiHome.device.model import Device, Action
+from PiHome.user.model import User
 from PiHome.utils.stack_switcher import StackSwitcher
 from PiHome.utils.xbee import XBee
 
@@ -15,10 +18,35 @@ PING = 'PING'
 
 
 class DeviceInstantiationException(Exception):
-    def __init__(self, msg, *args):
-        super().__init__(args)
-        super().message = "No se puede dejar de informar el parámetro '{}', para instanciar la clase {}.".format(msg,
-                                                                                                                 "DeviceBase")
+    def __init__(self, msg, **kwargs):
+        super(DeviceInstantiationException, self).__init__(msg, kwargs)
+        self.message = "No se puede dejar de informar el parámetro '{}', para instanciar la clase {}.".format(msg,
+                                                                                                              "DeviceBase")
+
+
+class DeviceConnectedException(Exception):
+
+    def __init__(self, **kwargs) -> None:
+        """
+        @param id_device
+        """
+        super(DeviceConnectedException, self).__init__(kwargs)
+        self.message = "El dispositivo {}, ha recibido la orden de activarse, y ya lo estaba.\nDebería revisar el estado del dispositivo".format(
+            kwargs.get('id_device'))
+
+    def __format__(self, format_spec: str) -> str:
+        return self.message
+
+
+class DeviceDisconnectedException(Exception):
+    """
+            @param id_device
+            """
+
+    def __init__(self, **kwargs) -> None:
+        super(DeviceDisconnectedException, self).__init__(kwargs)
+        self.message = "El dispositivo {}, ha recibido la orden para desactivarse, y ya lo estaba.\nDebería revisar el estado del dispositivo".format(
+            kwargs.get('id_device'))
 
 
 class DeviceBase:
@@ -67,7 +95,9 @@ class DeviceBase:
             raise DeviceInstantiationException("mac")
         self.stack = StackSwitcher.get_instance(app)
         self.__xbee = XBee.get_instance(app)
+        self.app = app
         self.logger = app.logger
+        self.mail = mail.init_app(app)
 
     def __str__(self) -> str:
         return super().__str__()
@@ -77,24 +107,64 @@ class DeviceBase:
         response = Action.get_executable_action(device=self.modelo, action=action_id)
         return response
 
-    @classmethod
-    def do_init(cls, actions):
+    def do_init(self, actions):
         """El método comprueba que exista en el sistema, un dispositivo con la mac indicada y que tenga las acciones recibidas
         Si el dispositivo está inhabilitado, lo habilita"""
+        self.logger.info(str(actions))
 
-        #     Recuperamos el dispositivo con la mac indicada
-        dev = Device.get_device_by_mac("device_mac")
         #     Comprobamos las acciones que tiene el dispositivo asociadas
+        ## Recuperamos las acciones del dispositivo
+        acts = Action.get_executable_actions(device=self.modelo)
+        for act in acts:
+            if act.cmd not in actions:
+                self.logger.warn(
+                    "No se ha podido comprobar que el dispositivo {}, pueda realizar la acción de {}".format(
+                        self.modelo.id_external, act.cmd))
 
         #     Comprobamos el estado del dispositivo, si está deshabilitado, lo habilitamos
+        if self.modelo.enabled:
+            raise DeviceConnectedException(id_device=self.modelo.id_external)
+        else:
+            self.modelo = Device.enable_device(device=self.modelo)
 
     def do_shout_down(self):
-        print(self.modelo.id_external)
-        return None
+        #     Comprobamos el estado del dispositivo, si está deshabilitado, lo habilitamos
+        if self.modelo.enabled:
+            self.modelo = Device.disable_device(device=self.modelo)
+        else:
+            raise DeviceDisconnectedException(id_device=self.modelo.id_external)
 
-    def __listen(self, **kwargs):
-        for order, data in kwargs.items():
-            if order == INIT:
-                self.do_init(actions=data)
-            if order == SHOUTING_DOWN:
-                self.do_shout_down()
+    def def_listen(self, **kwargs):
+        for key, command in kwargs.items():
+            if key == "inc_order":
+                for order, data in command.items():
+                    try:
+                        if order == INIT:
+                            self.do_init(actions=data)
+                        if order == SHOUTING_DOWN:
+                            self.do_shout_down()
+                    except Exception as error:
+                        sbj = "Se ha encontrado un error al procesar el comando {} del dispositivo:\t{}".format(order,
+                                                                                                                self.modelo.id_external)
+                        self.send_email(recipients=User.get_mails_of_groups([2, 3]), subject=sbj, body=format(error))
+
+    def send_email(self, **kwargs):
+        """
+        @param subject
+        @param recipients
+        @param body
+        """
+        subject = kwargs.get('subject')
+        sender = self.mail.username
+        recipients = kwargs.get('recipients')
+        body = kwargs.get('body')
+
+        msg = Message(subject=subject,
+                      sender=sender,
+                      recipients=recipients,
+                      body=body)
+        with self.app.app_context():
+            try:
+                self.mail.send(msg)
+            except Exception as error:
+                self.logger.warn(format(error))

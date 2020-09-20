@@ -91,7 +91,7 @@ from PiHome.device.cerradura import Cerradura
 
 
 def load_devices():
-    devices = Device.get_active_devices()
+    devices = Device.get_devices()
     modelo = None
     for dev in devices:
         for fam in dev.Family:
@@ -122,9 +122,9 @@ if __name__ == "PiHome":
         with app.app_context():
             # db.drop_all()  # Borra la BD
             # db.create_all()  # Crea las tablas que no existan
-            # __create_foreign_keys()
-            # __load_devices()
-            load_devices()
+            # __create_foreign_keys() # Crea los datos básicos de la la bbdd
+            # __load_devices() # Crea los dispositivos standart
+            load_devices() # Crea un controlador para cada dispositivo de la bbdd
             start_devices_join()
             app.logger.info("Inicializada la aplicación.")
             # for thread in thread_list:

@@ -79,3 +79,13 @@ class User(BaseDB):
             Metodo público para contrastar los 'hash´s' de las pwd
         """
         return check_password_hash(self.password, password)
+
+    @staticmethod
+    def get_mails_of_groups(id_groups: []):
+        """Recupera una lista de los emaiĺ de los usuarios que pertenezcan a los grupos indicados por parámetro"""
+        users = User.query.filter(User.group_Id.in_(id_groups)).all()
+        mails = []
+        for user in users:
+            mails.append(user.email)
+
+        return mails

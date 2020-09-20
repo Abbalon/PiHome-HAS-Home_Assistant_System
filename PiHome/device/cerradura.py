@@ -82,10 +82,9 @@ class Cerradura(DeviceBase):
             raise RuntimeWarning("Se ha agotado el tiempo de espera, sin haber recibido respuesta desde el dispositivo")
         if estado:
             estado = estado.get(PING)
-            self.estado = re.search(state_regex, estado)[1]
+            self.estado = re.search(state_regex, estado).group(1)
 
     def _listen(self, **kwargs):
-        print("__listen")
         while True:
             try:
                 if not self.pause:
@@ -103,7 +102,7 @@ class Cerradura(DeviceBase):
                                 found = True
                                 break
                         if not found:
-                            self.__listen(kwargs=inc_order)
+                            self.def_listen(inc_order=inc_order)
             except Exception as error:
                 self.logger.warn(str(error))
 

@@ -22,7 +22,8 @@ class StackInstanceException(Exception):
 
 class StackSwitcher:
     # Expresiones regulares que nos permitirán procesar las ordenes entrantes
-    cmd_extractor_regex = "CMD:(.*)\?(.*)"
+    # cmd_extractor_regex = "CMD:(.*)\?(.*)"
+    cmd_extractor_regex = "CMD:(\w*)(\?(.*))?"
     param_extractor_regex = "\?(.*)"
 
     # Nombres de los campos a extraer de la configuración
@@ -120,16 +121,18 @@ class StackSwitcher:
         @param cmd: mensaje o comando recibido
         @param iface: interface desde la que se ha recibido el mensaje"""
         try:
-            order = re.search(StackSwitcher.cmd_extractor_regex, cmd)[1]
-            data = re.search(StackSwitcher.cmd_extractor_regex, cmd)[2]
-            if order in self.incoming_orders.get(iface):
-                msg = "Recibida orden desde el dispositivo {} por la inteface {}:\t{}".format(mac, iface, order)
-            else:
-                msg = "Orden no encontrada desde el dispositivo {} por la inteface {}:\t{}".format(mac, iface, order)
-            if data:
-                msg += "\n\tParámetro:\t{}".format(data)
-            self.logger.warn(msg)
-            self.__write_stack(cmd, mac)
+            regex_found = re.search(StackSwitcher.cmd_extractor_regex, cmd)
+            if regex_found:
+                order = regex_found.group(1)
+                data = regex_found.group(3)
+                if order in self.incoming_orders.get(iface):
+                    msg = "Recibida orden desde el dispositivo {} por la inteface {}:\t{}".format(mac, iface, order)
+                else:
+                    msg = "Orden no encontrada desde el dispositivo {} por la inteface {}:\t{}".format(mac, iface, order)
+                if data:
+                    msg += "\n\tParámetro:\t{}".format(data)
+                self.logger.warn(msg)
+                self.__write_stack(cmd, mac)
         except Exception as error:
             try:
                 if str(error) == IS_NOT_SUBSCRIPTABLE:
@@ -190,8 +193,8 @@ class StackSwitcher:
                         order = device_stack[i_cmd]
                         f_regex = re.search(StackSwitcher.cmd_extractor_regex, order)
                         if f_regex:
-                            command = f_regex[1]
-                            data = f_regex[2]
+                            command = f_regex.group(1)
+                            data = f_regex.group(3)
                             # Si el comando es el que se quería
                             if command == cmd:
                                 # Lo borramos de la lista
@@ -206,8 +209,8 @@ class StackSwitcher:
                     order = self.__stack.get(mac).pop(0)
                     f_regex = re.search(StackSwitcher.cmd_extractor_regex, order)
                     if f_regex:
-                        command = f_regex[1]
-                        data = f_regex[2]
+                        command = f_regex.group(1)
+                        data = f_regex.group(3)
                     else:
                         command = UNKNOWN
                         data = order

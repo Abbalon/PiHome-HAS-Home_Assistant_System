@@ -65,8 +65,45 @@ class Device(BaseDB):
         return Device.query.filter_by(enabled=1).all()
 
     @staticmethod
+    def get_devices():
+        """Retorna los dispositivos que estén habilitados"""
+        return Device.query.all()
+
+    @staticmethod
     def get_device_by_mac(device_mac):
         return Device.query.filter_by(id_external=device_mac).all()
+
+    @staticmethod
+    def disable_device(**kwargs):
+        """@param device: Device
+        @param id: Device.id
+        @return device updated"""
+        device = kwargs.get('device')
+        id = kwargs.get('id')
+        if device:
+            id = device.id
+
+        device = Device.query.filter_by(id=id).one()
+        device.enabled = False
+
+        db.session.commit()
+        return device
+
+    @staticmethod
+    def enable_device(**kwargs):
+        """@param device: Device
+        @param id: Device.id
+        @return device updated"""
+        device = kwargs.get('device')
+        id = kwargs.get('id')
+        if device:
+            id = device.id
+
+        device = Device.query.filter_by(id=id).one()
+        device.enabled = True
+
+        db.session.commit()
+        return device
 
 
 class Family(BaseDB):

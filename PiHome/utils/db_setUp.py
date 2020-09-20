@@ -114,7 +114,7 @@ def __load_devices():
         interface='XBee',
         id_external='0013A20041513615',
         id_remote='0013A200415135C7',
-        enabled=1
+        enabled=True
     )
 
     fd_acc_fam = FamilyDevice(device=access_door, family=family)
