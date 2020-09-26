@@ -29,9 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/device/cerradura.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/device/cerradura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PiHome/transit/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/PiHome/transit/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools-50.3.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools-50.3.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/setuptools-50.3.0.dist-info/REQUESTED" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +81,7 @@
   </component>
   <component name="JupyterTrust" id="191a46c3-3f05-45d1-a3da-9313ef4144c4" />
   <component name="ProjectId" id="1eaMDeOu0FX4nnwEXh2jaWBWMED" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,16 +107,16 @@
   <component name="RunManager" selected="Flask server.PiHome">
     <configuration name="PiHome" type="Python.FlaskServer">
       <option name="flaskDebug" value="true" />
-      <module name="TFG" />
       <option name="target" value="$PROJECT_DIR$/run.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
@@ -381,10 +381,10 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="633" y="632" key="#Web_Browsers/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597403639832" />
-    <state x="340" y="463" width="1071" height="757" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600025330739">
+    <state x="479" y="400" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601148582527">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="479" y="400" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597404924677" />
+    <state x="479" y="400" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601148582527" />
     <state x="340" y="463" width="1071" height="757" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600025330739" />
     <state x="2390" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600282719687">
       <screen x="1680" y="0" width="1920" height="1080" />
@@ -571,7 +571,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1600631300523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TFG$PiHome.coverage" NAME="PiHome Coverage Results" MODIFIED="1601147070000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TFG$PiHome_sh.coverage" NAME="PiHome.sh Coverage Results" MODIFIED="1600111923593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
