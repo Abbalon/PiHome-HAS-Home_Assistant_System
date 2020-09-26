@@ -37,3 +37,12 @@ def show(page=1):
                            base=_base,
                            results=users,
                            table='users')
+
+
+def get_user_lite_list() -> list:
+    """
+Método que devolverá un listado de la tupla (id, nombre), de los usuarios validados
+    """
+    user_list = [(u.id, u.name) for u in User.query.filter(User.validated == True).all()]
+    user_list.insert(0, ("", "Selecciona un usuario para filtrar"))
+    return user_list

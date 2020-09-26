@@ -83,7 +83,8 @@ _map_error(ProgrammingError, ER.DB_CREATE_EXISTS, ER.SYNTAX_ERROR,
            )
 _map_error(DataError, ER.WARN_DATA_TRUNCATED, ER.WARN_NULL_TO_NOTNULL,
            ER.WARN_DATA_OUT_OF_RANGE, ER.NO_DEFAULT, ER.PRIMARY_CANT_HAVE_NULL,
-           ER.DATA_TOO_LONG, ER.DATETIME_FUNCTION_OVERFLOW)
+           ER.DATA_TOO_LONG, ER.DATETIME_FUNCTION_OVERFLOW, ER.TRUNCATED_WRONG_VALUE_FOR_FIELD,
+           ER.ILLEGAL_VALUE_FOR_TYPE)
 _map_error(IntegrityError, ER.DUP_ENTRY, ER.NO_REFERENCED_ROW,
            ER.NO_REFERENCED_ROW_2, ER.ROW_IS_REFERENCED, ER.ROW_IS_REFERENCED_2,
            ER.CANNOT_ADD_FOREIGN, ER.BAD_NULL_ERROR)
@@ -99,11 +100,8 @@ del _map_error, ER
 
 def raise_mysql_exception(data):
     errno = struct.unpack('<h', data[1:3])[0]
-    is_41 = data[3:4] == b"#"
-    if is_41:
-        # client protocol 4.1
-        errval = data[9:].decode('utf-8', 'replace')
-    else:
-        errval = data[3:].decode('utf-8', 'replace')
-    errorclass = error_map.get(errno, InternalError)
+    errval = data[9:].decode('utf-8', 'replace')
+    errorclass = error_map.get(errno)
+    if errorclass is None:
+        errorclass = InternalError if errno < 1000 else OperationalError
     raise errorclass(errno, errval)

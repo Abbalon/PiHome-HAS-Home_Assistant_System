@@ -1,5 +1,3 @@
 
-=python:S125"Remove this commented out code.(é¨÷ş8¸¨Ë¥•-
-Npython:S1481"*Remove the unused local variable "_f_ini".(Òä°Ìúÿÿÿÿ8¸¨Ë¥•-
-Npython:S1481"*Remove the unused local variable "_f_fin".(‹€‚ úÿÿÿÿ8¸¨Ë¥•-
-Hpython:S1481")Remove the unused local variable "_user".(¥®ëÑ8¸¨Ë¥•-
+xpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(úõşŠÿÿÿÿÿ8ŞïÎ¿.
+[python:S5754d"<Specify an exception class to catch or reraise the exception(ˆÊÉ·8şÙÕñ¾.
