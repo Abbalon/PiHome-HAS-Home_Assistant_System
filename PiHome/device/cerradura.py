@@ -8,6 +8,11 @@ from threading import Thread
 
 from PiHome.card.model import Card
 from PiHome.device import DeviceBase, PING
+from PiHome.transit.model import TransitLog
+
+ABIERTO = "ABIERTO"
+
+CERRADO = "CERRADO"
 
 ATTRIBUTE_USER = "'NoneType' object has no attribute 'user'"
 
@@ -112,12 +117,20 @@ class Cerradura(DeviceBase):
             user = Card.get_user_from_tag(id_tag=id_tag)
             # Si el usuario está registrado
             if user:
-                # Abrimos la puerta
-                self.xbee.mandar_mensage(self.modelo.id_external, msg=CMD + ABRIR)
-            # Registramos el hecho
-            # Calculamos la media
-            # Si el usuario no esa registrado
-            # Mandamos mensaje al watchdog
+                msg = None
+                if self.estado == ABIERTO:
+                    # Cerramos la puerta
+                    msg = CMD + CERRAR
+                # if self.estado == CERRADO:
+                else:
+                    # Abrimos la puerta
+                    msg = CMD + ABRIR
+                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                # Registramos el hecho
+                TransitLog.record_move(user=user, action=msg)
+                # Calculamos la media
+                # Si el usuario no esa registrado
+                # Mandamos mensaje al watchdog
         except Exception as error:
             if str(error) == ATTRIBUTE_USER:
                 self.logger.warn("No hay ningún usuario registrado con la siguiente targeta:\t{}".format(id_tag))
