@@ -158,7 +158,7 @@ class XBee(ZigBeeDevice):
         """
         Manda el mensaje al destinatario por defecto.
         """
-        ack: TransmitStatusPacket
+        ack = None
         # Transformamos el mensaje recibido en un string tratable
         msg = str(msg)
         # Recuperamos la dirección del dispositivo remoto en formato de 64 bits
