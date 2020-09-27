@@ -30,8 +30,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/instance/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +199,7 @@
       <workItem from="1600445110132" duration="10786000" />
       <workItem from="1600530179997" duration="14066000" />
       <workItem from="1600597996458" duration="27101000" />
-      <workItem from="1601207823763" duration="752000" />
+      <workItem from="1601207823763" duration="4359000" />
     </task>
     <task id="LOCAL-00001" summary="trying merge master">
       <created>1595067136982</created>
@@ -356,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601149318078</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Update launcher">
+      <created>1601208617512</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1601208617512</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +410,8 @@
     <MESSAGE value="merged from XBee" />
     <MESSAGE value="Se quita el tipo para el tostring de la clase xbee" />
     <MESSAGE value="Ajustes para la compilación en RPi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes para la compilación en RPi" />
+    <MESSAGE value="Update launcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update launcher" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -527,10 +534,10 @@
     </state>
     <state x="577" y="389" key="SettingsEditor/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1598962580576" />
     <state x="2339" y="68" key="SettingsEditor/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1599910714492" />
-    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1601149319676">
+    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2" timestamp="1601208620701">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601149319676" />
+    <state x="440" y="584" width="800" height="555" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601208620701" />
     <state x="2183" y="268" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600626252154" />
     <state x="2322" y="265" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1600197843383">
       <screen x="1680" y="0" width="1920" height="1080" />
