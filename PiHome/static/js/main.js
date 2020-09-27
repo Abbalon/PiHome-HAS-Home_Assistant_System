@@ -38,6 +38,19 @@
             alignment: 'right'
         });
 
+        // Accordion
+        var icons = {
+            header: "icon fa-chevron-down",
+            activeHeader: "icon fa-chevron-up"
+        };
+
+        // Added to original
+        $('#accordion').accordion({
+            header: "> div > div > h3",
+            collapsible: true,
+            icons: icons
+        });
+
         // Off-Canvas Navigation.
 
         // Navigation Button.

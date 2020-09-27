@@ -12,16 +12,22 @@
     <title>{% block title %} {% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!--[if lte IE 8]><script src="static/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]>
+    <script src="static/js/ie/html5shiv.js"></script><![endif]-->
 
-    <!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
-
-    {#    <script src=""></script>#}
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="static/css/ie8.css"/><![endif]-->
 
     <!-- Flask -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sweetalert.js') }}"></script>
     <!-- Fin Flask -->
+
+    <!-- Scripts específicos de cada vista -->
+    {#    En este espacio se podrán cargar los scripts/links necesarios para cada vista#}
+    {% block head_scripts %}{% endblock %}
+    <!-- Fin Scripts específicos de cada vista -->
 
 </head>
 
@@ -50,6 +56,13 @@
         <li><a href="/elements">Elements</a></li>
         {% if base.category == 2 or base.category == 3 %}
             {#Vista del navbar del Administrador#}
+            <li>{#Dispositivos#}
+                <a href="#" class="icon fa-angle-down">Dispositivos</a>
+                <ul>
+                    {#Listar dispositivos#}
+                    <li><a href="/device/list">Listar dispositivos</a></li>
+                </ul>
+            </li>
             <li>{#Mantenimiento#}
                 <a href="#" class="icon fa-angle-down">Mantenimiento</a>
                 <ul>
@@ -75,7 +88,7 @@
                         <a href="#" class="icon fa-angle-left"> Informes</a>
                         <ul>
                             <li><a href="#">Mostar usuarios</a></li>
-                            <li><a href="#">Mostar transito</a></li>
+                            <li><a href="/transit/get">Mostar transito</a></li>
                         </ul>
                     </li>
 
@@ -141,20 +154,19 @@
 </div>
 
 <!-- Scripts -->
-
 <!-- Código para Flask -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.scrollgress.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 <!-- Fin Código para Flask -->
+<!-- Scripts específicos de cada vista -->
+{#    En este espacio se podrán cargar los scripts/links necesarios para cada vista#}
+{% block foot_scripts %}{% endblock %}
+<!-- Fin Scripts específicos de cada vista -->
 
 <!--</body>-->
 </body>

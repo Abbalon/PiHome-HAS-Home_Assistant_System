@@ -8,8 +8,8 @@ Type=simple
 User=pi_home
 Group=pi_home
 TimeoutStartSec=5
-WorkingDirectory=/mnt/Almacenamiento/Utils/Deb/TFG
-ExecStart=instance/start.sh
+WorkingDirectory=/home/pi/TFG/TFG
+ExecStart=/usr/bin/env bash /home/pi/TFG/TFG/instance/start.sh
 Restart=always
 RemainAfterExit=yes
 

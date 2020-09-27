@@ -8,9 +8,9 @@ def send_email(_email, _subject, _body):
         Método estandar para mandar un correo.
 
         Necesita:
-        email = [strig] #: Direcciones a las que se va a mandar el correo
-        subject = string #: Asunto del correo
-        body = obj #: Cuerpo del correo, pueden ser str, html ...
+        @param _email:  [String] #: Direcciones a las que se va a mandar el correo
+        @param _subject: string #: Asunto del correo
+        @param _body: obj #: Cuerpo del correo, pueden ser str, html ...
     """
     with mail.connect() as conn:
         mensaje = Message(

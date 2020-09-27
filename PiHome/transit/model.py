@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
+# -*- code: utf-8 -*-
+"""
+	Clase que define la información que vamos a almacenar del transito de los ususarios del sistema
+"""
 import datetime
 
 from PiHome import db
 from PiHome.dataBase import BaseDB
+
+date_format = '%Y-%m-%d %H:%M:%S'
 
 
 class TransitLog(BaseDB):
@@ -37,3 +44,15 @@ class TransitLog(BaseDB):
         super(TransitLog, self).__init__(**kwargs)
         self.category = category
         self.definition = definition
+
+    @staticmethod
+    def record_move(**kwargs):
+        user = kwargs.get('user')
+        action = kwargs.get('action')
+        now = datetime.datetime.now()
+
+        move = TransitLog(user=user,
+                          action=action,
+                          ocurred=now)
+        db.session.add(move)
+        db.session.commit()

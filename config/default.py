@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 	Módulo que establece la configuracion del sistema
@@ -22,7 +22,7 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     PROJECT_NAME = "PiHome"
-    SERVER_NAME = "PiHome_dev.com"
+    # SERVER_NAME = "PiHome.tfg"
 
     # Todo: Modificar los parámetros necesarios para adaptarlos a tu proyecto
 
@@ -49,10 +49,13 @@ class DevelopmentConfig(Config):
     """
         Parámetros de conexión del módulo ZigBee
     """
-    XBEE_PORT = '/dev/ttyUSB1'  # Puerto en el que se encuentra el ZigBee
+    # XBEE_PORT = '/dev/ttyUSB0'  # Puerto en el que se encuentra el ZigBee
+    XBEE_PORT = ['/dev/ttyUSB0']
     XBEE_BAUDRATE = 9600  # Frecuencia de emisión
-    XBEE_REMOTE_ADDRESS = 5526146537043477  # 0013a20041513615
-    XBEE_LOCAL_ADDRESs = 5526146537043399  # 0013a200415135c7
+    XBEE_MAC_ADRESS = '0013A200415135C7'
+
+    SYSTEM_INTERFACES = ['XBEE']
+    XBEE_INCOMING_ORDERS = ['INIT', 'PING', 'SHOUTING_DOWN', 'READ_TAG', 'TOC_TOC']
 
     """docstring for DevelopmentConfig"""
 
@@ -69,3 +72,5 @@ THREADS_PER_PAGE = 2
 
 # Enable protection agains *Cross-site Request Forgery (CSRF)*
 CSRF_ENABLED = True
+
+TEST = None

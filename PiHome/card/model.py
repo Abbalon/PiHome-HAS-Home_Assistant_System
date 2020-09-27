@@ -6,6 +6,7 @@
 
 from PiHome import db
 from PiHome.dataBase import BaseDB
+from PiHome.user.model import User
 
 
 class Card(BaseDB):
@@ -44,3 +45,17 @@ class Card(BaseDB):
 
             if key == 'ref':
                 self.ref = value
+
+    @classmethod
+    def get_user_from_tag(cls, **kwargs):
+        """Devuelve el usuario a quién corresponda la tarjeta recibida por parámetro
+        @param id_tag: id d ela targeta RFID que identifica al usuario. None si no está habilitado o no existe"""
+        response = None
+        id_tag = kwargs.get("id_tag")
+        if id_tag:
+            card = Card.query.filter_by(ref=id_tag).first()
+            if card:
+                user = card.user
+                if user.validated:
+                    response = user
+        return response

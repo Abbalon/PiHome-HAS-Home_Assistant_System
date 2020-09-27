@@ -1,7 +1,7 @@
 from flask import Blueprint, request, session, render_template
 
 from PiHome.admin.form import ValidateForm, UpgradeForm
-from PiHome.admin.utils import validate_user, delete_user
+from PiHome.admin.utils import validate_user, delete_user, upgrade_user
 from PiHome.group.model import Group
 from PiHome.user.model import User
 from PiHome.utils.base import Home

@@ -391,8 +391,7 @@
                 else
                     x.hide();
 
-                i
-                    .on('blur', function (event) {
+                i.on('blur', function (event) {
 
                         event.preventDefault();
 
@@ -407,8 +406,7 @@
 
                     });
 
-                x
-                    .on('focus', function (event) {
+                x.on('focus', function (event) {
 
                         event.preventDefault();
 
@@ -582,5 +580,4 @@
         });
 
     };
-
 })(jQuery);
