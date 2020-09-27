@@ -22,7 +22,7 @@ SECRET_KEY = os.urandom(16)
 __debugURLAdmin = os.environ.get('DB_URL_ADMIN')
 __debugURLUser = os.environ.get('DB_URL_USER')
 
-SQLALCHEMY_DATABASE_URI = __debugURLAdmin
+SQLALCHEMY_DATABASE_URI = __debugURLUser
 SQLALCHEMY_ECHO = False
 
 """
