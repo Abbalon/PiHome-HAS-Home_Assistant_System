@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
     Módulo que establece la metainformación del sistema
