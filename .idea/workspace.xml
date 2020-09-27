@@ -28,9 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b1e04f37-c7e7-48e9-bd18-e9dbb15532b5" name="Default Changelist" comment="* Pantalla para la visualización del tránsito&#10;* Integración del módulo de control del XBEE" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +202,7 @@
       <workItem from="1600445110132" duration="10786000" />
       <workItem from="1600530179997" duration="14066000" />
       <workItem from="1600597996458" duration="27101000" />
-      <workItem from="1601207823763" duration="7690000" />
+      <workItem from="1601207823763" duration="8090000" />
     </task>
     <task id="LOCAL-00001" summary="trying merge master">
       <created>1595067136982</created>
@@ -374,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601221442131</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Update launcher">
+      <created>1601225008742</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1601225008742</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,10 +454,10 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state x="633" y="632" key="#Web_Browsers/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597403639832" />
-    <state x="479" y="400" width="1071" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601224619942">
+    <state x="479" y="400" width="1071" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601225021697">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
-    <state x="479" y="400" width="1071" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601224619942" />
+    <state x="479" y="400" width="1071" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601225021697" />
     <state x="340" y="463" width="1071" height="757" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.323.1680.1050@1680.0.1920.1080" timestamp="1600025330739" />
     <state x="2390" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600282719687">
       <screen x="1680" y="0" width="1920" height="1080" />
@@ -526,6 +531,10 @@
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
     <state width="1634" height="342" key="GridCell.Tab.1.right/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1597412309049" />
+    <state width="296" height="500" key="HiddenNamespacesPopup" timestamp="1601224689027">
+      <screen x="0" y="323" width="1680" height="1050" />
+    </state>
+    <state width="296" height="500" key="HiddenNamespacesPopup/1680.0.1920.1080/0.323.1680.1050@0.323.1680.1050" timestamp="1601224689027" />
     <state x="8" y="594" key="IDE.errors.dialog" timestamp="1595015206701">
       <screen x="0" y="323" width="1680" height="1050" />
     </state>
