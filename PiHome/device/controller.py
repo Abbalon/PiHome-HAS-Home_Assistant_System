@@ -63,7 +63,7 @@ def do_action():
     """
     response_dict = {}
     response = None
-    _status: int = 200
+    _status = 200
 
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):

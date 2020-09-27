@@ -17,7 +17,7 @@ y en [este otro](https://blog.miguelgrinberg.com/post/running-a-flask-applicatio
         $ ls -la /home/pi_home/
         $ grep pi_home /etc/passwd
 1. Recargar Systemd  
-Una vez que hemos creado el `.service`, recargamos el listado de servicios disponibles:  
+Una vez que hemos creado el `.service` y movido a `/etc/systemd/system`, recargamos el listado de servicios disponibles:  
   
         $  systemctl daemon-reload
 1. Habilitamos el service nuevo  

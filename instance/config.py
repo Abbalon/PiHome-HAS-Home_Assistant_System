@@ -8,7 +8,7 @@ local machine for development. Since this file will be read in after default.py,
 """
 import os
 
-DEBUG = True
+DEBUG = False
 # This is a secret key that is used by Flask to sign cookies. It’s also used by extensions like Flask-Bcrypt. You should
 # define this in your instance folder to keep it out of version control. You can read more about instance folders
 # in the next section.
@@ -19,11 +19,11 @@ SECRET_KEY = os.urandom(16)
 # increase over time as computing power increases.
 # BCRYPT_LOG_ROUNDS = ""
 
-__debugURLAdmin = 'mysql+pymysql://PiHome_test:2ZtvzkiSTMYCDQ79@localhost:3306/PiHome_test'
-__debugURLUser = 'mysql+pymysql://PiHome:oGTeQs7GunK7xXL7@localhost:3306/PiHome'
+__debugURLAdmin = os.environ.get('DB_URL_ADMIN')
+__debugURLUser = os.environ.get('DB_URL_USER')
 
 SQLALCHEMY_DATABASE_URI = __debugURLAdmin
-SQLALCHEMY_ECHO = True
+SQLALCHEMY_ECHO = False
 
 """
     Parámetros para la conguración del WebMailServer
@@ -37,7 +37,7 @@ MAIL_USE_SSL = False
 MAIL_USE_TLS = True
 MAIL_USERNAME = 'PiDomoticTFG@gmail.com'
 DEFAULT_MAIL_SENDER = 'PiDomoticTFG+Bienvenida@gmail.com'
-MAIL_PASSWORD = '#Clave de PiD@motic#'  # r'\xab\xeb\xf3\x0c\xeb\xe0\xf5\x96\xf0\xc0\xc7\xe6\x85\x98\xc3\x0b'  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+MAIL_PASSWORD = os.environ.get('PASSWORD_EMAIL_DEBUG')  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
 MAIL_DEBUG = True
 TEST_MAIL_SENDER = 'PiDomoticTFG+test@gmail.com'
 
@@ -46,6 +46,6 @@ TEST_MAIL_SENDER = 'PiDomoticTFG+test@gmail.com'
 
 # Use a secure, unique and absolutely secret key for
 # signing the data.
-# CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
+CSRF_SESSION_KEY = os.urandom(16)  # os.environ.get('PASSWORD_EMAIL_DEBUG') # $ export PASSWORD_EMAIL_DEBUG = ''
 
 GITHUB_TOKEN = "2d3efcebe609926703f8ca83f8d55c16a4a30c6d"

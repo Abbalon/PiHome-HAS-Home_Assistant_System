@@ -148,7 +148,7 @@ class XBee(ZigBeeDevice):
             self.logger.error("No se ha cerrado la conexíón de la antena\n\t" + str(e))
 
     def __str__(self):
-        atr: dict = {'Opened': self.is_open(), 'Name': self.get_node_id(), 'Dir': str(self.get_64bit_addr()),
+        atr = {'Opened': self.is_open(), 'Name': self.get_node_id(), 'Dir': str(self.get_64bit_addr()),
                      'Remote_dir': str(self.remote_zigbee.get_64bit_addr())}
 
         return format(atr)
@@ -158,7 +158,7 @@ class XBee(ZigBeeDevice):
         """
         Manda el mensaje al destinatario por defecto.
         """
-        ack: TransmitStatusPacket
+        ack = None
         # Transformamos el mensaje recibido en un string tratable
         msg = str(msg)
         # Recuperamos la dirección del dispositivo remoto en formato de 64 bits
