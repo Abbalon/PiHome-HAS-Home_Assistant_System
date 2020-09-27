@@ -8,7 +8,7 @@ local machine for development. Since this file will be read in after default.py,
 """
 import os
 
-DEBUG = False
+DEBUG = True
 # This is a secret key that is used by Flask to sign cookies. It’s also used by extensions like Flask-Bcrypt. You should
 # define this in your instance folder to keep it out of version control. You can read more about instance folders
 # in the next section.
@@ -23,7 +23,7 @@ __debugURLAdmin = os.environ.get('DB_URL_ADMIN')
 __debugURLUser = os.environ.get('DB_URL_USER')
 
 SQLALCHEMY_DATABASE_URI = __debugURLAdmin
-SQLALCHEMY_ECHO = False
+SQLALCHEMY_ECHO = True
 
 """
     Parámetros para la conguración del WebMailServer
