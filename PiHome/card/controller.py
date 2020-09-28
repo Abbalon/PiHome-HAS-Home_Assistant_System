@@ -22,7 +22,7 @@ def show_card():
     """
 
     id_card = request.args.get('id')
-    _base = home.get_base_params("Listado de las tarjetas registradas")
+    _base = home.get_base_params(_title="Listado de las tarjetas registradas")
     title = "Tarjetas registradas"
     header = None
     body = None
@@ -41,7 +41,7 @@ def show_card():
                     User.name,
                     Card.ref).all()
         else:
-            _base = home.get_base_params("Mostrando prueba de lista", 0)
+            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
 
         cards = ShowData(title, header, body)
 
@@ -59,7 +59,7 @@ def new_card():
     o la que se le indique por parámetro"""
 
     id_card = request.args.get('id')
-    _base = home.get_base_params("Listado de las tarjetas registradas")
+    _base = home.get_base_params(_title="Listado de las tarjetas registradas")
 
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
@@ -73,4 +73,4 @@ def new_card():
                     User.name,
                     Card.ref)
         else:
-            _base = home.get_base_params("Mostrando prueba de lista", 0)
+            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)

@@ -1,9 +1,5 @@
 # Define the blueprint: 'user', set its url prefix: app.url/auth
 import threading
-
-from flask import Blueprint, session, flash, render_template, redirect, url_for, copy_current_request_context, request
-from flask_mail import Message
-
 from PiHome import db
 from PiHome import mail, app
 from PiHome.home.form import LogInForm, ContactForm
@@ -11,6 +7,8 @@ from PiHome.user.form import SignUpForm
 from PiHome.user.model import User
 from PiHome.utils.base import Home
 from PiHome.utils.mail import send_email
+from flask import Blueprint, session, flash, render_template, redirect, url_for, copy_current_request_context, request
+from flask_mail import Message
 
 home_ctr = Blueprint('home', __name__, url_prefix='')
 
@@ -28,7 +26,7 @@ def index():
 
     if 'name' in session:
         if session['name'] != '':
-            _base = home.get_base_params("Bienvenido " + session['name'], 1)
+            _base = home.get_base_params(_title="Bienvenido " + session['name'], _dynamic=1)
             flash('Estás logeado')
     else:
         flash('No estás logeado')
@@ -68,7 +66,7 @@ def log_in():
             flash('¡El nombre o la contraseña parecen no ser correctas!')
 
     return render_template('logIn.html',
-                           base=home.get_base_params("Who are you?"),
+                           base=home.get_base_params(_title="Who are you?", _header="Datos de acceso"),
                            error=error,
                            form=log_in_form)
 
@@ -82,10 +80,6 @@ def log_out():
     if 'logged_in' in session:
         # Elimina el estado de la sesión si es que estaba logeado
         reset_session()
-        # session.pop('logged_in', None)
-        # session.pop('name', None)
-        # session.pop('category', None)
-        # session.pop('dynamic', None)
 
     flash('Te has deslogeado correctamente')
 
@@ -134,7 +128,12 @@ def sign_up():
 
         @copy_current_request_context
         def send_notification(email, subject, body):
-            send_email(email, subject, body)
+            send_email([email], subject, body)
+            # Advertimos a los admin y Gruardianes que tiene que validar un usuario nuevo
+            mails = User.get_mails_of_groups(id_groups=[2, 3])
+            subject = 'Usuario pendiente de validar'
+            body = 'Hay un usuario pendiente de validar.\nAcceda a la ruta ' + url_for('admin.validate')
+            send_email(mails, subject, body)
 
         sender = threading.Thread(
             name='mail_sender',
@@ -150,7 +149,7 @@ def sign_up():
                                 name=sign_up_form.name.data))
 
     return render_template('signUp.html',
-                           base=home.get_base_params("Let's Sign Up"),
+                           base=home.get_base_params(_title="Let's Sign Up", _header="Formulario de ingreso"),
                            form=sign_up_form)
 
 
@@ -164,7 +163,7 @@ def elements():
         category = 0
 
     return render_template('elements.html',
-                           base=home.get_base_params("Ejemplos de Elementos", dynamic))
+                           base=home.get_base_params(_title="Ejemplos de Elementos", _dynamic=dynamic))
 
 
 @home_ctr.route('/contact', methods=['GET', 'POST'])

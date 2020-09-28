@@ -1,4 +1,4 @@
-from flask import Blueprint, request, session, render_template
+from flask import Blueprint, request, session, render_template, flash
 
 from PiHome.admin.form import ValidateForm, UpgradeForm
 from PiHome.admin.utils import validate_user, delete_user, upgrade_user
@@ -40,7 +40,7 @@ def validate():
             User.email,
             Group.category)  # .paginate(page,per_page,False)
         return render_template('validate.html',
-                               base=home.get_base_params('Usuarios sin confirmar'),
+                               base=home.get_base_params(_title='Usuarios sin confirmar'),
                                results=user,
                                form=validate_form)
 
@@ -64,6 +64,8 @@ def update_category():
             if user != ['']:
                 upgrade_user(int(user[0]), int(user[1]))
 
+        flash("Usuarios modificados correctamente")
+
     #: Si se ha creado alguna sesion
     if 'category' in session and session['category'] == 3:
         #: Si la sesión creada es la adecuada
@@ -76,9 +78,12 @@ def update_category():
             Group.category)  # .paginate(page,per_page,False)
 
         categories = Group.query.all()
+        header = 'Actualización de categoría'
+        table_header = 'Listado de usuarios'
 
         return render_template('updateCategory.html',
-                               base=home.get_base_params('Actualizar categoria'),
+                               base=home.get_base_params(_title='Actualizar categoria', _header=header),
+                               table_header=table_header,
                                results=users,
                                form=upgrade_from,
                                groups=categories,

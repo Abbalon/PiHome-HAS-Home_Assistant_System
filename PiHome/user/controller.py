@@ -24,14 +24,14 @@ def show(page=1):
 
     if 'name' in session and session['name'] != '':
         if session['category'] == 3:
-            _base = home.get_base_params("Mostrando prueba de lista", 0)
+            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
 
             users = User.query.join('group').add_columns(
                 User.name,
                 User.email,
                 Group.category)  # .paginate(page,per_page,False)
         else:
-            _base = home.get_base_params("Mostrando prueba de lista", 0)
+            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
 
     return render_template('showUsers.html',
                            base=_base,

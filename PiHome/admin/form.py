@@ -1,8 +1,8 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import SubmitField
 
 
-class ValidateForm(Form):
+class ValidateForm(FlaskForm):
     """
         Formulario para capturar que usuario hay que validar o descartar
     """
@@ -10,7 +10,7 @@ class ValidateForm(Form):
     submit = SubmitField('Confirmar')
 
 
-class UpgradeForm(Form):
+class UpgradeForm(FlaskForm):
     """
         Formulario para capturar que usuario hay que actualizar
     """

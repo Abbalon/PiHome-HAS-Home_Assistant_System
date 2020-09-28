@@ -79,7 +79,7 @@ def get(**filtro):
     ['fecha_ini']   -> Desde que fecha queremos mostrar
     ['fecha_fin']   -> Hasta que fecha queremos mostrar
     """
-    _base = home.get_base_params("Listado del tránsito registrado ")
+    _base = home.get_base_params(_title="Listado del tránsito registrado")
     title = "Accesos registrados"
     header = None
     body = None
@@ -91,7 +91,7 @@ def get(**filtro):
         filter_form.user_name.choices = UserDAO.get_user_lite_list()
         if session['category'] in (3, 2):
             if not request.method == 'POST':
-                _base = home.get_base_params("Mostrando prueba de lista", 0)
+                _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
             else:
                 body = ejecutar_busqueda(filter_form)
 

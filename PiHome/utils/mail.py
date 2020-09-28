@@ -12,11 +12,13 @@ def send_email(_email, _subject, _body):
         @param _subject: string #: Asunto del correo
         @param _body: obj #: Cuerpo del correo, pueden ser str, html ...
     """
+    mails = [m for m in _email]
+
     with mail.connect() as conn:
         mensaje = Message(
             subject=_subject,
             sender=app.config['DEFAULT_MAIL_SENDER'],  # default['DEFAULT_MAIL_SENDER'], se puede omitir
-            recipients=[_email],
+            recipients=mails,
             body=_body
         )
 

@@ -12,7 +12,7 @@
 
         {% if results %}
             <header>
-                <h2>Usuarios pendientes de confirmación</h2>
+                <h2>{{ base.header }}</h2>
             </header>
 
             <div class="row">
@@ -20,9 +20,8 @@
 
                     <!-- Table -->
                     <section class="box">
-                        <h3>Table</h3>
+                        <h3>{{ table_header }}</h3>
 
-                        <h4>Default</h4>
                         <div class="table-wrapper">
                             <table>
                                 <form method="POST">

@@ -25,29 +25,29 @@
 
         <section class="box special">
             <header class="major">
-                <h2>Introducing the ultimate mobile app
+                <h2>Universidad Politécnica de Madrid
                     <br/>
-                    for doing stuff with your phone</h2>
-                <p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br/>
-                    adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+                    Escuela Técnica Superior de Ingeniería de
+                    <br/>
+                    SISTEMAS INFORMÁTICOS
+                </h2>
+                <p>Grado en Ingeniería del Software<br/> 2019 - 2020</p>
             </header>
 
-            <span class="image featured">
+            <span class="image fit">
 				<img src="{{ url_for('static', filename='img/pic01.jpg') }}" alt=""/>
 			</span>
-
         </section>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <!-- Mensajes flash -->
-                <div class="row">
+                <div class="row uniform 50%">
                     <div class="12u">
-
                         <!-- Text -->
-                        <section class="box">
+                        <section class="box special">
                             <header>
-                                <h2>Mensajes entrantes</h2>
+                                <h3>Mensajes entrantes</h3>
                             </header>
 
                             <hr/>
@@ -57,9 +57,7 @@
                                     <li> {{ message }} </li>
                                 {% endfor %}
                             </ul>
-
                         </section>
-
                     </div>
                 </div>
             {% endif %}
@@ -83,7 +81,6 @@
                 </div>
             </div>
         </form>
-
     </section>
 
 {% endblock %}

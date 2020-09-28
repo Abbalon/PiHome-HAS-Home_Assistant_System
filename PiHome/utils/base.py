@@ -26,18 +26,31 @@ class Home:
     dynamic = 0
     scope = None
     logged = False
+    header = None
 
     def __init__(self, _dynamic=1):
         self.dynamic = _dynamic
 
-    def get_base_params(self, _title="TFG", _dynamic=0):
+    def get_base_params(self, **kwargs):
         if 'logged_in' in session:
             self.name = session['name']
             self.category = session['category']
             self.logged = True
 
-        self.title = _title
-        self.dynamic = _dynamic
+        if kwargs.get("_header"):
+            self.header = kwargs.get("_header")
+        else:
+            self.header = "Título de la vista"
+
+        if kwargs.get("_title"):
+            self.title = kwargs.get("_title")
+        else:
+            self.title = "TFG"
+
+        if kwargs.get("_dynamic"):
+            self.dynamic = kwargs.get("_dynamic")
+        else:
+            self.dynamic = 0
 
         return self
 

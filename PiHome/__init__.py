@@ -122,8 +122,8 @@ if __name__ == "PiHome":
         with app.app_context():
             # db.drop_all()  # Borra la BD
             db.create_all()  # Crea las tablas que no existan
-            __create_foreign_keys()  # Crea los datos básicos de la la bbdd
-            __load_devices() # Crea los dispositivos standart
+            # __create_foreign_keys()  # Crea los datos básicos de la la bbdd
+            # __load_devices() # Crea los dispositivos standart
             load_devices() # Crea un controlador para cada dispositivo de la bbdd
             start_devices_join()
             app.logger.info("Inicializada la aplicación.")
