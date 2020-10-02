@@ -20,21 +20,19 @@ class Home:
         Define si se está en una sesión activa
     """
 
-    name = "Hi you"
-    title = "PiHome - TFG"
-    category = 0
-    dynamic = 0
-    scope = None
-    logged = False
-    header = None
-
     def __init__(self, _dynamic=1):
         self.dynamic = _dynamic
+        self.name = "Hi you"
+        self.title = "PiHome - TFG"
+        self.category = 0
+        self.scope = None
+        self.logged = False
+        self.header = None
 
     def get_base_params(self, **kwargs):
-        if 'logged_in' in session:
-            self.name = session['name']
-            self.category = session['category']
+        if 'logged_in' in session and session.get('logged_in'):
+            self.name = session.get('name')
+            self.category = session.get('category')
             self.logged = True
 
         if kwargs.get("_header"):

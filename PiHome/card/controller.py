@@ -65,11 +65,11 @@ def new_card():
         if session['category'] in (3, 2):
 
             if id_card is not None:
-                cards = Card.query.join('User').add_columns(
+                cards = Card.query.join('user').add_columns(
                     User.name,
                     Card.ref)
             else:
-                cards = Card.query.filer_by(id=id_card).join('User').add_columns(
+                cards = Card.query.filter_by(id=id_card).join('User').add_columns(
                     User.name,
                     Card.ref)
         else:

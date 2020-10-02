@@ -44,8 +44,6 @@ def log_in():
 
     error = None
     log_in_form = LogInForm(request.form)
-    for data in log_in_form:
-        print(data)
 
     if request.method == 'POST':
         form_name = log_in_form.name.data
