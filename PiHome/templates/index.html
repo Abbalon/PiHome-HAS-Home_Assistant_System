@@ -12,11 +12,13 @@
         <p>Sistema de seguridad y control domótico</p>
         <h2>PiHome</h2>
         <ul class="actions">
-            {% if category == 0 %}
+            {% if base.category == 0 %}
                 <li><a href="logIn" class="button special">Log In</a></li>
             {% endif %}
             <li><a href="Anteproyecto" class="button">Learn More</a></li>
-            <li><a href="TestEmail" class="button">Test Email</a></li>
+            {% if base.category == 3 %}
+                <li><a href="/swagger/" class="button">Show API</a></li>
+            {% endif %}
         </ul>
     </section>
 
@@ -65,22 +67,24 @@
 
     </section>
 
-    <!-- CTA -->
-    <section id="cta">
+    {% if base.category == 0 %}
+        <!-- CTA -->
+        <section id="cta">
 
-        <h2>Sign up for beta access</h2>
-        <p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+            <h2>Sign up for beta access</h2>
+            <p>Subscribete si quieres participar en la beta.</p>
 
-        <form>
-            <div class="row uniform 50%">
-                <div class="8u 12u(mobilep)">
-                    <input type="email" name="email" id="email" placeholder="Email Address"/>
+            <form>
+                <div class="row uniform 50%">
+                    <div class="8u 12u(mobilep)">
+                        <input type="email" name="email" id="email" placeholder="Email Address"/>
+                    </div>
+                    <div class="4u 12u(mobilep)">
+                        <input type="submit" value="Sign Up" class="fit"/>
+                    </div>
                 </div>
-                <div class="4u 12u(mobilep)">
-                    <input type="submit" value="Sign Up" class="fit"/>
-                </div>
-            </div>
-        </form>
-    </section>
+            </form>
+        </section>
+    {% endif %}
 
 {% endblock %}

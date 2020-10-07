@@ -54,7 +54,7 @@
         <li><a href="/">Home</a></li>
         {#    Elements#}
         {#        <li><a href="/elements">Elements</a></li>#}
-        {% if base.category == 2 or base.category == 3 %}
+        {% if base.category == 3 %}
             {#Vista del navbar del Administrador#}
             <li>{#Dispositivos#}
                 <a href="#" class="icon fa-angle-down">Dispositivos</a>
@@ -63,6 +63,8 @@
                     <li><a href="/device/list">Listar dispositivos</a></li>
                 </ul>
             </li>
+        {% endif %}
+        {% if base.category in [2, 3] %}
             <li>{#Mantenimiento#}
                 <a href="#" class="icon fa-angle-down">Mantenimiento</a>
                 <ul>
@@ -71,9 +73,7 @@
                         <ul>
                             <li><a href="/admin/update_category">Cambiar permisos</a></li>
                             <li><a href="/admin/validate">Validar usuarios</a></li>
-                            <li><a href="/generic2"># Registar RFID</a></li>
                             <li><a href="/signUp">Alta usuarios</a></li>
-                            <li><a href="/user/all">Show database</a></li>
                         </ul>
                     </li>
                     {#Tarjetas#}
@@ -88,7 +88,7 @@
                     <li>
                         <a href="#" class="icon fa-angle-left"> Informes</a>
                         <ul>
-                            <li><a href="#">Mostar usuarios</a></li>
+                            <li><a href="/user/all">Mostar usuarios</a></li>
                             <li><a href="/transit/get">Mostar transito</a></li>
                         </ul>
                     </li>
@@ -109,14 +109,14 @@
             </li>
         {% endif %}
 
-        {% if base.category == 2 or base.category == 1 %}
+        {% if base.category in [1, 2] %}
             {#Vista del navbar del watchdog#}
 
             {#Control de acceso#}
             <li>
                 <a href="#" class="icon fa-angle-down">Control de acceso</a>
                 <ul>
-                    <li><a href="#"># Quien hay en casa</a></li>
+                    <li><a href="{{ url_for('transit.who_is') }}">Quien hay en casa</a></li>
                     {% if base.category == 2 %}
                         <li><a href="#"># Abrir puerta</a></li>
                     {% endif %}

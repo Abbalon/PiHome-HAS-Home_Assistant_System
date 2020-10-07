@@ -18,7 +18,22 @@ home = Home()
 def show_card():
     """
     Método que muestra las tarjetas que están dadas de alta en el sistema
-    \n:param id [opcional] Si se desea mostrar información específica de esa tarjeta
+    ---
+    tags:
+        - Cards actions
+    parameters:
+        - name: id
+          description: Si se desea mostrar información específica de esa tarjeta
+          in: path
+          type: integer
+          required: false
+    responses:
+        500:
+          description: Error The number is not integer!
+        200:
+          description: Render page with a list of cards
+          schema:
+            $ref: '/cards.html'
     """
 
     id_card = request.args.get('id')
@@ -30,7 +45,7 @@ def show_card():
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
 
-            header = ["Usuario", "Tarjeta"]
+            header = ["Usuario", "Tarjeta", "Último registro"]
 
             if id_card is None:
                 body = Card.query.join('user').add_columns(
@@ -56,7 +71,24 @@ def show_card():
 @card_ctr.route('/new_card', methods=['GET'])
 def new_card():
     """Metodo que devuelve la información de todas las tarjetas
-    o la que se le indique por parámetro"""
+    o la que se le indique por parámetro
+    ---
+    tags:
+        - Cards actions
+    parameters:
+        - name: id
+          description: Si se desea mostrar información específica de esa tarjeta
+          in: path
+          type: integer
+          required: false
+    responses:
+        500:
+          description: Error The number is not integer!
+        200:
+          description: Render page with a list of cards
+          schema:
+            $ref: '/cards.html'
+    """
 
     id_card = request.args.get('id')
     _base = home.get_base_params(_title="Listado de las tarjetas registradas")

@@ -29,11 +29,11 @@
                         <!-- Campos "Fecha desde" y "Fecha hasta" del formulario -->
                         <div class="6u 12u(mobilep)">
                             {{ Render_field(form.f_inicio_lb) }}
-                            {{ Render_field(form.f_inicio, placeholder="Filtrará los registros desde esta fecha (dd/mm/yyyy)") }}
+                            {{ Render_field(form.f_inicio, title="Filtrará los registros desde esta fecha (dd/mm/yyyy 00:00)") }}
                         </div>
                         <div class="6u 12u(mobilep)">
                             {{ Render_field(form.f_fin_lb) }}
-                            {{ Render_field(form.f_fin, placeholder="Filtrará los registros hasta esta fecha (dd/mm/yyyy)") }}
+                            {{ Render_field(form.f_fin, title="Filtrará los registros hasta esta fecha (dd/mm/yyyy 00:00)") }}
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                             <ul class="actions align-center">
                                 <li>
                                     <input type="submit" value="Filtar"/>
-                                    {#                                    {{ Render_field(form.submit) }}#}
+                                    {# {{ Render_field(form.submit) }}#}
                                 </li>
                             </ul>
                         </div>
@@ -66,8 +66,6 @@
                     <!-- Table -->
                     <section class="box">
                         <h3>{{ results.title }}</h3>
-
-                        <h4>Default</h4>
                         <div class="table-wrapper">
                             <table>
                                 <thead>
@@ -81,9 +79,14 @@
                                 {% if results.data %}
                                     {% for row in results.data %}
                                         <tr>
-                                            <td>{{ row.user_id }}</td>
-                                            <td>{{ row.action }}</td>
-                                            <td>{{ row.ocurred }}</td>
+                                            <td>{{ row.user.name }}</td>
+                                            {% if row.action %}
+                                                <td>Entrada</td>
+                                            {% else %}
+                                                <td>Salida</td>
+                                            {% endif %}
+                                            <td>{{ row.ocurred.strftime("%H:%M:%S") }}</td>
+                                        <td>{{ row.ocurred.strftime("%d-%m-%Y") }}</td>
                                         </tr>
                                     {% endfor %}
                                 {% endif %}

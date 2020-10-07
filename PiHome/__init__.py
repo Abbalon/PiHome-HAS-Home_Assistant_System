@@ -3,6 +3,7 @@
 import sys
 import threading
 
+from flasgger import Swagger
 from flask import Flask, render_template
 # Import SQLAlchemy
 from flask_mail import Mail
@@ -10,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Define the WSGI application object
 from flask_wtf import CSRFProtect
 
+from PiHome.swagger import specs
 from PiHome.utils.stack_switcher import StackSwitcher
 from PiHome.utils.xbee import XBee, XBeeInstanceException
 
@@ -22,6 +24,13 @@ app.config.from_object('config.default.DevelopmentConfig')
 
 # Carga de los valor desde instance
 app.config.from_pyfile('config.py')
+
+app.config['SWAGGER'] = {
+    'title': 'My API',
+    'uiversion': 3,
+    "specs_route": "/swagger/"
+}
+swagger = Swagger(app, template=specs)
 
 # Define the database object which is imported
 # by modules and controllers
@@ -59,6 +68,7 @@ from PiHome.home.controller import home_ctr
 from PiHome.transit.controller import transit_ctr
 from PiHome.card.controller import card_ctr
 from PiHome.device.controller import device_ctr
+from PiHome.swagger import swagger_ctr
 from PiHome.utils.db_setUp import __create_foreign_keys
 
 
@@ -76,6 +86,7 @@ app.register_blueprint(group_ctr)
 app.register_blueprint(transit_ctr)
 app.register_blueprint(card_ctr)
 app.register_blueprint(device_ctr)
+app.register_blueprint(swagger_ctr)
 
 """
 Prevención de XSS & XSRF

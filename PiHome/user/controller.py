@@ -23,20 +23,21 @@ def show(page=1):
     per_page = 5
 
     if 'name' in session and session['name'] != '':
-        if session['category'] == 3:
-            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
+        if session['category'] in [2, 3]:
+            _base = home.get_base_params(_title="Listado de usuarios", _dynamic=0)
 
             users = User.query.join('group').add_columns(
                 User.name,
                 User.email,
                 Group.category)  # .paginate(page,per_page,False)
         else:
-            _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
+            #: Si no, retorna la página de error
+            return render_template('error.html'), 404
 
     return render_template('showUsers.html',
                            base=_base,
                            results=users,
-                           table='users')
+                           table='Usuarios')
 
 
 def get_user_lite_list() -> list:
