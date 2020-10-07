@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 from PiHome import db, app
 from PiHome.card.model import Card
 from PiHome.group.model import Group

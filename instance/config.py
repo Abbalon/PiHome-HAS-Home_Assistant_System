@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 This file contains configuration variables that shouldn’t be in version control. This includes things like API keys and
