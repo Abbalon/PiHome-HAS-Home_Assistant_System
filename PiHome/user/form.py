@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 from wtforms import StringField, validators, PasswordField, Form, BooleanField
 from wtforms.fields.html5 import EmailField

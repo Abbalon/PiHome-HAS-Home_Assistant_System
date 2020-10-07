@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import generate_password_hash, check_password_hash

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 from flask import flash
 from wtforms import Form, StringField, validators, SubmitField

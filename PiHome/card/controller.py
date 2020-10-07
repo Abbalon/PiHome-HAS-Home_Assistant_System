@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 Fichero que maneja el comportamiento de las tarjetas

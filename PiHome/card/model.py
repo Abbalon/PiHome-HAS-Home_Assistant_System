@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 	Clase que define la información que vamos a almacenar de las tarjetas RFID

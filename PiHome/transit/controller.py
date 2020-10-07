@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 Fichero que maneja la extración de datos del tránsito de usuarios
