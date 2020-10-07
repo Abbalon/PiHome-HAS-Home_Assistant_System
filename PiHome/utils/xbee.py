@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!venv/bin/python3
 """Paquete encargado de la gestión y representación de un dispositivo ZigBee/Xbee"""
 from threading import Thread
 
