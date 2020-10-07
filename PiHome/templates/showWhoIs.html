@@ -1,0 +1,63 @@
+{% extends 'shared/base.html' %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ base.title }}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+
+        {% if results %}
+            <header>
+                <h2>{{ table }}</h2>
+            </header>
+            <div class="row">
+                <div class="12u">
+                    <!-- Table -->
+                    <section class="box">
+                        <h3>{{ results.title }}</h3>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                <tr>
+                                    {% for col in results.header %}
+                                        <th>{{ col }}</th>
+                                    {% endfor %}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if results.data %}
+                                    {% for row in results.data %}
+                                        <tr>
+                                            <td>{{ row.user.name }}</td>
+                                            {% if row.action %}
+                                                <td>Entrada</td>
+                                            {% else %}
+                                                <td>Salida</td>
+                                            {% endif %}
+                                            {% if row.ocurred %}
+                                                <!-- test -->
+                                                <td>{{ row.ocurred.strftime("%H:%M:%S") }}</td>
+                                                <td>{{ row.ocurred.strftime("%d/%m/%Y") }}</td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        {% else %}
+            <header>
+                <h2>La consulta está vacia</h2>
+            </header>
+        {% endif %}
+    </section>
+
+{% endblock %}

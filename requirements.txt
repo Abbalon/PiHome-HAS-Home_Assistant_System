@@ -3,6 +3,7 @@ Flask
 wtforms
 flask_wtf
 flask-sqlalchemy
+flask_restplus
 pymysql
 Flask-mail
 digi-xbee

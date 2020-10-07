@@ -13,9 +13,10 @@
     <section id="main" class="container 75%">
         <header>
             <h2>Bienvenido</h2>
-            <p>Intruduce tus datos de acceso</p>
             {% if error %}
                 <p class="error"><strong>Error: </strong> {{ error }}</p>
+            {% else %}
+                <p>Introduce tus datos de acceso</p>
             {% endif %}
         </header>
 

@@ -12,7 +12,7 @@
 
         {% if results %}
             <header>
-                <h2>Mostrando los datos de '{{ table }}'</h2>
+                <h2>Mostrando los datos de {{ table }} validados</h2>
             </header>
 
             <div class="row">
@@ -20,9 +20,7 @@
 
                     <!-- Table -->
                     <section class="box">
-                        <h3>Table</h3>
-
-                        <h4>Default</h4>
+                        <h3>{{ table }}</h3>
                         <div class="table-wrapper">
                             <table>
                                 <thead>

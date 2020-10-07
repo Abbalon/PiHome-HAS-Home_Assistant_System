@@ -28,7 +28,7 @@ def get_device():
 
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
-            __base = __home.get_base_params("Dispositivos")
+            __base = __home.get_base_params(_title="Dispositivos")
             __body = ShowData(_header="Dispositivos disponibles")
             __body.data = get_devices_list()
             return render_template(__html,
