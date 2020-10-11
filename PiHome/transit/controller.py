@@ -154,4 +154,4 @@ def who_is(**filtro):
                                form=filter_form)
 
     else:
-        return render_template('error.html')
+        return render_template('error.html'), 404

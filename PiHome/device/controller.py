@@ -84,6 +84,6 @@ def do_action():
             response.status_code = _status
 
     else:
-        response = render_template('error.html')
+        response = render_template('error.html'), 404
 
     return response

@@ -30,6 +30,19 @@ class Home:
         self.header = None
 
     def get_base_params(self, **kwargs):
+        """
+        Retorna los valores básicos de una vista
+
+        ---
+
+        :rtype: Home
+        :param \**kwargs:  See below
+        :type kwargs: dict
+
+        :keyword _header (str): Literal que hará de título en la vista. Default "Título de la vista"
+        :keyword _title (str): Literal que hará de título en la página. Default "TFG"
+        :keyword _dynamic (int): Define el comportamiento de la página. Default 0
+        """
         if 'logged_in' in session and session.get('logged_in'):
             self.name = session.get('name')
             self.category = session.get('category')

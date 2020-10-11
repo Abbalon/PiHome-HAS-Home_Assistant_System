@@ -14,7 +14,9 @@ home = Home()
 @admin_ctr.route('/validate', methods=['GET', 'POST'])
 # @app.route('/validate/<int:userId>', methods = ['GET', 'POST'])
 def validate():
-    """Muestra la información de los usuarios sin validar en el sistema"""
+    """Muestra la información de los usuarios sin validar en el sistema
+    ---
+    """
 
     validate_form = ValidateForm(request.form)
 
