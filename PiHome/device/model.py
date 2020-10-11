@@ -127,6 +127,12 @@ class Family(BaseDB):
         self.name = name
         self.description = description
 
+    @staticmethod
+    def get_list():
+        fam_list = [(f.id, f.name) for f in Family.query.all()]
+        fam_list.insert(0, (0, "Selecciona las familias del dispositivo"))
+        return fam_list
+
 
 class Action(BaseDB):
     """

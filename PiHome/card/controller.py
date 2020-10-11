@@ -129,7 +129,7 @@ def new_card():
                 else:
                     flash(flash_msg)
 
-                response = redirect(url_for('card.new_card'))
+                response = redirect(url_for('card.show_card'))
 
     return response
 

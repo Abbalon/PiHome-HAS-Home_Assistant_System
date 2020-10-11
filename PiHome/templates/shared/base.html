@@ -61,6 +61,8 @@
                 <ul>
                     {#Listar dispositivos#}
                     <li><a href="/device/list">Listar dispositivos</a></li>
+                    {#Nuevo dispositivo#}
+                    <li><a href="{{ url_for('device.new_device') }}">Nuevo dispositivo</a></li>
                 </ul>
             </li>
         {% endif %}

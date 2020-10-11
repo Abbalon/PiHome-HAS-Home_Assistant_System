@@ -5,18 +5,13 @@ Fichero que maneja el comportamiento de las tarjetas
 from flask import Blueprint, session, render_template, request, jsonify
 
 from PiHome import device_list
+from PiHome.device.form import AddDeviceForm
 from PiHome.device.model import Device, Action
 from PiHome.utils.base import Home, ShowData
 
 device_ctr = Blueprint('device', __name__, url_prefix='/device')
 
-__home = Home()
-__base = None
-__title = None
-__header = None
-__body = None
-
-__html = 'devices.html'
+home = Home()
 
 
 @device_ctr.route('/list', methods=['GET'])
@@ -28,12 +23,12 @@ def get_device():
 
     if 'name' in session and session['name'] != '':
         if session['category'] in (3, 2):
-            __base = __home.get_base_params(_title="Dispositivos")
-            __body = ShowData(_header="Dispositivos disponibles")
-            __body.data = get_devices_list()
-            return render_template(__html,
-                                   base=__base,
-                                   body=__body)
+            base = home.get_base_params(_title="Dispositivos")
+            body = ShowData(_header="Dispositivos disponibles")
+            body.data = get_devices_list()
+            return render_template('devices.html',
+                                   base=base,
+                                   body=body)
     else:
         return render_template('error.html')
 
@@ -85,5 +80,36 @@ def do_action():
 
     else:
         response = render_template('error.html'), 404
+
+    return response
+
+
+@device_ctr.route('/new_device', methods=['GET', 'POST'])
+def new_device():
+    """
+    Muestra la vista para dar de alta un nuevo dispositivo (get) y lo guarda en la base de datos (post)
+    :return:
+    """
+
+    title = "Alta de dispositivos"
+    _base = home.get_base_params(_title=title, _header=title)
+
+    response = render_template('error.html'), 404
+    flash_msg = None
+
+    if 'name' in session and session['name'] != '':
+        if session['category'] in (3, 2):
+            form = AddDeviceForm(request.form)
+
+            if request.method == 'POST' and form.validate():
+                name = form.device_name.data
+                iface = form.device_iface.data
+                mac = form.device_id.data
+                remote = form.device_remote
+                fam = form.device_fam
+
+            response = render_template('newDevice.html',
+                                       base=_base,
+                                       form=form)
 
     return response

@@ -23,31 +23,54 @@
                 <h2>{{ base.header }}</h2>
             </header>
             <form method="POST" action="#">
-                {#Select usuario del formulario user_name_lb/user_select#}
+                {#                Primera línea#}
                 <div class="row uniform 50%">
                     <div class="6u 12u(mobilep)">
+                        {#Nombre del dispositivo#}
+                        {{ Render_field(form.device_name, title=form.device_name.description) }}
+                    </div>
+                    <div class="6u 12u(mobilep)">
                         <div class="select-wrapper">
-                            {# {{ Render_field(form.user_name_lb, placeholder = "Nombre del usuario") }}#}
-                            {{ Render_field(form.user_select, title="Seleccione a que usuario se le asignará esta tarjeta") }}
+                            {#Interface del dispositivo#}
+                            {{ Render_field(form.device_iface, title=form.device_iface.description) }}
                         </div>
                     </div>
-                    {#Campo "tarjeta" del formulario tag_lb/card_id#}
-                    <div class="6u 12u(mobilep)">
-                        {# {{ Render_field(form.tag_lb, placeholder = "Id de la tarjeta") }}#}
-                        {{ Render_field(form.card_id, placeholder = "Id de la tarjeta", title="Introducca el código de la tarjeta. Puede ayudarse del botón Leer.") }}
+                </div>
+
+                {#                Segunda línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {#Dirreción del dispositivo#}
+                        {{ Render_field(form.device_id, title=form.device_id.description) }}
+                    </div>
+                </div>
+
+                {#                Tercera línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {#Dirección remota del dispositivo#}
+                        {{ Render_field(form.device_remote, title=form.device_remote.description) }}
+                    </div>
+                </div>
+
+                {#                Cuarta línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+{#                        Familias del dispositivo#}
+                        <div class="select-wrapper">
+                            {{ Render_field(form.device_fam, title=form.device_fam.description) }}
+                        </div>
                     </div>
                 </div>
 
                 <!-- Prevención de ataques CSRF -->
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                {{ form.csrf_token }}
 
                 <!-- Botones del formulario -->
                 <div class="row uniform">
                     <div class="12u">
                         <ul class="actions align-center">
-                            {{ Render_field(form.leer_btn, title="Pedirá a la cerradura te le informe de la id de la tarjeta leida.") }}
                             {{ Render_field(form.guardar_btn,class="special", title="Guardará la tarjeta indicada.") }}
-                            {#<li><input type="submit" value="Registrar"/></li>#}
                         </ul>
                     </div>
                 </div>

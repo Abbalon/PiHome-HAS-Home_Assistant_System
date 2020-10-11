@@ -52,6 +52,30 @@
                 <h2>La consulta está vacia</h2>
             </header>
         {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section id="flashes" class="container 75%">
+                    <!-- Mensajes flash -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <!-- Text -->
+                            <section class="box special">
+                                <header>
+                                    <h3>Mensajes entrantes</h3>
+                                </header>
+                                <hr/>
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        {% endwith %}
     </section>
 
 {% endblock %}

@@ -56,7 +56,7 @@ from PiHome.device.model import Family, Action, Device, FamilyDevice
 
 def __load_devices():
     family = Family(
-        name='Generica',
+        name='Genérica',
         description='Familia a la que pertenecerán todos los dispositivos'
     )
 
