@@ -64,7 +64,11 @@
                 </div>
 
                 <!-- Prevención de ataques CSRF -->
-                {{ form.csrf_token }}
+                {% if  form.csrf_token %}
+                    {{ form.csrf_token }}
+                {% else %}
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                {% endif %}
 
                 <!-- Botones del formulario -->
                 <div class="row uniform">

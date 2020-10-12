@@ -24,3 +24,10 @@ class BaseDB(db.Model):
     date_modified = db.Column(
         db.DateTime,
         onupdate=db.func.current_timestamp())
+
+    def save(self):
+        """
+        Guarda el objeto en la BBDD
+        """
+        db.session.add(self)
+        db.session.commit()

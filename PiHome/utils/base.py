@@ -37,7 +37,7 @@ class Home:
 
         :rtype: Home
         :param \**kwargs:  See below
-        :type kwargs: dict
+        :type kwargs: **
 
         :keyword _header (str): Literal que hará de título en la vista. Default "Título de la vista"
         :keyword _title (str): Literal que hará de título en la página. Default "TFG"

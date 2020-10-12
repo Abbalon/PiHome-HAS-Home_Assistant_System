@@ -111,7 +111,6 @@ def new_card():
                                            form=form)
 
             if request.method == 'POST':
-                response = None
                 id_tag = form.card_id.data
                 id_usr = form.user_select.data
 
@@ -122,6 +121,7 @@ def new_card():
                             flash_msg = "Se ha asignado la tarjeta '{}' al usuario '{}'".format(id_tag,
                                                                                                 card_saved.user.name)
                     if form.leer_btn.data:
+                        # TODO
                         print("Leer")
                 except Exception as e:
                     flash_msg = format(e)

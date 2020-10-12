@@ -3,7 +3,7 @@
 """
 Clase que define la información que vamos a almacenar de los dispositivos implementados y sus funciones
 """
-from sqlalchemy import desc
+from sqlalchemy import desc, UniqueConstraint
 
 from PiHome import db
 from PiHome.dataBase import BaseDB
@@ -43,7 +43,7 @@ class Device(BaseDB):
         db.Boolean,
         default=False)
 
-    def __init__(self, name, id_external, id_remote, enabled, interface=None, **kwargs):
+    def __init__(self, name, id_external, id_remote=None, enabled=False, interface=None, **kwargs):
         super(Device, self).__init__(**kwargs)
         if name:
             self.name = name
@@ -71,7 +71,10 @@ class Device(BaseDB):
 
     @staticmethod
     def get_device_by_mac(device_mac):
-        return Device.query.filter_by(id_external=device_mac).all()
+        """Busca el elemento al que corresponda la dirección indicada
+
+        :key device_mac: (id_external) id del dispositivo a buscar"""
+        return Device.query.filter_by(id_external=device_mac).first()
 
     @staticmethod
     def disable_device(**kwargs):
@@ -128,7 +131,23 @@ class Family(BaseDB):
         self.description = description
 
     @staticmethod
+    def get_by_id(id: int = 1):
+        """
+        :return: Familia con la id indicada. Default <Family:1>
+        """
+        return Family.query.filter_by(id=id).first()
+
+    @staticmethod
+    def get_all():
+        """
+        :return: Lista de todas las familias del sitema
+        """
+        return Family.query.all()
+
+    @staticmethod
     def get_list():
+        """:return Lista de tuplas de (id, nombre) de todas las familias del sistema. \
+        El primer elemento es (0, "Selecciona las familias del dispositivo")"""
         fam_list = [(f.id, f.name) for f in Family.query.all()]
         fam_list.insert(0, (0, "Selecciona las familias del dispositivo"))
         return fam_list
@@ -256,13 +275,33 @@ class FamilyDevice(BaseDB):
         backref='Device'
     )
 
+    __table_args__ = (
+        UniqueConstraint('id_device', 'id_family', name="uk_FamilyDevice"),
+    )
+
     def __init__(self, **kwargs):
+        """
+
+        :type kwargs: **
+        :rtype: FamilyDevice
+        :param kwargs:
+
+        :keyword device (Device): Dispositivo al que se le quiere asignar a una familia
+        :keyword family (Family): Familia a la que se quiere asignar el dispositivo
+        """
         super(FamilyDevice, self).__init__(**kwargs)
         for key, value in kwargs.items():
             if key == 'device':
                 self.device = value
             if key == 'family':
                 self.family = value
+
+    # def save(self):
+    #     """
+    #     Guarda el objeto en la BBDD
+    #     """
+    #     db.session.add(self)
+    #     db.session.commit()
 
     @staticmethod
     def get_familys(device: Device):

@@ -29,7 +29,9 @@ class AddCardForm(Form):
 
     def validate_card_id(self, card_id):
         """Comprobamos que la rajeta que se trata de guardar, no exista ya
+
         ---
+
         :param ref id ref de la tarjeta
         :param user usuario al que le vamos a asignar la tarjeta
         """

@@ -2,11 +2,11 @@
 """
 Fichero que maneja el comportamiento de las tarjetas
 """
-from flask import Blueprint, session, render_template, request, jsonify
+from flask import Blueprint, session, render_template, request, jsonify, redirect, url_for, flash
 
 from PiHome import device_list
 from PiHome.device.form import AddDeviceForm
-from PiHome.device.model import Device, Action
+from PiHome.device.model import Device, Action, Family, FamilyDevice
 from PiHome.utils.base import Home, ShowData
 
 device_ctr = Blueprint('device', __name__, url_prefix='/device')
@@ -30,15 +30,13 @@ def get_device():
                                    base=base,
                                    body=body)
     else:
-        return render_template('error.html')
+        return render_template('error.html'), 404
 
 
 def get_devices_list():
     """Retorna un mapa con los dispositivos activos y sus acciones ejecutables"""
     # Diccionario son los dispositivos registrados
     devices_dic = {}
-    devices_list = None
-    actions_list = None
 
     devices_list = Device.get_active_devices()
     for device in devices_list:
@@ -84,6 +82,38 @@ def do_action():
     return response
 
 
+def save(name: str, iface: str, mac: str, remote: str = None, fam: list = None):
+    """Guarda un nuevo dispositivo
+
+    :rtype: Device
+
+    :param name: Nombre del dispositivo
+    :param iface: Interface del dispositivo
+    :param mac: Dirección del dispositivo
+    :param remote: Punto de enlace del dispositivo
+    :param fam: Familias del dispositivo. Default [1]
+    """
+    device = None
+
+    if fam is None:
+        fam = [1]
+    elif 1 not in fam:
+        fam.append(1)
+
+    families = []
+    for f in fam:
+        families.append(Family.get_by_id(f))
+
+    device = Device(name=name, id_external=mac, id_remote=remote, interface=iface)
+    device.save()
+
+    for f in families:
+        if f:
+            FamilyDevice(device=device, family=f).save()
+
+    return device
+
+
 @device_ctr.route('/new_device', methods=['GET', 'POST'])
 def new_device():
     """
@@ -98,18 +128,40 @@ def new_device():
     flash_msg = None
 
     if 'name' in session and session['name'] != '':
-        if session['category'] in (3, 2):
+        if session['category'] == 3:
             form = AddDeviceForm(request.form)
 
-            if request.method == 'POST' and form.validate():
+            if request.method == 'POST' and form.validate() and form.validate_on_submit():
                 name = form.device_name.data
                 iface = form.device_iface.data
                 mac = form.device_id.data
-                remote = form.device_remote
-                fam = form.device_fam
+                remote = form.device_remote.data
+                fam = form.device_fam.data
 
-            response = render_template('newDevice.html',
-                                       base=_base,
-                                       form=form)
+                try:
+                    #     Guardamos el nuevo dispositivo
+                    dev = save(name, iface, mac, remote, fam)
+                    if dev:
+                        flash_msg = "Se ha añadido el  nuevo dispositivo '{}', satisfactoriamente".format(dev.name)
+                except Exception as e:
+                    if e.orig and e.orig.args[0] == 1062:
+                        flash_msg = "Se ha detectado un problema al añadir el dispositivo:\n\t{}".format(e.orig.args[1])
+                    else:
+                        flash_msg = format(e)
+                    flash(flash_msg, category='error')
+                    response = render_template('newDevice.html',
+                                               base=_base,
+                                               form=form)
+                else:
+                    flash(flash_msg)
+                    flash("Recuerde que el dispositivo se inicializa deshabilitado")
+
+                    response = redirect(url_for('device.get_device'))
+
+            else:
+                # if request.method == 'GET':
+                response = render_template('newDevice.html',
+                                           base=_base,
+                                           form=form)
 
     return response

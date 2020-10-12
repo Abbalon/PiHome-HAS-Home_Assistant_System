@@ -89,7 +89,7 @@ app.register_blueprint(device_ctr)
 app.register_blueprint(swagger_ctr)
 
 """
-Prevención de XSS & XSRF
+# Prevención de XSS & XSRF
 """
 csrf = CSRFProtect()
 
@@ -114,8 +114,13 @@ def load_devices():
 
 def start_devices_join():
     for dev in device_list.values():
-        dev.thread.start()
-        thread_list.append(dev.thread)
+        try:
+            if not dev.thread.is_alive():
+                dev.thread.start()
+        except Exception as e:
+            app.logger.warning(format(e))
+        else:
+            thread_list.append(dev.thread)
 
 
 """
@@ -131,10 +136,14 @@ if __name__ == "PiHome":
         thread_list.append(xbee_thread)
 
         with app.app_context():
-            # db.drop_all()  # Borra la BD
+            if app.config.get('DELETE_DDBB'):
+                db.drop_all()  # Borra la BD
+                app.config.update(DELETE_DDBB=False)
             db.create_all()  # Crea las tablas que no existan
-            # __create_foreign_keys()  # Crea los datos básicos de la la bbdd
-            # __load_devices() # Crea los dispositivos standart
+            if not app.config.get('FAST_INIT'):
+                __create_foreign_keys()  # Crea los datos básicos de la la bbdd
+                __load_devices()  # Crea los dispositivos standart
+                app.config.update(FAST_INIT=True)
             load_devices()  # Crea un controlador para cada dispositivo de la bbdd
             start_devices_join()
             app.logger.info("Inicializada la aplicación.")

@@ -73,10 +73,3 @@ class Card(BaseDB):
                 if user.validated:
                     response = user
         return response
-
-    def save(self):
-        """
-        Guarda el objeto en la BBDD
-        """
-        db.session.add(self)
-        db.session.commit()
