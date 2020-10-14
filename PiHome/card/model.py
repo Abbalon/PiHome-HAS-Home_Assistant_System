@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 	Clase que define la información que vamos a almacenar de las tarjetas RFID
@@ -34,13 +34,20 @@ class Card(BaseDB):
     def __init__(self, **kwargs):
         """ Inicializa los datos de una tarjeta RFID
 
-        @:param user el usuario al que va a estar asignada
-        @:param ref numeración de la tarjeta
+        ---
+
+        :param \**kwargs:  See below
+        :type kwargs: dict
+
+        :keyword user (int): The user id
+        :keyword ref (int):  The tag id
         """
         super(Card, self).__init__(**kwargs)
 
         for key, value in kwargs.items():
             if key == 'user':
+                if isinstance(value, (int, float, str)):
+                    value = User.is_validated(value)
                 self.user_id = value
 
             if key == 'ref':
@@ -49,7 +56,14 @@ class Card(BaseDB):
     @classmethod
     def get_user_from_tag(cls, **kwargs):
         """Devuelve el usuario a quién corresponda la tarjeta recibida por parámetro
-        @param id_tag: id d ela targeta RFID que identifica al usuario. None si no está habilitado o no existe"""
+
+        ---
+
+        :rtype: Card
+        :param \**kwargs:  See below
+        :type kwargs: dict
+
+        :keyword id_tag: id de la targeta RFID que identifica al usuario. None si no está habilitado o no existe"""
         response = None
         id_tag = kwargs.get("id_tag")
         if id_tag:

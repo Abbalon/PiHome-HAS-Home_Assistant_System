@@ -42,7 +42,8 @@
                                             <tr>
                                                 <td>{{ action.description }}</td>
                                                 <td class="action">
-                                                     <a target="{{ url_for('device.do_action', dev=device.id, act=action.id) }}" class="button special small fit">{{ action.name }}</a>
+                                                    <a target="{{ url_for('device.do_action', dev=device.id, act=action.id) }}"
+                                                       class="button special small fit">{{ action.name }}</a>
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -69,6 +70,30 @@
                 </div>
             </div>
         {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section id="flashes" class="container 75%">
+                    <!-- Mensajes flash -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <!-- Text -->
+                            <section class="box special">
+                                <header>
+                                    <h3>Mensajes entrantes</h3>
+                                </header>
+                                <hr/>
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        {% endwith %}
     </section>
 
 {% endblock %}

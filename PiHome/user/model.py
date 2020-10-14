@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -82,10 +82,41 @@ class User(BaseDB):
 
     @staticmethod
     def get_mails_of_groups(id_groups: []):
-        """Recupera una lista de los emaiĺ de los usuarios que pertenezcan a los grupos indicados por parámetro"""
+        """Recupera una lista de los emaiĺ de los usuarios que pertenezcan a los grupos indicados por parámetro
+
+        ---
+        :param id_groups: Lista con los grupos de los que se desea obtener los mail de los usuarios
+        :return: list: Lista de los mail de los usuarios que pertenecen a ese grupo
+
+        """
         users = User.query.filter(User.group_Id.in_(id_groups)).all()
         mails = []
         for user in users:
             mails.append(user.email)
 
         return mails
+
+    @staticmethod
+    def is_validated(id_user):
+        """Informa si el usuario con la id informada por parámetro, está validado
+
+        ---
+
+        :return:
+            - True, si el usuario está validado;
+            - False, si no está validado;
+            - None, si no existe el usuario
+        :param id_user: Id del usuario del que se desea conocer si está validado
+        """
+
+        response = None
+        try:
+            response = User.query.filter(User.id == id_user).first()
+        except :
+            pass
+
+        return response
+
+    @staticmethod
+    def get_by_id(id_user):
+        return User.query.filter_by(id=id_user).first()

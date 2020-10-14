@@ -1,0 +1,109 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ base.title }}
+{% endblock %}
+
+<!-- Incorpora los scripts necesarios para la vista -->
+{% block foot_scripts %}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>{{ base.header }}</h2>
+        </header>
+        <div class="box">
+            <header>
+                <h2>{{ base.header }}</h2>
+            </header>
+            <form method="POST" action="#">
+                {#                Primera línea#}
+                <div class="row uniform 50%">
+                    <div class="6u 12u(mobilep)">
+                        {#Nombre del dispositivo#}
+                        {{ Render_field(form.device_name, title=form.device_name.description) }}
+                    </div>
+                    <div class="6u 12u(mobilep)">
+                        <div class="select-wrapper">
+                            {#Interface del dispositivo#}
+                            {{ Render_field(form.device_iface, title=form.device_iface.description) }}
+                        </div>
+                    </div>
+                </div>
+
+                {#                Segunda línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {#Dirreción del dispositivo#}
+                        {{ Render_field(form.device_id, title=form.device_id.description) }}
+                    </div>
+                </div>
+
+                {#                Tercera línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+                        {#Dirección remota del dispositivo#}
+                        {{ Render_field(form.device_remote, title=form.device_remote.description) }}
+                    </div>
+                </div>
+
+                {#                Cuarta línea#}
+                <div class="row uniform 50%">
+                    <div class="12u">
+{#                        Familias del dispositivo#}
+                        <div class="select-wrapper">
+                            {{ Render_field(form.device_fam, title=form.device_fam.description) }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prevención de ataques CSRF -->
+                {% if  form.csrf_token %}
+                    {{ form.csrf_token }}
+                {% else %}
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                {% endif %}
+
+                <!-- Botones del formulario -->
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions align-center">
+                            {{ Render_field(form.guardar_btn,class="special", title="Guardará la tarjeta indicada.") }}
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section id="flashes" class="container 75%">
+                    <!-- Mensajes flash -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <!-- Text -->
+                            <section class="box special">
+                                <header>
+                                    <h3>Mensajes entrantes</h3>
+                                </header>
+                                <hr/>
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        {% endwith %}
+    </section>
+
+{% endblock %}

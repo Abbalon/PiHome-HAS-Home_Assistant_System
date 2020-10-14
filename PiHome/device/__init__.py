@@ -3,6 +3,8 @@
 """
     Módulo que define el comportamiento estandar de un dispositivo
 """
+from abc import abstractmethod
+
 from flask_mail import Message
 
 from PiHome import mail
@@ -101,6 +103,10 @@ class DeviceBase:
 
     def __str__(self) -> str:
         return super().__str__()
+
+    @abstractmethod
+    def do_action(self, action: int):
+        pass
 
     def get_action(self, action_id: int) -> Action:
         """Busca la acción entre las registradas para el dispositivo"""

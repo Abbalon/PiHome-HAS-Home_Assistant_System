@@ -1,0 +1,82 @@
+{% extends 'shared/base.html' %}
+
+{% from "_macroForm.html" import render_field as Render_field %}
+
+<!-- Asigna el 'title' deseado a la página -->
+{% block title %}
+    {{ base.title }}
+{% endblock %}
+
+<!-- Incorpora los scripts necesarios para la vista -->
+{% block foot_scripts %}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main -->
+    <section id="main" class="container 75%">
+        <header>
+            <h2>{{ base.header }}</h2>
+        </header>
+        <div class="box">
+            <header>
+                <h2>{{ base.header }}</h2>
+            </header>
+            <form method="POST" action="#">
+                {#Select usuario del formulario user_name_lb/user_select#}
+                <div class="row uniform 50%">
+                    <div class="6u 12u(mobilep)">
+                        <div class="select-wrapper">
+                            {# {{ Render_field(form.user_name_lb, placeholder = "Nombre del usuario") }}#}
+                            {{ Render_field(form.user_select, title="Seleccione a que usuario se le asignará esta tarjeta") }}
+                        </div>
+                    </div>
+                    {#Campo "tarjeta" del formulario tag_lb/card_id#}
+                    <div class="6u 12u(mobilep)">
+                        {# {{ Render_field(form.tag_lb, placeholder = "Id de la tarjeta") }}#}
+                        {{ Render_field(form.card_id, placeholder = "Id de la tarjeta", title="Introducca el código de la tarjeta. Puede ayudarse del botón Leer.") }}
+                    </div>
+                </div>
+
+                <!-- Prevención de ataques CSRF -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                <!-- Botones del formulario -->
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions align-center">
+                            {{ Render_field(form.leer_btn, title="Pedirá a la cerradura te le informe de la id de la tarjeta leida.") }}
+                            {{ Render_field(form.guardar_btn,class="special", title="Guardará la tarjeta indicada.") }}
+                            {#<li><input type="submit" value="Registrar"/></li>#}
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section id="flashes" class="container 75%">
+                    <!-- Mensajes flash -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <!-- Text -->
+                            <section class="box special">
+                                <header>
+                                    <h3>Mensajes entrantes</h3>
+                                </header>
+                                <hr/>
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        {% endwith %}
+    </section>
+
+{% endblock %}

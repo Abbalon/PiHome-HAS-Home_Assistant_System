@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """
 Fichero que maneja la extración de datos del tránsito de usuarios
@@ -154,4 +154,4 @@ def who_is(**filtro):
                                form=filter_form)
 
     else:
-        return render_template('error.html')
+        return render_template('error.html'), 404

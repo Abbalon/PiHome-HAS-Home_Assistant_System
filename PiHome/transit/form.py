@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!venv/bin/python3
 # -*- code: utf-8 -*-
 """Formulario para el filtro del tránsito registrado"""
 from flask_wtf import FlaskForm

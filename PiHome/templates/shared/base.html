@@ -61,6 +61,8 @@
                 <ul>
                     {#Listar dispositivos#}
                     <li><a href="/device/list">Listar dispositivos</a></li>
+                    {#Nuevo dispositivo#}
+                    <li><a href="{{ url_for('device.new_device') }}">Nuevo dispositivo</a></li>
                 </ul>
             </li>
         {% endif %}
@@ -118,7 +120,7 @@
                 <ul>
                     <li><a href="{{ url_for('transit.who_is') }}">Quien hay en casa</a></li>
                     {% if base.category == 2 %}
-                        <li><a href="#"># Abrir puerta</a></li>
+                        <li><a href="{{ url_for('device.unlock_door') }}">Abrir puerta</a></li>
                     {% endif %}
                 </ul>
             </li>

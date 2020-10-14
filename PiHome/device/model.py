@@ -3,7 +3,7 @@
 """
 Clase que define la información que vamos a almacenar de los dispositivos implementados y sus funciones
 """
-from sqlalchemy import desc
+from sqlalchemy import desc, UniqueConstraint
 
 from PiHome import db
 from PiHome.dataBase import BaseDB
@@ -43,7 +43,7 @@ class Device(BaseDB):
         db.Boolean,
         default=False)
 
-    def __init__(self, name, id_external, id_remote, enabled, interface=None, **kwargs):
+    def __init__(self, name, id_external, id_remote=None, enabled=False, interface=None, **kwargs):
         super(Device, self).__init__(**kwargs)
         if name:
             self.name = name
@@ -71,7 +71,10 @@ class Device(BaseDB):
 
     @staticmethod
     def get_device_by_mac(device_mac):
-        return Device.query.filter_by(id_external=device_mac).all()
+        """Busca el elemento al que corresponda la dirección indicada
+
+        :key device_mac: (id_external) id del dispositivo a buscar"""
+        return Device.query.filter_by(id_external=device_mac).first()
 
     @staticmethod
     def disable_device(**kwargs):
@@ -126,6 +129,33 @@ class Family(BaseDB):
         super(Family, self).__init__(**kwargs)
         self.name = name
         self.description = description
+
+    @staticmethod
+    def get_by_id(id: int = 1):
+        """
+        :return: Familia con la id indicada. Default <Family:1>
+        """
+        return Family.query.filter_by(id=id).first()
+
+    @staticmethod
+    def get_by_name(familis_names: list):
+        """Familias cuyo nombre coincida ocn el filtro"""
+        return Family.query.filter(Family.name.in_(familis_names)).all()
+
+    @staticmethod
+    def get_all():
+        """
+        :return: Lista de todas las familias del sitema
+        """
+        return Family.query.all()
+
+    @staticmethod
+    def get_list():
+        """:return Lista de tuplas de (id, nombre) de todas las familias del sistema. \
+        El primer elemento es (0, "Selecciona las familias del dispositivo")"""
+        fam_list = [(f.id, f.name) for f in Family.query.all()]
+        fam_list.insert(0, (0, "Selecciona las familias del dispositivo"))
+        return fam_list
 
 
 class Action(BaseDB):
@@ -220,6 +250,9 @@ class Action(BaseDB):
         """Devuelve las acciones de una familia"""
         return Action.query.filter_by(id_family=family.id, is_executable=1).all().order_by(desc(Action.id))
 
+    @staticmethod
+    def get_by_cmd(action_name:str):
+        return Action.query.filter_by(cmd=action_name, is_executable=1).first()
 
 class FamilyDevice(BaseDB):
     """
@@ -250,7 +283,20 @@ class FamilyDevice(BaseDB):
         backref='Device'
     )
 
+    __table_args__ = (
+        UniqueConstraint('id_device', 'id_family', name="uk_FamilyDevice"),
+    )
+
     def __init__(self, **kwargs):
+        """
+
+        :type kwargs: **
+        :rtype: FamilyDevice
+        :param kwargs:
+
+        :keyword device (Device): Dispositivo al que se le quiere asignar a una familia
+        :keyword family (Family): Familia a la que se quiere asignar el dispositivo
+        """
         super(FamilyDevice, self).__init__(**kwargs)
         for key, value in kwargs.items():
             if key == 'device':
@@ -264,3 +310,17 @@ class FamilyDevice(BaseDB):
 
         rels = FamilyDevice.query.filter_by(id_device=device.id).order_by(desc(FamilyDevice.id_family)).all()
         return [rel.family for rel in rels]
+
+    @staticmethod
+    def get_devices_by_family(familis_names: list):
+        """Retorna las familias a las que pertenece un dispositivo"""
+
+        res = []
+        families = Family.get_by_name(familis_names)
+        for fam in families:
+            rels = FamilyDevice.query.filter_by(id_family=fam.id).order_by(FamilyDevice.id_device).all()
+            for rel in rels:
+                if rel.device not in res:
+                    res.append(rel.device)
+
+        return res

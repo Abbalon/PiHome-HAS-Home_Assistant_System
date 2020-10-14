@@ -40,13 +40,15 @@
                                             <td>{{ row.name }}</td>
                                             <td>{{ row.email }}</td>
                                             <td>
-                                                <select name="category" id="category">
-                                                    <option value="">- Category -</option>
-                                                    {% for group in groups %}
-                                                        <option
-                                                                value="{{ row.id }},{{ group.id }}">{{ group.category }}</option>
-                                                    {% endfor %}
-                                                </select>
+                                                <div class="select-wrapper">
+                                                    <select name="category" id="category">
+                                                        <option value="">- Category -</option>
+                                                        {% for group in groups %}
+                                                            <option
+                                                                    value="{{ row.id }},{{ group.id }}">{{ group.category }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
                                             </td>
                                         </tr>
                                     {% endfor %}
