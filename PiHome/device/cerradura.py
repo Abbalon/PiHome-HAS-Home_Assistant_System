@@ -4,6 +4,7 @@ Fichero que define la clase Cerradura
 """
 import re
 import time
+from datetime import datetime
 from threading import Thread
 
 from PiHome.card.model import Card
@@ -127,7 +128,8 @@ class Cerradura(DeviceBase):
                     msg = CMD + ABRIR
                 self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
                 # Registramos el hecho
-                TransitLog.record_move(user=user, action=msg)
+                # TransitLog.record_move(user=user, action=msg)
+                Cerradura.registrar_transito(user.id)
                 # Calculamos la media
                 # Si el usuario no esa registrado
                 # Mandamos mensaje al watchdog
@@ -136,3 +138,15 @@ class Cerradura(DeviceBase):
                 self.logger.warn("No hay ningún usuario registrado con la siguiente targeta:\t{}".format(id_tag))
             else:
                 raise error
+
+    @classmethod
+    def registrar_transito(cls, user_id):
+        user_log = TransitLog.get_last_move_by_id_user(user_id)
+        last_action = 0
+        if user_log:
+            last_action = (user_log.action + 1) % 2
+
+        new_user_log = TransitLog(user_id=user_id,
+                                  action=last_action,
+                                  ocurred=datetime.now)
+        new_user_log.save()

@@ -116,3 +116,7 @@ class User(BaseDB):
             pass
 
         return response
+
+    @staticmethod
+    def get_by_id(id_user):
+        return User.query.filter_by(id=id_user).first()

@@ -5,6 +5,8 @@
 """
 import datetime
 
+from sqlalchemy import desc
+
 from PiHome import db
 from PiHome.dataBase import BaseDB
 
@@ -56,3 +58,7 @@ class TransitLog(BaseDB):
                           ocurred=now)
         db.session.add(move)
         db.session.commit()
+
+    @staticmethod
+    def get_last_move_by_id_user(id_user):
+        return TransitLog.query.filter_by(user_id=id_user).order_by(desc(TransitLog.ocurred)).first()

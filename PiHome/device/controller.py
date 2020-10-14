@@ -2,9 +2,12 @@
 """
 Fichero que maneja el comportamiento de las tarjetas
 """
+from time import sleep
+
 from flask import Blueprint, session, render_template, request, jsonify, redirect, url_for, flash
 
 from PiHome import device_list
+from PiHome.device.cerradura import ABRIR, CERRAR
 from PiHome.device.form import AddDeviceForm
 from PiHome.device.model import Device, Action, Family, FamilyDevice
 from PiHome.utils.base import Home, ShowData
@@ -50,6 +53,9 @@ def get_devices_list():
 def do_action():
     """
     Ejecuta las acción recibida para el dispositivo indicado
+
+    ---
+
     @param dev Id del dispositivo que realizará la acción
     @param act Id de la acción que deberá reañlizar el dispositivo
     @return:
@@ -75,6 +81,41 @@ def do_action():
 
             response = jsonify(response_dict)
             response.status_code = _status
+
+    else:
+        response = render_template('error.html'), 404
+
+    return response
+
+
+@device_ctr.route('/unlock_door', methods=['GET'])
+def unlock_door():
+    """Abrirá la cerradura durante 15seg y la volverá a cerrar
+    Tras la acción, redirijira a la página de home y mostrará el resultado de la acción
+    """
+
+    response = render_template('error.html'), 404
+
+    if 'name' in session and session['name'] != '':
+        if session['category'] in (3, 2):
+            devs = FamilyDevice.get_devices_by_family(['Cerradura'])
+            dev = None
+            if devs:
+                dev = devs[0].id
+
+            act_abrir = Action.get_by_cmd(ABRIR).id
+            act_cerrar = Action.get_by_cmd(CERRAR).id
+            try:
+                device_list.get(dev).do_action(act_abrir)
+                sleep(15)
+                device_list.get(dev).do_action(act_cerrar)
+                flash("Puerta '{}', abierta y cerrada tras 15 seg".format(devs[0].name))
+            except Exception as error:
+                flash('No se ha podido realizar la petición', category='error')
+                for e in error.args:
+                    flash(format(e), category='error')
+
+            response = redirect(url_for('home.index'))
 
     else:
         response = render_template('error.html'), 404
@@ -118,6 +159,9 @@ def save(name: str, iface: str, mac: str, remote: str = None, fam: list = None):
 def new_device():
     """
     Muestra la vista para dar de alta un nuevo dispositivo (get) y lo guarda en la base de datos (post)
+
+    ---
+
     :return:
     """
 

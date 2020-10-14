@@ -138,6 +138,11 @@ class Family(BaseDB):
         return Family.query.filter_by(id=id).first()
 
     @staticmethod
+    def get_by_name(familis_names: list):
+        """Familias cuyo nombre coincida ocn el filtro"""
+        return Family.query.filter(Family.name.in_(familis_names)).all()
+
+    @staticmethod
     def get_all():
         """
         :return: Lista de todas las familias del sitema
@@ -245,6 +250,9 @@ class Action(BaseDB):
         """Devuelve las acciones de una familia"""
         return Action.query.filter_by(id_family=family.id, is_executable=1).all().order_by(desc(Action.id))
 
+    @staticmethod
+    def get_by_cmd(action_name:str):
+        return Action.query.filter_by(cmd=action_name, is_executable=1).first()
 
 class FamilyDevice(BaseDB):
     """
@@ -296,16 +304,23 @@ class FamilyDevice(BaseDB):
             if key == 'family':
                 self.family = value
 
-    # def save(self):
-    #     """
-    #     Guarda el objeto en la BBDD
-    #     """
-    #     db.session.add(self)
-    #     db.session.commit()
-
     @staticmethod
     def get_familys(device: Device):
         """Retorna las familias a las que pertenece un dispositivo"""
 
         rels = FamilyDevice.query.filter_by(id_device=device.id).order_by(desc(FamilyDevice.id_family)).all()
         return [rel.family for rel in rels]
+
+    @staticmethod
+    def get_devices_by_family(familis_names: list):
+        """Retorna las familias a las que pertenece un dispositivo"""
+
+        res = []
+        families = Family.get_by_name(familis_names)
+        for fam in families:
+            rels = FamilyDevice.query.filter_by(id_family=fam.id).order_by(FamilyDevice.id_device).all()
+            for rel in rels:
+                if rel.device not in res:
+                    res.append(rel.device)
+
+        return res

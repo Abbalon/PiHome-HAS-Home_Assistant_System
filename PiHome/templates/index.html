@@ -20,51 +20,75 @@
                 <li><a href="/swagger/" class="button">Show API</a></li>
             {% endif %}
         </ul>
+        {#    Acctions#}
+        {% if base.category in [1,2, 3] %}
+            <div class="row">
+                <div class="9u 12u(mobilep)">
+                    {#                <section class="box alt">#}
+                    <div class="box alt">
+                        <div class="row no-collapse 50% uniform">
+                            {% if base.category in [2, 3] %}
+                                <div class="3u 6u(mobilep)">
+                                    <a href="{{ url_for('device.unlock_door') }}" title="Abrir puerta">
+                                        <span class="image fit"><img src="static/img/o_door.png" alt=""/></span></a>
+                                </div>
+                            {% endif %}
+                            <div class="3u 6u(mobilep)">
+                                <a href="{{ url_for('transit.who_is') }}" title="Quien hay en casa">
+                                    <span class="image fit"><img src="static/img/knock_door.png" alt=""/></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {#                </section>#}
+                </div>
+            </div>
+        {% endif %}
+        {#    END Acctions#}
     </section>
 
     <!-- Main -->
     <section id="main" class="container">
+        {% if not session['logged_in'] %}
+            <section class="box special">
+                <header class="major">
+                    <h2>Universidad Politécnica de Madrid
+                        <br/>
+                        Escuela Técnica Superior de Ingeniería de
+                        <br/>
+                        SISTEMAS INFORMÁTICOS
+                    </h2>
+                    <p>Grado en Ingeniería del Software<br/> 2019 - 2020</p>
+                </header>
 
-        <section class="box special">
-            <header class="major">
-                <h2>Universidad Politécnica de Madrid
-                    <br/>
-                    Escuela Técnica Superior de Ingeniería de
-                    <br/>
-                    SISTEMAS INFORMÁTICOS
-                </h2>
-                <p>Grado en Ingeniería del Software<br/> 2019 - 2020</p>
-            </header>
-
-            <span class="image fit">
+                <span class="image fit">
 				<img src="{{ url_for('static', filename='img/pic01.jpg') }}" alt=""/>
 			</span>
-        </section>
+            </section>
+        {% endif %}
 
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <!-- Mensajes flash -->
-                <div class="row uniform 50%">
-                    <div class="12u">
-                        <!-- Text -->
-                        <section class="box special">
-                            <header>
-                                <h3>Mensajes entrantes</h3>
-                            </header>
-
-                            <hr/>
-
-                            <ul class=flashes>
-                                {% for message in messages %}
-                                    <li> {{ message }} </li>
-                                {% endfor %}
-                            </ul>
-                        </section>
+                <section id="flashes" class="container 75%">
+                    <!-- Mensajes flash -->
+                    <div class="row uniform 50%">
+                        <div class="12u">
+                            <!-- Text -->
+                            <section class="box special">
+                                <header>
+                                    <h3>Mensajes entrantes</h3>
+                                </header>
+                                <hr/>
+                                <ul class=flashes>
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
                     </div>
-                </div>
+                </section>
             {% endif %}
         {% endwith %}
-
     </section>
 
     {% if base.category == 0 %}

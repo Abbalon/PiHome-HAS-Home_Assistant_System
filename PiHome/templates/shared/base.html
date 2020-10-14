@@ -120,7 +120,7 @@
                 <ul>
                     <li><a href="{{ url_for('transit.who_is') }}">Quien hay en casa</a></li>
                     {% if base.category == 2 %}
-                        <li><a href="#"># Abrir puerta</a></li>
+                        <li><a href="{{ url_for('device.unlock_door') }}">Abrir puerta</a></li>
                     {% endif %}
                 </ul>
             </li>

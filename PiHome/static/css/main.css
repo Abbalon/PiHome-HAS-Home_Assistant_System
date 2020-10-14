@@ -1807,7 +1807,9 @@ span.icon {
 /* Basic */
 
 	body {
+		/*background: #D3D3D3;*/
 		background: #999;
+		/*background-image: url("/static/img/banner.jpg");*/
 	}
 
 	body, input, select, textarea {
