@@ -148,5 +148,5 @@ class Cerradura(DeviceBase):
 
         new_user_log = TransitLog(user_id=user_id,
                                   action=last_action,
-                                  ocurred=datetime.now)
+                                  ocurred=datetime.now())
         new_user_log.save()

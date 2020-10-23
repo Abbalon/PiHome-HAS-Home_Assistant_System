@@ -23,7 +23,7 @@ __debugURLAdmin = os.environ.get('DB_URL_ADMIN')
 __debugURLUser = os.environ.get('DB_URL_USER')
 
 SQLALCHEMY_DATABASE_URI = __debugURLAdmin
-SQLALCHEMY_ECHO = True
+SQLALCHEMY_ECHO = False
 
 """
     Parámetros para la conguración del WebMailServer
