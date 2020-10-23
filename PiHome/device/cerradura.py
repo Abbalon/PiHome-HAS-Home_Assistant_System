@@ -60,10 +60,16 @@ class Cerradura(DeviceBase):
         try:
             result = self.xbee.mandar_mensage(dest, cmd)
             if action.response_needed:
-                self.request_lock_state()
+                if action.cmd == READ_TAG:
+                    found = self.catch_id_tag()
+                    response_dict['status'] = "Id de la tarjeta leida:\t{}".format(found)
+                if action.cmd == ECHO:
+                    self.request_lock_state()
+                    response_dict['status'] = "Estado de la puerta:\t{}".format(self.estado)
+
             response_dict['code'] = result.transmit_status.code
             response_dict['description'] = result.transmit_status.description
-            response_dict['status'] = "Estado de la puerta:\t{}".format(self.estado)
+
         except Exception as error:
             response_dict['code'] = -1
             response_dict['description'] = [str(e) for e in error.args]
@@ -72,7 +78,7 @@ class Cerradura(DeviceBase):
 
     def request_lock_state(self):
         # Establecemos el tiempo máximo de espera para la respuesta
-        timeout = time.time() + 10  # Establecemos 5s de límite
+        timeout = time.time() + 10  # Establecemos 10s de límite
         cmd = "CMD:" + self.get_action(2).cmd
         addr = self.modelo.id_external
         self.xbee.mandar_mensage(addr, cmd)
@@ -90,6 +96,23 @@ class Cerradura(DeviceBase):
             estado = estado.get(PING)
             self.estado = re.search(state_regex, estado).group(1)
 
+    def catch_id_tag(self):
+        # Establecemos el tiempo máximo de espera para la respuesta
+        timeout = time.time() + 10  # Establecemos 10s de límite
+
+        estado = None
+        # Anulamos las lecturas del hilo
+        self.pause = True
+        while time.time() < timeout and not estado:
+            estado = self.stack.get_last_stack(device=self.modelo, cmd=READ_TAG)
+        # Devolvemos la lectura al hilo
+        self.pause = False
+        if (time.time() - timeout) > 0 and not estado:
+            print("TIMEOUT")
+            raise RuntimeWarning("Se ha agotado el tiempo de espera, sin haber recibido respuesta desde el dispositivo")
+        if estado:
+            return estado.get(READ_TAG)
+
     def _listen(self, **kwargs):
         while True:
             try:
@@ -105,6 +128,10 @@ class Cerradura(DeviceBase):
                                 break
                             if order == TOC_TOC:
                                 self.toc_toc(id_tag=value)
+                                found = True
+                                break
+                            if order == PING:
+                                self.estado = re.search(state_regex, value).group(1)
                                 found = True
                                 break
                         if not found:
@@ -148,5 +175,5 @@ class Cerradura(DeviceBase):
 
         new_user_log = TransitLog(user_id=user_id,
                                   action=last_action,
-                                  ocurred=datetime.now)
+                                  ocurred=datetime.now())
         new_user_log.save()

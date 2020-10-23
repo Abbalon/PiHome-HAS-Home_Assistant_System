@@ -3,7 +3,7 @@
 """
 	Clase que define la información que vamos a almacenar del transito de los ususarios del sistema
 """
-import datetime
+from datetime import datetime
 
 from sqlalchemy import desc
 
@@ -34,7 +34,7 @@ class TransitLog(BaseDB):
 
     ocurred = db.Column(
         db.DateTime,
-        default=datetime.datetime.now)
+        default=datetime.now)
 
     #: Establece la relación con la tabla 'groups'
     user = db.relationship(
@@ -42,16 +42,17 @@ class TransitLog(BaseDB):
         lazy='select',
         backref='TransitLog')
 
-    def __init__(self, category=None, definition=None, **kwargs):
+    def __init__(self, user_id, action, ocurred=datetime.now(), **kwargs):
         super(TransitLog, self).__init__(**kwargs)
-        self.category = category
-        self.definition = definition
+        self.user_id = user_id
+        self.action = action
+        self.ocurred = ocurred
 
     @staticmethod
     def record_move(**kwargs):
         user = kwargs.get('user')
         action = kwargs.get('action')
-        now = datetime.datetime.now()
+        now = datetime.now()
 
         move = TransitLog(user=user,
                           action=action,

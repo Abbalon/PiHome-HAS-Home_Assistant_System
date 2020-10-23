@@ -251,8 +251,9 @@ class Action(BaseDB):
         return Action.query.filter_by(id_family=family.id, is_executable=1).all().order_by(desc(Action.id))
 
     @staticmethod
-    def get_by_cmd(action_name:str):
+    def get_by_cmd(action_name: str):
         return Action.query.filter_by(cmd=action_name, is_executable=1).first()
+
 
 class FamilyDevice(BaseDB):
     """
