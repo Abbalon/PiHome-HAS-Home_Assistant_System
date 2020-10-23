@@ -5,11 +5,15 @@ Fichero que maneja el comportamiento de las tarjetas
 """
 from flask import Blueprint, request, session, render_template, flash, redirect, url_for
 
+from PiHome import device_list
 from PiHome.card.form import AddCardForm
 from PiHome.card.model import Card
+from PiHome.device import Action
 from PiHome.user import controller as UserDAO
 from PiHome.user.model import User
 from PiHome.utils.base import Home, ShowData
+
+READ_TAG = "READ_TAG"
 
 card_ctr = Blueprint('card', __name__, url_prefix='/card')
 
@@ -102,10 +106,10 @@ def new_card():
         if session['category'] in (3, 2):
             form = AddCardForm(request.form)
 
-            if request.method == 'GET':
-                users = UserDAO.get_user_lite_list()
-                form.user_select.choices = users
+            users = UserDAO.get_user_lite_list()
+            form.user_select.choices = users
 
+            if request.method == 'GET':
                 response = render_template('newCard.html',
                                            base=_base,
                                            form=form)
@@ -120,16 +124,22 @@ def new_card():
                         if card_saved:
                             flash_msg = "Se ha asignado la tarjeta '{}' al usuario '{}'".format(id_tag,
                                                                                                 card_saved.user.name)
+                            response = redirect(url_for('card.show_card'))
                     if form.leer_btn.data:
-                        # TODO
-                        print("Leer")
+                        # Recuperamos los dispositivos que tengan la acción READ_TAG
+                        act = Action.get_by_cmd(READ_TAG)
+                        dev = act.family.Device[0].device.id
+
+                        result = device_list.get(dev).do_action(act.id)
+                        flash_msg = result.get('status')
+                        response = render_template('newCard.html',
+                                                   base=_base,
+                                                   form=form)
                 except Exception as e:
                     flash_msg = format(e)
                     flash(flash_msg, category='error')
                 else:
                     flash(flash_msg)
-
-                response = redirect(url_for('card.show_card'))
 
     return response
 

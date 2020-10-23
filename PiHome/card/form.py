@@ -18,16 +18,13 @@ class AddCardForm(Form):
     card_id = StringField(tag, [
         validators.length(min=12,
                           max=256,
-                          message='No parece que la lonjitud del identificador de la tarjeta sea correcto.'),
-        validators.InputRequired(
-            message='¡Oh! Una tarjeta no puede existir sin su id.'),
-        validators.DataRequired(message='¡Oh! Una tarjeta no puede existir sin su id.')
+                          message='No parece que la lonjitud del identificador de la tarjeta sea correcto.')
     ])
 
     guardar_btn = SubmitField(label="Registrar")
     leer_btn = SubmitField(label="Leer")
 
-    def validate_card_id(self, card_id):
+    def validate_card_id(self, field):
         """Comprobamos que la rajeta que se trata de guardar, no exista ya
 
         ---
@@ -36,7 +33,10 @@ class AddCardForm(Form):
         :param user usuario al que le vamos a asignar la tarjeta
         """
 
-        card = Card.query.filter_by(ref=card_id.data).first()
+        if not field.data or len(field.data) == 0:
+            raise validators.ValidationError("No se puede crear una tarjeta sin asignarle una id")
+
+        card = Card.query.filter_by(ref=field.data).first()
         if card is not None:
             raise validators.ValidationError(
                 message='Ya existe una tarjeta con esta id.')
