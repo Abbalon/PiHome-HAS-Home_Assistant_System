@@ -109,7 +109,8 @@ def load_devices():
             if fam.family.name == "Cerradura":
                 modelo = Cerradura(app, modelo=dev)
 
-        device_list[dev.id] = modelo
+        if not device_list.get(dev.id):
+            device_list[dev.id] = modelo
 
 
 def start_devices_join():
@@ -117,10 +118,10 @@ def start_devices_join():
         try:
             if not dev.thread.is_alive():
                 dev.thread.start()
+                thread_list.append(dev.thread)
         except Exception as e:
             app.logger.warning(format(e))
-        else:
-            thread_list.append(dev.thread)
+
 
 
 """

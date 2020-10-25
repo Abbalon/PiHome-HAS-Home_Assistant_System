@@ -187,8 +187,10 @@ class XBee(ZigBeeDevice):
                 self.logger.warning("Algo no fue bien mandando el mensaje:\n{}\nError:\t{}".format(msg, ack))
 
         except Exception as e:
-            self.logger.error("Se ha encontrado un error al mandar el mensaje\n\t" + str(e))
-            ack = super().send_data_64_16(high, low, msg)
+            error = "Se ha encontrado un error al mandar el mensaje\n\t" + str(e)
+            self.logger.error(error)
+            raise EOFError(error)
+            # ack = super().send_data_64_16(high, low, msg)
             # Añadir código para el reintento
         else:
             # TODO Borrar esta traza de control
@@ -247,7 +249,7 @@ class XBee(ZigBeeDevice):
         for port in self.port:
             self.logger.info("Probando el puerto: " + port)
             try:
-                if XBee._instance:
+                if not XBee._instance.is_open():
                     try:
                         if not self.is_open():
                             self.open()
@@ -260,6 +262,7 @@ class XBee(ZigBeeDevice):
                         antena = str(super().get_node_id() + "(" + str(super().get_64bit_addr()) + ")")
                         self.logger.info("Conectada la antena '" + antena + "' al puerto " + port + "\n")
                         xbee_thread.start()
+                        self.logger.info("Estado de la antena {}:\t{}".format(antena, xbee_thread.is_alive() and self.is_open()))
                         break
             except Exception as e:
                 self.close()
