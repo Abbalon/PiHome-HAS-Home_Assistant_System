@@ -66,9 +66,9 @@ class Cerradura(DeviceBase):
                 if action.cmd == ECHO:
                     self.request_lock_state()
                     response_dict['status'] = "Estado de la puerta:\t{}".format(self.estado)
-
-            response_dict['code'] = result.transmit_status.code
-            response_dict['description'] = result.transmit_status.description
+            if result and result.transmit_status:
+                response_dict['code'] = result.transmit_status.code
+                response_dict['description'] = result.transmit_status.description
 
         except Exception as error:
             response_dict['code'] = -1
@@ -153,13 +153,16 @@ class Cerradura(DeviceBase):
                 else:
                     # Abrimos la puerta
                     msg = CMD + ABRIR
-                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
-                # Registramos el hecho
-                # TransitLog.record_move(user=user, action=msg)
-                Cerradura.registrar_transito(user.id)
-                # Calculamos la media
-                # Si el usuario no esa registrado
+
                 # Mandamos mensaje al watchdog
+                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                if self.estado == ABIERTO:
+                    self.estado = CERRADO
+                else:
+                    self.estado = ABIERTO
+                # Registramos el hecho
+                Cerradura.registrar_transito(user.id)
+                self.logger.info("Regsitrado el tránsito del usuario {}".format(user.name))
         except Exception as error:
             if str(error) == ATTRIBUTE_USER:
                 self.logger.warn("No hay ningún usuario registrado con la siguiente targeta:\t{}".format(id_tag))

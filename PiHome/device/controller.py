@@ -186,6 +186,7 @@ def new_device():
                     #     Guardamos el nuevo dispositivo
                     dev = save(name, iface, mac, remote, fam)
                     if dev:
+                        device_list[dev.id] = dev
                         flash_msg = "Se ha añadido el  nuevo dispositivo '{}', satisfactoriamente".format(dev.name)
                 except Exception as e:
                     if e.orig and e.orig.args[0] == 1062:
