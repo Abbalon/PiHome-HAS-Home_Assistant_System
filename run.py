@@ -1,4 +1,4 @@
-#!venv/bin/python3
+#!venv/bin/python3PyHome
 from PiHome import app
 
 if __name__ == "__main__":

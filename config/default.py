@@ -41,8 +41,8 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = __debugURLUser
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DATABASE_CONNECT_OPTIONS = {}
-    DELETE_DDBB = False
-    FAST_INIT = True
+    DELETE_DDBB = True
+    FAST_INIT = False
 
     MAIL_USERNAME = __mailUserName
     DEFAULT_MAIL_SENDER = __defaultUserName
