@@ -56,8 +56,8 @@ def do_action():
 
     ---
 
-    :keyword dev (int): Id del dispositivo que realizará la acción
-    :keyword act (int):Id de la acción que deberá reañlizar el dispositivo
+    :keyword dev: Id del dispositivo que realizará la acción
+    :keyword act: Id de la acción que deberá realizar el dispositivo
     """
     response_dict = {}
     response = None
