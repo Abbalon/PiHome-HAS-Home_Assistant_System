@@ -164,7 +164,7 @@ class Cerradura(DeviceBase):
                     msg = CMD + CERRAR
                     self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
                 except Exception as e:
-                    self.logger.info("Encontrado un error al mandar el mensage{} \n {}".format(msg, e))
+                    self.logger.warn("Encontrado un error al mandar el mensage{} \n {}".format(msg, e))
                 # if self.estado == ABIERTO:
                 #     self.estado = CERRADO
                 # else:
@@ -173,7 +173,7 @@ class Cerradura(DeviceBase):
                 try:
                     Cerradura.registrar_transito(user.id)
                 except Exception as e:
-                    self.logger.info("Encontrado un error al guardar el tránsito {}".format(e))
+                    self.logger.warn("Encontrado un error al guardar el tránsito {}".format(e))
                 else:
                     self.logger.info("Registrado el tránsito del usuario {}".format(user.name))
         except Exception as error:
