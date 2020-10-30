@@ -167,8 +167,12 @@ class Cerradura(DeviceBase):
                 # else:
                 #     self.estado = ABIERTO
                 # Registramos el hecho
-                Cerradura.registrar_transito(user.id)
-                self.logger.info("Regsitrado el tránsito del usuario {}".format(user.name))
+                try:
+                    Cerradura.registrar_transito(user.id)
+                except Exception as e:
+                    self.logger.info("Encontrado un error al guardar el tránsito {}".format(e))
+                else:
+                    self.logger.info("Registrado el tránsito del usuario {}".format(user.name))
         except Exception as error:
             if str(error) == ATTRIBUTE_USER:
                 self.logger.warn("No hay ningún usuario registrado con la siguiente targeta:\t{}".format(id_tag))
