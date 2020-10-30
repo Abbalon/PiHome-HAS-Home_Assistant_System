@@ -4,6 +4,8 @@ Fichero que define la clase Cerradura
 """
 import re
 import time
+from time import sleep
+
 from datetime import datetime
 from threading import Thread
 
@@ -146,20 +148,24 @@ class Cerradura(DeviceBase):
             # Si el usuario está registrado
             if user:
                 msg = None
-                if self.estado == ABIERTO:
-                    # Cerramos la puerta
-                    msg = CMD + CERRAR
-                # if self.estado == CERRADO:
-                else:
-                    # Abrimos la puerta
-                    msg = CMD + ABRIR
+                # if self.estado == ABIERTO:
+                #     # Cerramos la puerta
+                #     msg = CMD + CERRAR
+                # # if self.estado == CERRADO:
+                # else:
+                #     # Abrimos la puerta
+                #     msg = CMD + ABRIR
+                msg = CMD + ABRIR
 
                 # Mandamos mensaje al watchdog
                 self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
-                if self.estado == ABIERTO:
-                    self.estado = CERRADO
-                else:
-                    self.estado = ABIERTO
+                sleep(15)
+                msg = CMD + CERRAR
+                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                # if self.estado == ABIERTO:
+                #     self.estado = CERRADO
+                # else:
+                #     self.estado = ABIERTO
                 # Registramos el hecho
                 Cerradura.registrar_transito(user.id)
                 self.logger.info("Regsitrado el tránsito del usuario {}".format(user.name))

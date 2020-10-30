@@ -102,7 +102,10 @@ def get(**filtro):
             if not request.method == 'POST':
                 _base = home.get_base_params(_title="Mostrando prueba de lista", _dynamic=0)
             else:
-                body = ejecutar_busqueda(filter_form)
+                try:
+                    body = ejecutar_busqueda(filter_form)
+                except:
+                    pass
 
         try:
             transit = ShowData(title, header, body)
