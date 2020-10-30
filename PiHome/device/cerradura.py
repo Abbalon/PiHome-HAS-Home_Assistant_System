@@ -158,10 +158,13 @@ class Cerradura(DeviceBase):
                 msg = CMD + ABRIR
 
                 # Mandamos mensaje al watchdog
-                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
-                sleep(15)
-                msg = CMD + CERRAR
-                self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                try:
+                    self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                    sleep(15)
+                    msg = CMD + CERRAR
+                    self.xbee.mandar_mensage(self.modelo.id_external, msg=msg)
+                except Exception as e:
+                    self.logger.info("Encontrado un error al mandar el mensage{} \n {}".format(msg, e))
                 # if self.estado == ABIERTO:
                 #     self.estado = CERRADO
                 # else:
