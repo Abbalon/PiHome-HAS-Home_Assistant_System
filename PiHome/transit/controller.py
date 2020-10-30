@@ -79,11 +79,14 @@ def ejecutar_busqueda(filter_form: FlaskForm):
 def get(**filtro):
     """
     REST que nos devuelve los datos de transito
+
     ---
-    :type filtro:
-    ['user']        : Usuario del que nos interesa saber sus tránsitos
-    ['fecha_ini']   : Desde que fecha queremos mostrar
-    ['fecha_fin']   : Hasta que fecha queremos mostrar
+
+    :type filtro: dict
+
+    :keyword user: Usuario del que nos interesa saber sus tránsitos
+    :keyword fecha_ini: Desde que fecha queremos mostrar
+    :keyword fecha_fin: Hasta que fecha queremos mostrar
     """
     _base = home.get_base_params(_title="Listado del tránsito registrado")
     title = "Accesos registrados"
